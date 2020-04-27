@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/gray"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/search"
+        android:layout_gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="24dp"
+        android:src="@drawable/search_bar" />
+
+    <EditText
+        android:id="@+id/text"
+        android:layout_width="150dp"
+        android:layout_height="22dp"
+        android:layout_gravity="center"
+        android:background="@null"
+        android:textSize="12sp"
+        android:paddingStart="4dp"
+        android:alpha="0" />
+
+    <com.zlx.sharelive.widget.clickanimview.BamButton
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_width="100dp"
+        android:text="anim"
+        android:layout_height="100dp" />
+</FrameLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:propertyName="trimPathStart"
+    android:valueFrom="1"
+    android:valueTo="0"
+    android:valueType="floatType"
+    android:duration="@integer/duration_bar"
+    android:interpolator="@android:interpolator/linear_out_slow_in" />

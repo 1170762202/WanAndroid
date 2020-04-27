@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_min">12sp</dimen>
+    <dimen name="text_normal">15sp</dimen>
+    <dimen name="text_big">20sp</dimen>
+
+    <dimen name="sliding_menu_width">80dp</dimen>
+
+    <dimen name="float_marginBottom">20dp</dimen>
+    <dimen name="float_marginRight">20dp</dimen>
+
+    <dimen name="spacing">32dp</dimen>
+
+    <integer name="duration_bar">800</integer>
+    <integer name="duration_search">800</integer>
+
+    <dimen name="height_profile_image">250dp</dimen>
+
+</resources>

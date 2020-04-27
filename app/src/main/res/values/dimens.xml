@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="height_toolbar">70dp</dimen>
+    <dimen name="text_size_toolbar_title">25dp</dimen>
+    <dimen name="height_profile_picture_with_toolbar">320dp</dimen>
+</resources>

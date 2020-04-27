@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/search_bar">
+
+    <target
+        android:name="search"
+        android:animation="@animator/anim_search_empty" />
+
+    <target
+        android:name="bar"
+        android:animation="@animator/anim_bar_fill" />
+
+</animated-vector>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="main">#ff1744</color>
+    <color name="main_light">#ff616f</color>
+    <color name="main_dark">#c4001d</color>
+
+
+    <color name="main_tran">#E6212121</color>
+
+    <color name="tab">#ff1744</color>
+    <color name="tab_light">#ff616f</color>
+    <color name="tab_dark">#c4001d</color>
+    <color name="red">#f44336</color>
+    <color name="rippelColor">#FFFFFF</color>
+    <color name="tab_text">#D4D4D4</color>
+
+
+    <color name="sub_btn_background">#424a52</color>
+    <color name="sub_btn_line">#00c68c</color>
+    <color name="sub_btn_ripple">#eff0f2</color>
+    <color name="sub_btn_tick">#eff0f2</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#627676</color>
+    <color name="yellow">#eef26c</color>
+    <color name="black">#000000</color>
+</resources>
