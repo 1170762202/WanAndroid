@@ -2,7 +2,7 @@ package com.zlx.sharelive.bean.enm;
 
 import com.zlx.sharelive.R;
 import com.zlx.sharelive.ui.FourthFg;
-import com.zlx.sharelive.ui.HomeFg;
+import com.zlx.sharelive.ui.home.HomeFg;
 import com.zlx.sharelive.ui.SecondFg;
 import com.zlx.sharelive.ui.ThirdFg;
 

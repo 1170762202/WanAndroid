@@ -1,8 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zlx.sharelive.widget.snake_menu.TumblrRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/snake_layout"
-    android:background="@color/main">
+    android:orientation="vertical">
 
-</com.zlx.sharelive.widget.snake_menu.TumblrRelativeLayout>
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        app:srlAccentColor="@android:color/white">
+
+        <com.scwang.smart.refresh.header.TwoLevelHeader
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/second_floor"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/image_second_floor" />
+
+            <FrameLayout
+                android:id="@+id/second_floor_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/image_second_floor_content" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+            </FrameLayout>
+
+            <com.scwang.smart.refresh.header.ClassicsHeader
+                android:id="@+id/classics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="?attr/actionBarSize" />
+        </com.scwang.smart.refresh.header.TwoLevelHeader>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="50dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:nestedScrollingEnabled="false"
+                    android:background="@color/white"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </ScrollView>
+
+
+        <com.scwang.smart.refresh.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlPrimaryColor="@android:color/white" />
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+    <include layout="@layout/top_bar" />
+</RelativeLayout>

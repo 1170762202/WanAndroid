@@ -6,6 +6,7 @@
     <color name="main">#ff1744</color>
     <color name="main_light">#ff616f</color>
     <color name="main_dark">#c4001d</color>
+    <color name="bg">#ffffff</color>
 
 
     <color name="main_tran">#E6212121</color>

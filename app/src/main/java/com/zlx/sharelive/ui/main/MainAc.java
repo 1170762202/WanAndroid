@@ -1,4 +1,4 @@
-package com.zlx.sharelive.ui;
+package com.zlx.sharelive.ui.main;
 
 import android.os.Bundle;
 import android.view.View;

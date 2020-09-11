@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BubbleToggleView">
+        <attr name="bt_icon" format="reference" />
+        <attr name="bt_iconWidth" format="dimension" />
+        <attr name="bt_iconHeight" format="dimension" />
+        <attr name="bt_shape" format="reference" />
+        <attr name="bt_shapeColor" format="color" />
+        <attr name="bt_showShapeAlways" format="boolean" />
+        <attr name="bt_title" format="string" />
+        <attr name="bt_titleSize" format="dimension" />
+        <attr name="bt_colorActive" format="color" />
+        <attr name="bt_colorInactive" format="color" />
+        <attr name="bt_active" format="boolean" />
+        <attr name="bt_duration" format="integer" />
+        <attr name="bt_padding" format="dimension" />
+        <attr name="bt_titlePadding" format="dimension" />
+        <attr name="bt_badgeTextSize" format="dimension" />
+        <attr name="bt_badgeBackgroundColor" format="color" />
+        <attr name="bt_badgeTextColor" format="color" />
+        <attr name="bt_badgeText" format="string" />
+    </declare-styleable>
+    <declare-styleable name="BubbleNavigationConstraintView">
+        <attr name="bnc_mode">
+            <enum name="spread" value="0" />
+            <enum name="inside" value="1" />
+            <enum name="packed" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

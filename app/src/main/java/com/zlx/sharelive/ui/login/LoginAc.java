@@ -11,8 +11,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import com.zlx.sharelive.R;
 import com.zlx.sharelive.base.base_ac.BaseAc;
 import com.zlx.sharelive.base.event.oneclick.AntiShake;
-import com.zlx.sharelive.ui.MainAc;
-import com.zlx.sharelive.ui.MainActivity;
+import com.zlx.sharelive.ui.main.MainActivity;
 import com.zlx.sharelive.widget.submit_button.SubmitButton1;
 
 import butterknife.BindView;

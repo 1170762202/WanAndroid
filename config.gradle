@@ -1,0 +1,71 @@
+ext {
+
+
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 23,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0",
+    ]
+
+
+    libsVersion = [
+            appcompat_version = "1.0.0",
+            arouter_api_version = "1.5.0",
+            arouter_compiler_version = "1.2.2",
+            butterknife_version = "10.0.0",
+            butterknife_compiler_version = "10.0.0",
+            retrofit_version = "2.6.1",
+            rxnava_version = "2.2.11",
+            rxandroid_version = "2.1.1",
+            okhttp_version = "4.0.0",
+            fastjson_version = "1.2.48",
+            room_version = "2.2.0-rc01",
+            swipebacklayout_version = "1.1.0",
+            rxpermissions_version = "0.10.2",
+            websocket_version = "2.7",
+            material_version = "1.1.0-beta01",
+            navigation_version = "2.1.0",
+            lifecycle_version = "2.2.0",
+            slidingpanellayout_version = "1.1.0",
+    ]
+    dependencies = [
+            appcompat             : "androidx.appcompat:appcompat:$rootProject.appcompat_version",
+            arouterApi            : "com.alibaba:arouter-api:$rootProject.arouter_api_version",
+            arouterCompiler       : "com.alibaba:arouter-compiler:$rootProject.arouter_compiler_version",
+            butterknife           : "com.jakewharton:butterknife:$rootProject.butterknife_version",
+            butterknifeCompiler   : "com.jakewharton:butterknife-compiler:$rootProject.butterknife_compiler_version",
+            /*rxJava + retrofit -----start*/
+            retrofitConvertGson   : "com.squareup.retrofit2:converter-gson:$rootProject.retrofit_version",
+            retrofitConvertScalars: "com.squareup.retrofit2:converter-scalars:$rootProject.retrofit_version",
+            retrofit              : "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version",
+            retrofitAdapterRxJava2: "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofit_version",
+            rxJava                : "io.reactivex.rxjava2:rxjava:$rootProject.rxnava_version",
+            rxAndroid             : "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid_version",
+            okhttp                : "com.squareup.okhttp3:okhttp:$rootProject.okhttp_version",
+            /*rxJava + retrofit -----end*/
+
+            fastJson              : "com.alibaba:fastjson:$rootProject.fastjson_version",
+            viewModel             : "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycle_version",
+            /*room 数据库 ---start*/
+            room                  : "androidx.room:room-runtime:$rootProject.room_version",
+            roomCompiler          : "androidx.room:room-compiler:$rootProject.room_version",
+            /*room 数据库 ---end*/
+
+            swipebacklayout       : "me.imid.swipebacklayout.lib:library:$rootProject.swipebacklayout_version",
+            rxpermissions         : "com.github.tbruyelle:rxpermissions:$rootProject.rxpermissions_version",
+            websocket             : "com.neovisionaries:nv-websocket-client:$rootProject.websocket_version",
+            material              : "com.google.android.material:material:$rootProject.material_version",
+
+            /*navigation --start*/
+            navigation            : "androidx.navigation:navigation-fragment:$rootProject.navigation_version",
+            navigationUI          : "androidx.navigation:navigation-ui:$rootProject.navigation_version",
+            /*navigation --end*/
+            work                  : "androidx.work:work-runtime:$rootProject.lifecycle_version",
+            slidingpanellayout    : "androidx.slidingpanelayout:slidingpanelayout:$rootProject.slidingpanellayout_version",
+    ]
+
+    isRunModuleA = false // true是module-a模块可单独运行
+    isRunModuleB = false
+}
