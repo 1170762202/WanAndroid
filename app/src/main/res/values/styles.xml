@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -6,8 +6,16 @@
         <item name="colorPrimary">@color/main</item>
         <item name="colorPrimaryDark">@color/main</item>
         <item name="colorAccent">@color/main</item>
+        <!--页面背景色-->
         <item name="android:windowBackground">@color/bg</item>
+        <!--禁止多点误触-->
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">false</item>
     </style>
 
-
+    <style name="AppWelcome" parent="AppTheme">
+        <!--关闭启动窗口-->
+        <item name="android:windowDisablePreview">true</item>
+    </style>
 </resources>

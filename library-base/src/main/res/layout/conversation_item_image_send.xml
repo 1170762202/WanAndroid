@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_content_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.zlx.module_base.widget.BubbleImageView
+        android:id="@+id/img_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
+        android:minWidth="80dp"
+        android:scaleType="centerCrop"
+        app:bubble_angle="10dp"
+        app:bubble_arrowHeight="10dp"
+        app:bubble_arrowLocation="right"
+        app:bubble_arrowOffset="-5dp"
+        app:bubble_arrowTop="20dp"
+        app:bubble_arrowWidth="8dp"
+        app:bubble_showShadow="false"
+        app:bubble_showText="false"
+        tools:background="@color/cardview_dark_background" />
+</LinearLayout>

@@ -1,3 +1,4 @@
-include ':widget'
-include ':module-base'
+include ':module-main'
+include ':library-widget'
+include ':library-base'
 include ':app'

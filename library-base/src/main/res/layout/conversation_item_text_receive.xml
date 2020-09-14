@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contentTextView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/chat_bubble_left"
+    android:gravity="center_vertical"
+    android:lineSpacingExtra="2dp"
+    android:maxWidth="250dp"
+    android:minWidth="44dp"
+    android:minHeight="38dp"
+    android:paddingStart="10dp"
+    android:paddingTop="6dp"
+    android:paddingEnd="10dp"
+    android:paddingBottom="6dp"
+    android:textColor="@color/black"
+    android:textSize="15sp">
+
+</TextView>

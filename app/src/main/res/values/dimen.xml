@@ -6,10 +6,8 @@
 
     <dimen name="sliding_menu_width">80dp</dimen>
 
-    <dimen name="float_marginBottom">20dp</dimen>
-    <dimen name="float_marginRight">20dp</dimen>
 
-    <dimen name="spacing">32dp</dimen>
+
 
     <integer name="duration_bar">800</integer>
     <integer name="duration_search">800</integer>

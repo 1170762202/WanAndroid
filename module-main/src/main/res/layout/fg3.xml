@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+
+    <com.zlx.widget.fantasyslide.FantasyDrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@color/main" />
+
+        <com.zlx.widget.fantasyslide.SideBar
+            android:id="@+id/rightSideBar"
+            android:layout_width="133dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@color/main"
+            android:gravity="center_vertical|right"
+            app:maxTranslationX="-33dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="星期一" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="星期一" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="星期一" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="星期一" />
+        </com.zlx.widget.fantasyslide.SideBar>
+
+    </com.zlx.widget.fantasyslide.FantasyDrawerLayout>
+</RelativeLayout>

@@ -1,0 +1,88 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+
+        //指定room.schemaLocation生成的文件路径
+        //解决room编译警告
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+buildscript {
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.0'
+    }
+}
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation project(path: ':client')
+
+    api rootProject.ext.dependencies.appcompat
+    api rootProject.ext.dependencies.arouterApi
+    api rootProject.ext.dependencies.butterknife
+
+    api rootProject.ext.dependencies.room
+    annotationProcessor rootProject.ext.dependencies.roomCompiler
+
+
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies.retrofitConvertGson
+    api rootProject.ext.dependencies.retrofitConvertScalars
+    api rootProject.ext.dependencies.retrofitAdapterRxJava2
+    api rootProject.ext.dependencies.rxJava
+    api rootProject.ext.dependencies.rxAndroid
+    api rootProject.ext.dependencies.okhttp
+
+    api rootProject.ext.dependencies.fastJson
+    api rootProject.ext.dependencies.viewModel
+    api rootProject.ext.dependencies.slidingpanellayout
+    api rootProject.ext.dependencies.work
+    api rootProject.ext.dependencies.swipebacklayout
+    api rootProject.ext.dependencies.rxpermissions
+    api rootProject.ext.dependencies.material
+
+    api rootProject.ext.dependencies.navigation
+    api rootProject.ext.dependencies.navigationUI
+
+
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    api 'org.aspectj:aspectjrt:1.8.9'
+    api 'androidx.constraintlayout:constraintlayout:2.0.1'
+
+    api ('com.alibaba.android:vlayout:1.2.8@aar') {
+        transitive = true
+    }
+    api 'com.youth.banner:banner:2.1.0'
+    api 'com.gyf.immersionbar:immersionbar:3.0.0'
+    debugApi 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+
+    api 'com.android.support:palette-v7:28.0.0'
+
+}

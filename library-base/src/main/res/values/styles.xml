@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/main</item>
+        <item name="colorPrimaryDark">@color/main</item>
+        <item name="colorAccent">@color/main</item>
+        <!--页面背景色-->
+        <item name="android:windowBackground">@color/main</item>
+        <!--禁止多点误触-->
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">false</item>
+
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppWelcome" parent="AppTheme">
+        <!--关闭启动窗口-->
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="FullScreenTheme" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+
+    </style>
+</resources>

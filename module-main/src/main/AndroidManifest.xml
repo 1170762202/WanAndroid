@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.module_main">
+
+    <application>
+        <activity android:name=".activity.WebAc" />
+    </application>
+</manifest>

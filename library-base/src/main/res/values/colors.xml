@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="main">#ffffff</color>
+    <color name="main_dark">#FFD3D3D3</color>
+    <color name="bg">#ffffff</color>
+    <color name="main_text">#26a69a</color>
+
+
+    <color name="main_tran">#E6212121</color>
+
+    <color name="tab">#ff1744</color>
+    <color name="tab_light">#ff616f</color>
+    <color name="tab_dark">#c4001d</color>
+    <color name="red">#f44336</color>
+    <color name="tab_text">#D4D4D4</color>
+
+
+    <color name="sub_btn_background">#424a52</color>
+    <color name="sub_btn_line">#00c68c</color>
+    <color name="sub_btn_ripple">#eff0f2</color>
+    <color name="sub_btn_tick">#eff0f2</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#627676</color>
+    <color name="yellow">#eef26c</color>
+    <color name="chat_bubble_left_normal">#D8F7FF</color>
+    <color name="chat_bubble_left_press">#CDEBF3</color>
+    <color name="chat_bubble_right_normal">#F4F5FA</color>
+    <color name="chat_bubble_right_press">#EEEFF4</color>
+
+
+
+    <color name="default_inactive_shape_color">#e5e5e5</color>
+    <color name="default_inactive_color">#212121</color>
+    <color name="default_shape_inactive_color">#888888</color>
+    <color name="default_badge_background_color">#f44336</color>
+    <color name="default_badge_text_color">#ffffff</color>
+</resources>

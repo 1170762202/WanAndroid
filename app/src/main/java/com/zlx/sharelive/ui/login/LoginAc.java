@@ -1,18 +1,15 @@
 package com.zlx.sharelive.ui.login;
 
 import android.animation.Animator;
-import android.content.Intent;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.widget.LinearLayout;
 
 import com.rengwuxian.materialedittext.MaterialEditText;
+import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.sharelive.R;
-import com.zlx.sharelive.base.base_ac.BaseAc;
-import com.zlx.sharelive.base.event.oneclick.AntiShake;
-import com.zlx.sharelive.ui.main.MainActivity;
-import com.zlx.sharelive.widget.submit_button.SubmitButton1;
+import com.zlx.widget.submit_button.SubmitButton1;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -49,9 +46,7 @@ public class LoginAc extends BaseAc {
 
     @OnClick({R.id.btn_login})
     public void onViewClicked(View view) {
-        if (AntiShake.check(view.getId())) {    //判断是否多次点击
-            return;
-        }
+
         btnLogin.startAnim();
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -66,7 +61,7 @@ public class LoginAc extends BaseAc {
     private void gotoNew() {
         btnLogin.success();
 
-        final Intent intent = new Intent(this, MainActivity.class);
+//        final Intent intent = new Intent(this, MainActivity.class);
 
         int xc = (btnLogin.getLeft() + btnLogin.getRight()) / 2;
         int yc = (btnLogin.getTop() + btnLogin.getBottom()) / 2;
@@ -78,7 +73,7 @@ public class LoginAc extends BaseAc {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(intent);
+//                        startActivity(intent);
                         overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
                     }
                 }, 200);

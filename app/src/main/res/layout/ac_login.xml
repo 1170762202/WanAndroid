@@ -37,7 +37,7 @@
         app:met_iconLeft="@drawable/password"
         app:met_maxCharacters="6" />
 
-    <com.zlx.sharelive.widget.submit_button.SubmitButton1
+    <com.zlx.widget.submit_button.SubmitButton1
         android:id="@+id/btn_login"
         android:layout_width="220dp"
         android:layout_height="50dp"
