@@ -14,7 +14,8 @@
     <color name="tab_dark">#c4001d</color>
     <color name="red">#f44336</color>
     <color name="tab_text">#D4D4D4</color>
-
+    <color name="guillotine_background">#444153</color>
+    <color name="guillotine_background_dark">#383547</color>
 
     <color name="sub_btn_background">#424a52</color>
     <color name="sub_btn_line">#00c68c</color>

@@ -1,6 +1,5 @@
 package com.example.module_main.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.KeyEvent;

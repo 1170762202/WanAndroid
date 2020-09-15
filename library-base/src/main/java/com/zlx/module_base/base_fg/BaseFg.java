@@ -27,7 +27,7 @@ import butterknife.Unbinder;
 
 public abstract class BaseFg extends Fragment {
 
-    private View view;
+    protected View view;
     private ViewGroup parent;
     protected Unbinder unbinder;
     protected Context context;
@@ -44,6 +44,7 @@ public abstract class BaseFg extends Fragment {
         }
         unbinder = ButterKnife.bind(this, view);
         initImmersionBar();
+
         initViews();
         return view;
     }

@@ -1,9 +1,6 @@
 package com.example.module_main.fragment;
 
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -13,6 +10,8 @@ import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.example.module_main.R;
 import com.example.module_main.R2;
+import com.example.module_main.fragment.adapters.HomeArticleAdapter;
+import com.example.module_main.fragment.adapters.HomeBannerAdapter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.header.TwoLevelHeader;
 import com.scwang.smart.refresh.header.listener.OnTwoLevelListener;
@@ -20,7 +19,6 @@ import com.scwang.smart.refresh.layout.api.RefreshHeader;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener;
-import com.zlx.module_base.BaseRecycleAdapter;
 import com.zlx.module_base.base_api.BaseObserver;
 import com.zlx.module_base.base_api.bean.ApiResponse;
 import com.zlx.module_base.base_api.util.ApiUtil;
@@ -28,11 +26,8 @@ import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.base_util.LogUtil;
 import com.zlx.module_base.bean.res_data.ArticleListRes;
 import com.zlx.module_base.bean.res_data.BannerRes;
-import com.example.module_main.fragment.adapters.HomeArticleAdapter;
-import com.example.module_main.fragment.adapters.HomeBannerAdapter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -72,6 +67,8 @@ public class HomeFg extends BaseFg {
     private List<ArticleListRes.DatasBean> articleListResList = new ArrayList<>();
     private HomeArticleAdapter homeArticleAdapter = new HomeArticleAdapter(articleListResList);
 
+
+
     @Override
     protected int getLayoutId() {
         return R.layout.fg_home;
@@ -89,8 +86,10 @@ public class HomeFg extends BaseFg {
         delegateAdapter.setAdapters(adapters);
         recyclerView.setLayoutManager(virtualLayoutManager);
         recyclerView.setAdapter(delegateAdapter);
+
         initEvents();
     }
+
 
     private void initEvents() {
         refreshLayout.setOnMultiListener(new SimpleMultiListener() {

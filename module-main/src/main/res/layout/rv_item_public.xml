@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="110dp"
+    android:id="@+id/item"
+    android:background="@color/main_text"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_height="110dp">
 
-    <com.zlx.widget.rv_item.PolygonItemView
-        android:id="@+id/itemview"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
-        app:innerColor="@android:color/white"
-        app:isHasStroke="true"
-        app:outerColor="@color/main_text"
-        app:outerWidth="1dp"
-        app:radius="50dp" />
-</LinearLayout>
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#333333"
+        android:textSize="20sp"
+        tools:text="123" />
+
+
+</FrameLayout>

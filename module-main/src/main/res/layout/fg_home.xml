@@ -20,49 +20,52 @@
             <TextView
                 android:id="@+id/second_floor"
                 android:layout_width="match_parent"
-                android:background="#cfd8dc"
                 android:layout_height="match_parent"
-                android:textSize="30sp"
-                android:paddingTop="100dp"
+                android:background="#cfd8dc"
                 android:gravity="center_horizontal"
+                android:paddingTop="100dp"
+                android:text="欢迎来到二楼!"
                 android:textColor="#333333"
-                android:text="欢迎来到公众号!" />
+                android:textSize="30sp" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
-                android:visibility="gone"
-                android:src="@mipmap/image_second_floor" />
+                android:src="@mipmap/image_second_floor"
+                android:visibility="gone" />
 
             <FrameLayout
                 android:id="@+id/second_floor_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"
-                android:alpha="0">
+                android:alpha="0"
+                android:background="@color/white">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
-                    android:visibility="gone"
-                    android:src="@mipmap/image_second_floor_content" />
+                    android:src="@mipmap/image_second_floor_content"
+                    android:visibility="gone" />
+
                 <TextView
                     android:layout_width="match_parent"
-                    android:background="#cfd8dc"
                     android:layout_height="match_parent"
-                    android:textSize="30sp"
-                    android:paddingTop="100dp"
-                    android:gravity="center_horizontal"
-                    android:textColor="#333333"
-                    android:text="公众号列表" />
-                <com.example.module_main.widget.PublicView
-                    android:layout_width="match_parent"
                     android:background="#cfd8dc"
-                    android:layout_height="match_parent"/>
+                    android:gravity="center_horizontal"
+                    android:paddingTop="100dp"
+                    android:text="待开发"
+                    android:textColor="#333333"
+                    android:textSize="30sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </RelativeLayout>
 
             </FrameLayout>
 

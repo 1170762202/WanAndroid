@@ -1,8 +1,7 @@
 package com.example.module_main.constrant;
 
 
-import com.example.module_main.R;
-import com.example.module_main.fragment.FourthFg;
+import com.example.module_main.fragment.Tab4Fg;
 import com.example.module_main.fragment.HomeFg;
 import com.example.module_main.fragment.SecondFg;
 import com.example.module_main.fragment.ThirdFg;
@@ -17,8 +16,8 @@ public enum MainTabEnum {
     TAB1(0, "home", HomeFg.class),
     TAB2(1, "beauty", SecondFg.class),
     TAB3(2, "test", ThirdFg.class),
-    TAB4(3, "test", FourthFg.class),
-    TAB5(4, "test", FourthFg.class),
+    TAB4(3, "test", Tab4Fg.class),
+    TAB5(4, "test", Tab4Fg.class),
     ;
 
 

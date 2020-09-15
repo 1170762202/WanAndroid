@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">Bubble Navigation</string>
-    <string name="home">首页</string>
-    <string name="search">Search</string>
-    <string name="profile">Profile</string>
-    <string name="notification">Notify</string>
-    <string name="likes">Favs</string>
+    <string name="tab1">首页</string>
+    <string name="tab2">项目</string>
+    <string name="tab5">我的</string>
+    <string name="tab4">公众号</string>
+    <string name="tab3">广场</string>
     <string name="happy">Happy</string>
     <string name="room">Room</string>
     <string name="restaurant">Food</string>
@@ -12,5 +12,6 @@
     <string name="photos">Pics</string>
     <string name="call">Call</string>
     <string name="tag_key_translation_z">translation_z</string>
-
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
 </resources>
