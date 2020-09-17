@@ -52,5 +52,10 @@ dependencies {
     implementation project(':library-base')
     implementation project(':library-widget')
     implementation project(':module-main')
+    implementation project(':module-home')
+    implementation project(':module-project')
+    implementation project(':module-square')
+    implementation project(':module-public')
+    implementation project(':module-mine')
 
 }

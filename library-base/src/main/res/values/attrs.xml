@@ -16,4 +16,9 @@
         <attr name="bubble_showArrow" format="boolean" />
     </declare-styleable>
 
+
+    <style name="dialog_animation" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
 </resources>

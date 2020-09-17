@@ -51,21 +51,12 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies.roomCompiler
 
 
-    api rootProject.ext.dependencies.retrofit
-    api rootProject.ext.dependencies.retrofitConvertGson
-    api rootProject.ext.dependencies.retrofitConvertScalars
-    api rootProject.ext.dependencies.retrofitAdapterRxJava2
-    api rootProject.ext.dependencies.rxJava
-    api rootProject.ext.dependencies.rxAndroid
-    api rootProject.ext.dependencies.okhttp
-
     api rootProject.ext.dependencies.fastJson
-    api rootProject.ext.dependencies.viewModel
     api rootProject.ext.dependencies.slidingpanellayout
     api rootProject.ext.dependencies.work
     api rootProject.ext.dependencies.swipebacklayout
     api rootProject.ext.dependencies.rxpermissions
-    api rootProject.ext.dependencies.material
+    api 'com.google.android.material:material:1.2.1'
 
     api rootProject.ext.dependencies.navigation
     api rootProject.ext.dependencies.navigationUI
@@ -84,6 +75,8 @@ dependencies {
     releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
 
     api 'com.android.support:palette-v7:28.0.0'
+    api project(':library-network')
 
-    api 'com.github.chacojack:hivelayoutmanager:1.0.1'
+    //全局加载视图框架
+    api 'com.kingja.loadsir:loadsir:1.3.8'
 }

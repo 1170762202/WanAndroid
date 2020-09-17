@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="cardview" type="id" />
+    <item name="name" type="id" />
+    <item name="topbar" type="id" />
+</resources>

@@ -21,12 +21,17 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.core.LoadService;
+import com.kingja.loadsir.core.LoadSir;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.zlx.module_base.LoadingCallback;
 import com.zlx.module_base.R;
 import com.zlx.module_base.base_manage.ActivityManage;
 import com.zlx.module_base.base_util.DoubleClickExitDetector;
 import com.zlx.module_base.base_util.InputTools;
-import com.zlx.module_base.base_util.LogUtil;
+import com.zlx.module_base.base_util.PostUtil;
+import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_base.base_util.LogUtils;
 import com.zlx.module_base.base_util.ToastUtil;
 
@@ -46,13 +51,16 @@ public abstract class BaseAc extends SwipeBackActivity {
 
     protected TextView tvTitle;
 
-    protected ImageView ivBack;
+    protected ImageView ivLeft;
+    protected ImageView ivRight;
 
     protected Toolbar toolbar;
+    private LoadService loadService;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        afterOnCreate();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏
         setTheme(getMTheme());
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -74,12 +82,68 @@ public abstract class BaseAc extends SwipeBackActivity {
         getSwipeBackLayout().setEnableGesture(canSwipeBack());
     }
 
+    protected void beforeOnCreate() {
+
+    }
+
+    protected void afterOnCreate() {
+
+    }
+
     private void initEvents() {
         tvTitle = (TextView) findViewById(R.id.tvTitle);
-        ivBack = (ImageView) findViewById(R.id.ivBack);
+        ivLeft = (ImageView) findViewById(R.id.ivLeft);
+        ivRight = (ImageView) findViewById(R.id.ivRight);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        if (ivBack != null) {
-            ivBack.setOnClickListener(view -> finish());
+        if (ivLeft != null) {
+            ivLeft.setOnClickListener(view -> finish());
+        }
+    }
+
+    protected void setonRightImgClickListener(View.OnClickListener listener) {
+        if (ivRight != null) {
+            ivRight.setOnClickListener(listener);
+        }
+    }
+
+    protected void showLoading() {
+        if (loadService == null) {
+            loadService = LoadSir.getDefault().register(this, new Callback.OnReloadListener() {
+                @Override
+                public void onReload(View v) {
+                    // 重新加载逻辑
+                    LogUtil.show("重新加载逻辑");
+                }
+            });
+        }
+        loadService.showCallback(LoadingCallback.class);
+    }
+
+    protected void showSuccess() {
+        loadService.showSuccess();
+    }
+
+    protected void setRightImg(int bg) {
+        if (ivRight != null) {
+            if (bg <= 0) {
+                ivRight.setVisibility(View.GONE);
+            } else {
+
+                ivRight.setVisibility(View.VISIBLE);
+                ivRight.setImageResource(bg);
+            }
+        }
+
+    }
+
+    protected void setLeftImg(int bg) {
+        if (ivLeft != null) {
+            if (bg <= 0) {
+                ivLeft.setVisibility(View.GONE);
+            } else {
+                ivLeft.setVisibility(View.VISIBLE);
+                ivLeft.setImageResource(bg);
+            }
         }
     }
 

@@ -7,6 +7,6 @@ public class RouterUtil {
 
 
     public static void launchWeb(String webUrl) {
-        ARouter.getInstance().build(RouterConstant.ROUT_WEB_AC).withString("webUrl", webUrl).navigation();
+        ARouter.getInstance().build(RouterConstant.ROUT_AC_WEB).withString("webUrl", webUrl).navigation();
     }
 }

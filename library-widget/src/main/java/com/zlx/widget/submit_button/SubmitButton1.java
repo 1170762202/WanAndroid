@@ -14,7 +14,6 @@ import android.view.animation.LinearInterpolator;
 
 import androidx.core.content.ContextCompat;
 
-import com.zlx.module_base.base_util.LogUtil;
 import com.zlx.widget.R;
 
 /**

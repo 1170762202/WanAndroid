@@ -32,7 +32,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(':library-base')
+    api project(':library-base')
     api  'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
     api  'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
     annotationProcessor rootProject.ext.dependencies.butterknifeCompiler

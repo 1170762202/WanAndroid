@@ -4,18 +4,16 @@
     <color name="main">#ffffff</color>
     <color name="main_dark">#FFD3D3D3</color>
     <color name="bg">#ffffff</color>
-    <color name="main_text">#26a69a</color>
+    <color name="main_text">#36C1BC</color>
+    <color name="main_text_light">#80D5D1</color>
 
 
-    <color name="main_tran">#E6212121</color>
 
     <color name="tab">#ff1744</color>
     <color name="tab_light">#ff616f</color>
     <color name="tab_dark">#c4001d</color>
     <color name="red">#f44336</color>
     <color name="tab_text">#D4D4D4</color>
-    <color name="guillotine_background">#444153</color>
-    <color name="guillotine_background_dark">#383547</color>
 
     <color name="sub_btn_background">#424a52</color>
     <color name="sub_btn_line">#00c68c</color>
@@ -36,4 +34,8 @@
     <color name="default_shape_inactive_color">#888888</color>
     <color name="default_badge_background_color">#f44336</color>
     <color name="default_badge_text_color">#ffffff</color>
+
+
+    <color name="guillotine_background">#FFFFFF</color>
+    <color name="guillotine_background_dark">#F4F3F6</color>
 </resources>

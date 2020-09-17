@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <attr name="srlShadowColor" format="color"/>
+    <attr name="srlShadowRadius" format="dimension"/>
+    <declare-styleable name="WaveSwipeHeader">
+        <attr name="wshPrimaryColor" format="color" />
+        <attr name="wshAccentColor" format="color" />
+        <attr name="wshShadowColor" format="color" />
+        <attr name="wshShadowRadius" format="dimension"/>
+        <attr name="srlPrimaryColor"  />
+        <attr name="srlAccentColor" />
+        <attr name="srlShadowColor" />
+        <attr name="srlShadowRadius" />
+    </declare-styleable>
     <declare-styleable name="BubbleToggleView">
         <attr name="bt_icon" format="reference" />
         <attr name="bt_iconWidth" format="dimension" />

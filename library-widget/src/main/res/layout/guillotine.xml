@@ -4,13 +4,13 @@
     android:id="@+id/menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/green_inactive"
+    android:background="@color/guillotine_background"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/green_inactive"
+        android:background="@color/guillotine_background"
         app:contentInsetStart="0dp">
 
         <LinearLayout
@@ -24,6 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingStart="20dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
                 android:paddingEnd="20dp"
                 android:src="@mipmap/ic_more" />
 
@@ -34,5 +35,6 @@
         android:id="@+id/rvAuthor"
         android:layout_width="match_parent"
         android:gravity="center"
+        android:overScrollMode="never"
         android:layout_height="match_parent" />
 </LinearLayout>

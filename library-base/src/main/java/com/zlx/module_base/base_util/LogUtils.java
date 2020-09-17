@@ -3,6 +3,7 @@ package com.zlx.module_base.base_util;
 import android.util.Log;
 
 import com.zlx.module_base.BuildConfig;
+import com.zlx.module_network.util.LogUtil;
 
 
 /**

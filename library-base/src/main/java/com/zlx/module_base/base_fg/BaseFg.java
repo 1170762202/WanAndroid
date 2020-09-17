@@ -7,15 +7,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.callback.ProgressCallback;
+import com.kingja.loadsir.core.LoadService;
+import com.kingja.loadsir.core.LoadSir;
 import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.zlx.module_base.LoadingCallback;
 import com.zlx.module_base.R;
-import com.zlx.module_base.base_util.LogUtil;
-import com.zlx.module_base.base_util.LogUtils;
+import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_base.base_util.ToastUtil;
 
 import butterknife.ButterKnife;
@@ -31,6 +36,7 @@ public abstract class BaseFg extends Fragment {
     private ViewGroup parent;
     protected Unbinder unbinder;
     protected Context context;
+    private LoadService loadService;
 
     @Nullable
     @Override
@@ -43,11 +49,22 @@ public abstract class BaseFg extends Fragment {
             parent.removeView(view);
         }
         unbinder = ButterKnife.bind(this, view);
+        if (loadService == null) {
+            loadService = LoadSir.getDefault().register(view, new Callback.OnReloadListener() {
+                @Override
+                public void onReload(View v) {
+                    // 重新加载逻辑
+                    LogUtil.show("重新加载逻辑");
+                }
+            });
+        }
         initImmersionBar();
+
 
         initViews();
         return view;
     }
+
 
     protected void initViews() {
     }
@@ -61,6 +78,18 @@ public abstract class BaseFg extends Fragment {
                     .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
                     .init();
         }
+    }
+
+
+    protected void showLoading() {
+        loadService.showCallback(LoadingCallback.class);
+    }
+
+    protected void showSuccess() {
+        if (loadService != null) {
+            loadService.showSuccess();
+        }
+
     }
 
     protected boolean immersionBar() {

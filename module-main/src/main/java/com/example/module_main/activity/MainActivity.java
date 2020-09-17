@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.example.module_main.R;
 import com.example.module_main.R2;
 import com.example.module_main.adapter.VpAdapterMain;
-import com.example.module_main.constrant.MainTabEnum;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.widget.bubblenavigation.BubbleNavigationConstraintView;
 import com.zlx.widget.bubblenavigation.listener.BubbleNavigationChangeListener;
@@ -24,6 +25,7 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
     NoScrollViewPager viewPager;
     @BindView(R2.id.bottom_navigation_view_linear)
     BubbleNavigationConstraintView bubbleNavigationLinearView;
+
     private VpAdapterMain adapterMain;
 
 
@@ -58,12 +60,10 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
     }
 
     private void initTab() {
-        MainTabEnum[] values = MainTabEnum.values();
         adapterMain = new VpAdapterMain(getSupportFragmentManager(), this);
-        viewPager.setOffscreenPageLimit(values.length);
+        viewPager.setOffscreenPageLimit(5);
         viewPager.setScrollable(false);
         viewPager.setAdapter(adapterMain);
-
     }
 
 

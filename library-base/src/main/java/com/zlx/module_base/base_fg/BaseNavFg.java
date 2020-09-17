@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.zlx.module_base.base_util.LogUtil;
+import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_base.base_util.LogUtils;
 import com.zlx.module_base.base_util.ToastUtil;
 

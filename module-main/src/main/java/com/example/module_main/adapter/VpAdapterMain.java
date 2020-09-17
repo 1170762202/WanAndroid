@@ -1,19 +1,16 @@
 package com.example.module_main.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.example.module_main.R;
-import com.example.module_main.constrant.MainTabEnum;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.zlx.module_base.constant.RouterConstant;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @date: 2019\3\5 0005
@@ -24,27 +21,27 @@ import androidx.fragment.app.FragmentPagerAdapter;
 public class VpAdapterMain extends FragmentPagerAdapter {
 
     private Context context;
+    private List<Fragment> fragments = new ArrayList<>();
+
 
     public VpAdapterMain(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
+        fragments.add((Fragment) ARouter.getInstance().build(RouterConstant.ROUT_FG_HOME).navigation());
+        fragments.add((Fragment) ARouter.getInstance().build(RouterConstant.ROUT_FG_PROJECT).navigation());
+        fragments.add((Fragment) ARouter.getInstance().build(RouterConstant.ROUT_FG_SQUARE).navigation());
+        fragments.add((Fragment) ARouter.getInstance().build(RouterConstant.ROUT_FG_PUBLIC).navigation());
+        fragments.add((Fragment) ARouter.getInstance().build(RouterConstant.ROUT_FG_MINE).navigation());
     }
 
     @Override
     public Fragment getItem(int position) {
-        try {
-            return (Fragment) MainTabEnum.getTab(position).getCls().newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return fragments.get(position);
     }
 
     @Override
     public int getCount() {
-        return MainTabEnum.values().length;
+        return fragments.size();
     }
 
 
