@@ -20,12 +20,13 @@ import com.scwang.smart.refresh.layout.simple.SimpleMultiListener;
 import com.zlx.module_home.R2;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
-import com.zlx.module_network.util.ApiUtil;
+import com.zlx.library_common.res_data.ArticleBean;
+import com.zlx.library_common.util.ApiUtil;
 import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_network.util.LogUtil;
-import com.zlx.module_network.res_data.ArticleListRes;
-import com.zlx.module_network.res_data.BannerRes;
-import com.zlx.module_base.constant.RouterConstant;
+import com.zlx.library_common.res_data.ArticleListRes;
+import com.zlx.library_common.res_data.BannerRes;
+import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_home.R;
 import com.zlx.module_home.adapters.HomeArticleAdapter;
 import com.zlx.module_home.adapters.HomeBannerAdapter;
@@ -43,7 +44,7 @@ import butterknife.OnClick;
  * @email: 1170762202@qq.com
  * @description:
  */
-@Route(path = RouterConstant.ROUT_FG_HOME)
+@Route(path = RouterFragmentPath.Home.PAGER_HOME)
 public class HomeFg extends BaseFg {
 
     @BindView(R2.id.recyclerView)
@@ -71,9 +72,8 @@ public class HomeFg extends BaseFg {
     private List<BannerRes> bannerResList = new ArrayList<>();
     private HomeBannerAdapter homeBannerAdapter = new HomeBannerAdapter(bannerResList);
 
-    private List<ArticleListRes.DatasBean> articleListResList = new ArrayList<>();
+    private List<ArticleBean> articleListResList = new ArrayList<>();
     private HomeArticleAdapter homeArticleAdapter = new HomeArticleAdapter(articleListResList);
-
 
 
     @Override
@@ -88,7 +88,6 @@ public class HomeFg extends BaseFg {
 
     @Override
     protected void initViews() {
-        showLoading();
         adapters.add(homeBannerAdapter);
         adapters.add(homeArticleAdapter);
         delegateAdapter.setAdapters(adapters);
@@ -97,6 +96,7 @@ public class HomeFg extends BaseFg {
 
         initEvents();
 
+        showLoading(root);
         getBanner();
         listArticle(false);
     }
@@ -157,21 +157,21 @@ public class HomeFg extends BaseFg {
         } else {
             page = 0;
         }
-        ApiUtil.getArticleApi().listArticle(page).observe(this,new BaseObserver<>(new BaseObserverCallBack<ApiResponse<ArticleListRes>>() {
+        ApiUtil.getArticleApi().listArticle(page).observe(this, new BaseObserver<>(new BaseObserverCallBack<ApiResponse<ArticleListRes>>() {
             @Override
             public void onSuccess(ApiResponse<ArticleListRes> data) {
-                if (!isLoadMore){
+                if (!isLoadMore) {
                     articleListResList.clear();
                 }
                 articleListResList.addAll(data.getData().getDatas());
-                LogUtil.show("articleListResList="+articleListResList.size());
+                LogUtil.show("articleListResList=" + articleListResList.size());
                 homeArticleAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onFinish() {
                 super.onFinish();
-//                hideLoading();
+                showSuccess();
                 refreshLayout.finishRefresh();
                 refreshLayout.finishLoadMore();
             }
@@ -179,7 +179,7 @@ public class HomeFg extends BaseFg {
     }
 
     private void getBanner() {
-        ApiUtil.getArticleApi().getBanner().observe(this,new BaseObserver<>(new BaseObserverCallBack<ApiResponse<List<BannerRes>>>() {
+        ApiUtil.getArticleApi().getBanner().observe(this, new BaseObserver<>(new BaseObserverCallBack<ApiResponse<List<BannerRes>>>() {
             @Override
             public void onSuccess(ApiResponse<List<BannerRes>> data) {
                 bannerResList.clear();

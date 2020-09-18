@@ -20,6 +20,7 @@ import com.kingja.loadsir.core.LoadSir;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.zlx.module_base.LoadingCallback;
 import com.zlx.module_base.R;
+import com.zlx.module_base.base_util.PostUtil;
 import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_base.base_util.ToastUtil;
 
@@ -49,15 +50,6 @@ public abstract class BaseFg extends Fragment {
             parent.removeView(view);
         }
         unbinder = ButterKnife.bind(this, view);
-        if (loadService == null) {
-            loadService = LoadSir.getDefault().register(view, new Callback.OnReloadListener() {
-                @Override
-                public void onReload(View v) {
-                    // 重新加载逻辑
-                    LogUtil.show("重新加载逻辑");
-                }
-            });
-        }
         initImmersionBar();
 
 
@@ -81,7 +73,17 @@ public abstract class BaseFg extends Fragment {
     }
 
 
-    protected void showLoading() {
+    protected void showLoading(View view) {
+
+        if (loadService == null) {
+            loadService = LoadSir.getDefault().register(view, new Callback.OnReloadListener() {
+                @Override
+                public void onReload(View v) {
+                    // 重新加载逻辑
+                    LogUtil.show("重新加载逻辑");
+                }
+            });
+        }
         loadService.showCallback(LoadingCallback.class);
     }
 

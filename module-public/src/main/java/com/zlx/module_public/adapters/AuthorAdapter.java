@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import com.zlx.module_base.BaseRecycleAdapter;
 import com.zlx.module_base.OnItemClickListener;
-import com.zlx.module_network.res_data.PublicAuthorListRes;
+import com.zlx.library_common.res_data.PublicAuthorListRes;
 import com.zlx.module_public.R;
 import com.zlx.widget.hivelayoutmanager.HiveDrawable;
 import com.zlx.widget.hivelayoutmanager.HiveLayoutManager;

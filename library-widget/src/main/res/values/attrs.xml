@@ -163,4 +163,11 @@
         <attr name="innerColor" format="color|reference" />
         <attr name="isHasStroke" format="boolean|reference" />
     </declare-styleable>
+    <declare-styleable name="TabView">
+        <attr name="text_size" format="dimension" />
+        <attr name="text_normal_color" format="color" />
+        <attr name="text_select_color" format="color" />
+        <attr name="item_padding" format="dimension" />
+
+    </declare-styleable>
 </resources>

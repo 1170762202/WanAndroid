@@ -1,17 +1,17 @@
 package com.zlx.module_mine.fragment;
 
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zlx.module_base.base_fg.BaseFg;
-import com.zlx.module_base.constant.RouterConstant;
+import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
 import com.zlx.widget.waveview.WaveView;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Copyright (C)
@@ -21,7 +21,7 @@ import butterknife.BindView;
  * Date: 2020/9/17 11:30
  * Description: 我的
  */
-@Route(path = RouterConstant.ROUT_FG_MINE)
+@Route(path = RouterFragmentPath.Mine.PAGER_MINE)
 public class MineFg extends BaseFg {
 
     @BindView(R2.id.waveView)
@@ -50,4 +50,5 @@ public class MineFg extends BaseFg {
             llHead.setLayoutParams(layoutParams);
         });
     }
+
 }

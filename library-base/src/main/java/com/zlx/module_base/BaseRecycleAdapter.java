@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.flexbox.FlexboxLayoutManager;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,12 +46,18 @@ public abstract class BaseRecycleAdapter<T> extends
         View view = LayoutInflater.from(context).inflate(getLayoutId(), parent, false);
         ViewGroup.LayoutParams params = view.getLayoutParams();
 
-        if (isVertical()) {
-            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
+        if (params instanceof FlexboxLayoutManager.LayoutParams) {
+            FlexboxLayoutManager.LayoutParams layoutParams = (FlexboxLayoutManager.LayoutParams) params;
+            layoutParams.setFlexGrow(0);
+            view.setLayoutParams(layoutParams);
         } else {
-            view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
+            if (isVertical()){
+                view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT));
+            }else {
+                view.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT));
+            }
         }
 
         return new BaseViewHolder(view);

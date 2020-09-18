@@ -7,10 +7,15 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import androidx.fragment.app.Fragment;
+
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_main.R;
 import com.example.module_main.R2;
 import com.example.module_main.adapter.VpAdapterMain;
+import com.example.module_main.impl.TabPagerListener;
 import com.zlx.module_base.base_ac.BaseAc;
+import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.widget.bubblenavigation.BubbleNavigationConstraintView;
 import com.zlx.widget.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.zlx.widget.viewpager.NoScrollViewPager;
@@ -18,15 +23,13 @@ import com.zlx.widget.viewpager.NoScrollViewPager;
 import butterknife.BindView;
 
 
-public class MainActivity extends BaseAc implements BubbleNavigationChangeListener {
+public class MainActivity extends BaseAc implements BubbleNavigationChangeListener, TabPagerListener {
 
 
     @BindView(R2.id.viewPager)
     NoScrollViewPager viewPager;
     @BindView(R2.id.bottom_navigation_view_linear)
     BubbleNavigationConstraintView bubbleNavigationLinearView;
-
-    private VpAdapterMain adapterMain;
 
 
     @Override
@@ -60,7 +63,8 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
     }
 
     private void initTab() {
-        adapterMain = new VpAdapterMain(getSupportFragmentManager(), this);
+        VpAdapterMain adapterMain = new VpAdapterMain(getSupportFragmentManager());
+        adapterMain.setListener(this);
         viewPager.setOffscreenPageLimit(5);
         viewPager.setScrollable(false);
         viewPager.setAdapter(adapterMain);
@@ -83,5 +87,29 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public Fragment getFragment(int position) {
+        if (position == 0) {
+            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Home.PAGER_HOME).navigation();
+        } else if (position == 1) {
+            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Project.PAGER_PROJECT).navigation();
+
+        } else if (position == 2) {
+            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Square.PAGER_SQUARE).navigation();
+
+        } else if (position == 3) {
+            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Public.PAGER_PUBLIC).navigation();
+
+        } else if (position == 4) {
+            return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Mine.PAGER_MINE).navigation();
+        }
+        return null;
+    }
+
+    @Override
+    public int count() {
+        return 5;
     }
 }

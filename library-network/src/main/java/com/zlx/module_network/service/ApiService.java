@@ -3,12 +3,6 @@ package com.zlx.module_network.service;
 import androidx.lifecycle.LiveData;
 
 
-import com.zlx.module_network.bean.ApiResponse;
-import com.zlx.module_network.res_data.ArticleListRes;
-import com.zlx.module_network.res_data.BannerRes;
-import com.zlx.module_network.res_data.ProjectListRes;
-import com.zlx.module_network.res_data.PublicAuthorListRes;
-
 import java.util.List;
 import java.util.Map;
 
@@ -26,8 +20,6 @@ import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
-import retrofit2.http.Path;
-import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 

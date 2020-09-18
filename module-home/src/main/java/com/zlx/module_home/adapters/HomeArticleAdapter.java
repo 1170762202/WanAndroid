@@ -13,7 +13,7 @@ import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.zlx.module_base.base_util.RouterUtil;
-import com.zlx.module_network.res_data.ArticleListRes;
+import com.zlx.library_common.res_data.ArticleBean;
 import com.zlx.module_home.R;
 import com.zlx.module_home.R2;
 
@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 
 public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapter.ViewHolder> {
 
-    private List<ArticleListRes.DatasBean> articleListResList;
+    private List<ArticleBean> articleListResList;
 
     private boolean hasTop = false;
 
@@ -32,7 +32,7 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
         this.hasTop = hasTop;
     }
 
-    public HomeArticleAdapter(List<ArticleListRes.DatasBean> articleListResList) {
+    public HomeArticleAdapter(List<ArticleBean> articleListResList) {
         this.articleListResList = articleListResList;
     }
 
@@ -49,7 +49,7 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ArticleListRes.DatasBean datasBean = articleListResList.get(position);
+        ArticleBean datasBean = articleListResList.get(position);
         holder.tvContent.setText(datasBean.getTitle());
         holder.tvAuthor.setText(TextUtils.isEmpty(datasBean.getAuthor()) ? datasBean.getShareUser() : datasBean.getAuthor());
         holder.tvChapter.setText(String.format("%s·%s", datasBean.getSuperChapterName(), datasBean.getChapterName()));

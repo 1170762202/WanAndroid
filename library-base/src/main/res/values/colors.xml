@@ -6,7 +6,7 @@
     <color name="bg">#ffffff</color>
     <color name="main_text">#36C1BC</color>
     <color name="main_text_light">#80D5D1</color>
-
+    <color name="bg_common">#F4F3F6</color>
 
 
     <color name="tab">#ff1744</color>
@@ -26,7 +26,6 @@
     <color name="chat_bubble_left_press">#CDEBF3</color>
     <color name="chat_bubble_right_normal">#F4F5FA</color>
     <color name="chat_bubble_right_press">#EEEFF4</color>
-
 
 
     <color name="default_inactive_shape_color">#e5e5e5</color>

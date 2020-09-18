@@ -30,10 +30,9 @@ import com.zlx.module_base.R;
 import com.zlx.module_base.base_manage.ActivityManage;
 import com.zlx.module_base.base_util.DoubleClickExitDetector;
 import com.zlx.module_base.base_util.InputTools;
-import com.zlx.module_base.base_util.PostUtil;
-import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_base.base_util.LogUtils;
 import com.zlx.module_base.base_util.ToastUtil;
+import com.zlx.module_network.util.LogUtil;
 
 import butterknife.ButterKnife;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
@@ -120,7 +119,9 @@ public abstract class BaseAc extends SwipeBackActivity {
     }
 
     protected void showSuccess() {
-        loadService.showSuccess();
+        if (loadService != null) {
+            loadService.showSuccess();
+        }
     }
 
     protected void setRightImg(int bg) {

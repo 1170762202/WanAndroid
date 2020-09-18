@@ -12,29 +12,34 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+import com.zlx.module_base.adapters.RvAdapterArticleList;
 import com.zlx.module_base.base_fg.BaseFg;
-import com.zlx.module_base.constant.RouterConstant;
+import com.zlx.module_base.base_util.RouterUtil;
+import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
-import com.zlx.module_network.res_data.ArticleListRes;
-import com.zlx.module_network.res_data.ProjectListRes;
-import com.zlx.module_network.util.ApiUtil;
+import com.zlx.library_common.res_data.ArticleBean;
+import com.zlx.library_common.res_data.ArticleListRes;
+import com.zlx.library_common.res_data.ProjectListRes;
+import com.zlx.library_common.util.ApiUtil;
 import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_project.R;
 import com.zlx.module_project.R2;
 import com.zlx.module_project.adapters.HomeArticleAdapter;
 import com.zlx.module_project.adapters.RvAdapterTitle;
+import com.zlx.widget.CustomItemDecoration;
 import com.zlx.widget.slidinguppanel.SlidingUpPanelLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindInt;
 import butterknife.BindView;
 
 import static android.content.ContentValues.TAG;
 
-@Route(path = RouterConstant.ROUT_FG_PROJECT)
+@Route(path = RouterFragmentPath.Project.PAGER_PROJECT)
 public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
 
 
@@ -50,12 +55,13 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
     SmartRefreshLayout smartRefreshLayout;
     @BindView(R2.id.tvName)
     TextView tvName;
+    @BindView(R2.id.root)
+    View root;
 
     private RvAdapterTitle adapterTitle;
     private List<ProjectListRes> projectList = new ArrayList<>();
 
-    private HomeArticleAdapter homeArticleAdapter;
-    private List<ArticleListRes.DatasBean> articleList = new ArrayList<>();
+    private RvAdapterArticleList adapterArticleList;
 
 
     @Override
@@ -70,7 +76,7 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
 
     @Override
     protected void initViews() {
-
+        showLoading(root);
         initListView();
         initSlide();
         initEvents();
@@ -133,16 +139,16 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
                     @Override
                     public void onSuccess(ApiResponse<ArticleListRes> data) {
                         if (refresh) {
-                            articleList.clear();
+                            adapterArticleList.setList(data.getData().getDatas());
+                        }else {
+                            adapterArticleList.addData(data.getData().getDatas());
                         }
-                        articleList.addAll(data.getData().getDatas());
-                        homeArticleAdapter.notifyDataSetChanged();
-                        LogUtil.show("articleList=" + articleList.size());
                     }
 
                     @Override
                     public void onFinish() {
                         super.onFinish();
+                        showSuccess();
                         smartRefreshLayout.finishRefresh();
                         smartRefreshLayout.finishLoadMore();
                     }
@@ -163,17 +169,22 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
         });
         rvTitle.setAdapter(adapterTitle);
 
-        homeArticleAdapter = new HomeArticleAdapter(articleList);
-        homeArticleAdapter.setHasTop(true);
-        rvContent.setAdapter(homeArticleAdapter);
+        adapterArticleList = new RvAdapterArticleList(null);
+        adapterArticleList.setHasTop(true);
+        rvContent.addItemDecoration(new CustomItemDecoration(getActivity(),
+                CustomItemDecoration.ItemDecorationDirection.VERTICAL_LIST, R.drawable.linear_split_line));
+        rvContent.setAdapter(adapterArticleList);
+        adapterArticleList.setOnItemClickListener((adapter, view1, position) -> {
+            List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
+            RouterUtil.launchWeb(data.get(position).getLink());
 
+        });
         mLayout.setScrollableView(rvTitle);
     }
 
     @Override
     public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
         listProjects(id, false);
-
     }
 
     @Override

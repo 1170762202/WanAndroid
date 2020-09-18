@@ -60,21 +60,7 @@
                 </FrameLayout>
             </androidx.appcompat.widget.Toolbar>
 
-            <com.scwang.smart.refresh.layout.SmartRefreshLayout
-                android:id="@+id/smartRefreshLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:srlAccentColor="#444444"
-                app:srlEnableLoadMore="true"
-                app:srlPrimaryColor="@android:color/transparent">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
-                    android:overScrollMode="never"
-                    android:layout_height="match_parent" />
-
-            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+            <include layout="@layout/simple_refresh_layout"/>
         </LinearLayout>
 
     </FrameLayout>

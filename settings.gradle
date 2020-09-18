@@ -1,3 +1,5 @@
+include ':library-common'
+include ':module-web'
 include ':module-mine'
 include ':module-square'
 include ':module-public'

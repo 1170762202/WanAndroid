@@ -2,4 +2,7 @@
     package="com.zlx.module_square">
 
     /
+    <application>
+        <activity android:name=".activity.SquareListAc" />
+    </application>
 </manifest>
