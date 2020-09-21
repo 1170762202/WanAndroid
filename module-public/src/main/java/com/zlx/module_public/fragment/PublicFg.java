@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.gyf.immersionbar.BarHide;
+import com.gyf.immersionbar.ImmersionBar;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -83,9 +85,9 @@ public class PublicFg extends BaseFg implements OnRefreshLoadMoreListener {
         return true;
     }
 
-
     @Override
     protected void initViews() {
+
         showLoading(root);
         View guillotineMenu = LayoutInflater.from(getContext()).inflate(R.layout.guillotine, null);
         rvAuthor = guillotineMenu.findViewById(R.id.rvAuthor);

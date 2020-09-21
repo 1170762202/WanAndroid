@@ -31,8 +31,6 @@ import com.zlx.module_base.base_manage.ActivityManage;
 import com.zlx.module_base.base_util.DoubleClickExitDetector;
 import com.zlx.module_base.base_util.InputTools;
 import com.zlx.module_base.base_util.LogUtils;
-import com.zlx.module_base.base_util.ToastUtil;
-import com.zlx.module_network.util.LogUtil;
 
 import butterknife.ButterKnife;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
@@ -53,7 +51,6 @@ public abstract class BaseAc extends SwipeBackActivity {
     protected ImageView ivLeft;
     protected ImageView ivRight;
 
-    protected Toolbar toolbar;
     private LoadService loadService;
 
     @Override
@@ -71,7 +68,6 @@ public abstract class BaseAc extends SwipeBackActivity {
 
         context = this;
         activity = this;
-        ActivityManage.addActivity(this);
         initImmersionBar();
         initEvents();
         initViews();
@@ -93,13 +89,12 @@ public abstract class BaseAc extends SwipeBackActivity {
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         ivLeft = (ImageView) findViewById(R.id.ivLeft);
         ivRight = (ImageView) findViewById(R.id.ivRight);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         if (ivLeft != null) {
             ivLeft.setOnClickListener(view -> finish());
         }
     }
 
-    protected void setonRightImgClickListener(View.OnClickListener listener) {
+    protected void setOnRightImgClickListener(View.OnClickListener listener) {
         if (ivRight != null) {
             ivRight.setOnClickListener(listener);
         }
@@ -111,7 +106,7 @@ public abstract class BaseAc extends SwipeBackActivity {
                 @Override
                 public void onReload(View v) {
                     // 重新加载逻辑
-                    LogUtil.show("重新加载逻辑");
+                    LogUtils.i("重新加载逻辑");
                 }
             });
         }
@@ -159,7 +154,7 @@ public abstract class BaseAc extends SwipeBackActivity {
                             .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
                             .init();
                 } else {
-                    LogUtil.show("当前设备不支持状态栏字体变色");
+                    LogUtils.i("当前设备不支持状态栏字体变色");
                     ImmersionBar.with(this)
                             .statusBarColor(R.color.main)
                             .keyboardEnable(true)
@@ -170,7 +165,7 @@ public abstract class BaseAc extends SwipeBackActivity {
                 }
             } else {
                 ImmersionBar.with(this)
-                        .titleBar(R.id.toolbar, false)
+                        .statusBarView(R.id.statusBarView)
                         .statusBarDarkFont(true)
                         .keyboardEnable(true)
                         .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
@@ -325,6 +320,7 @@ public abstract class BaseAc extends SwipeBackActivity {
 
     @SuppressLint("CheckResult")
     public void requestPermissions(String... permissions) {
+
         rxPermissions.request(permissions)
                 .subscribe(aBoolean -> {
                     if (aBoolean) {
@@ -336,20 +332,11 @@ public abstract class BaseAc extends SwipeBackActivity {
     }
 
     public void getPermissionSuccess() {
-        LogUtil.show("Base--->getPermissionSuccess");
+        LogUtils.i("Base--->getPermissionSuccess");
     }
 
     public void getPermissionFailured() {
-        LogUtil.show("Base--->getPermissionFail");
-    }
-
-
-    public void log(String content) {
-        LogUtils.e(content);
-    }
-
-    public void toast(String content) {
-        ToastUtil.showShort(context, content);
+        LogUtils.i("Base--->getPermissionFail");
     }
 
     @Override

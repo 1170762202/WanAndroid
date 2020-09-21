@@ -23,9 +23,6 @@
         <meta-data
             android:name="notch.config"
             android:value="portrait|landscape" />
-        <activity android:name=".ui.login.LoginAc">
-
-        </activity>
 
         <activity android:name="com.example.module_main.activity.MainActivity">
             <intent-filter>

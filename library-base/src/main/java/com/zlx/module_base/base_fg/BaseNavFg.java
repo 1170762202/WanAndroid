@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_base.base_util.LogUtils;
 import com.zlx.module_base.base_util.ToastUtil;
 
@@ -60,28 +59,6 @@ public abstract class BaseNavFg extends Fragment {
     @Override
     public View getView() {
         return view;
-    }
-
-
-    @SuppressLint("CheckResult")
-    protected void requestPermissions(String... permissions) {
-        final RxPermissions rxPermissions = new RxPermissions(this);
-        rxPermissions.request(permissions)
-                .subscribe(aBoolean -> {
-                    if (aBoolean) {
-                        getPermissionSuccess();
-                    } else {
-                        getPermissionFailured();
-                    }
-                });
-    }
-
-    protected void getPermissionSuccess() {
-        LogUtil.show("Base--->getPermissionSuccess");
-    }
-
-    protected void getPermissionFailured() {
-        LogUtil.show("Base--->getPermissionFailured");
     }
 
     protected void toast(String content) {

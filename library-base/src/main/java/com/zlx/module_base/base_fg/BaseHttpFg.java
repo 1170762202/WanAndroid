@@ -10,7 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.zlx.module_network.api2.BaseViewModel;
+
+import com.zlx.module_base.base_api.BaseViewModel;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

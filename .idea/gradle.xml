@@ -11,11 +11,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/library-aop" />
             <option value="$PROJECT_DIR$/library-base" />
             <option value="$PROJECT_DIR$/library-common" />
             <option value="$PROJECT_DIR$/library-network" />
             <option value="$PROJECT_DIR$/library-widget" />
             <option value="$PROJECT_DIR$/module-home" />
+            <option value="$PROJECT_DIR$/module-login" />
             <option value="$PROJECT_DIR$/module-main" />
             <option value="$PROJECT_DIR$/module-mine" />
             <option value="$PROJECT_DIR$/module-project" />

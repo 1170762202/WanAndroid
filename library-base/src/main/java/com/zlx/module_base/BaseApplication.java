@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.kingja.loadsir.callback.ProgressCallback;
 import com.kingja.loadsir.core.LoadSir;
+import com.tencent.mmkv.MMKV;
 import com.zlx.module_base.base_manage.ActivityManage;
 
 public class BaseApplication extends Application {
@@ -20,6 +21,8 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         setApplication(this);
+        MMKV.initialize(this);
+
         LoadSir.beginBuilder()
                 .addCallback(new ErrorCallback())
                 .addCallback(new LoadingCallback())

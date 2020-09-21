@@ -12,7 +12,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
-import com.zlx.module_base.adapters.RvAdapterArticleList;
+import com.zlx.library_common.adapters.RvAdapterArticleList;
 import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_base.constant.RouterFragmentPath;
@@ -23,10 +23,8 @@ import com.zlx.library_common.res_data.ArticleBean;
 import com.zlx.library_common.res_data.ArticleListRes;
 import com.zlx.library_common.res_data.ProjectListRes;
 import com.zlx.library_common.util.ApiUtil;
-import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_project.R;
 import com.zlx.module_project.R2;
-import com.zlx.module_project.adapters.HomeArticleAdapter;
 import com.zlx.module_project.adapters.RvAdapterTitle;
 import com.zlx.widget.CustomItemDecoration;
 import com.zlx.widget.slidinguppanel.SlidingUpPanelLayout;
@@ -34,7 +32,6 @@ import com.zlx.widget.slidinguppanel.SlidingUpPanelLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindInt;
 import butterknife.BindView;
 
 import static android.content.ContentValues.TAG;
@@ -67,11 +64,6 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
     @Override
     protected int getLayoutId() {
         return R.layout.fg_project;
-    }
-
-    @Override
-    protected boolean immersionBar() {
-        return true;
     }
 
     @Override

@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:gravity="center"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="?attr/selectableItemBackground"
             android:text="在浏览器打开"
             android:textColor="#333333"
             android:textSize="17sp" />
@@ -32,7 +32,7 @@
             android:id="@+id/llCancel"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
+            android:background="?attr/selectableItemBackground"
             android:gravity="center"
             android:orientation="horizontal">
 

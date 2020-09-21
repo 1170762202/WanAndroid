@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
+import com.gyf.immersionbar.BarHide;
+import com.gyf.immersionbar.ImmersionBar;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.header.TwoLevelHeader;
 import com.scwang.smart.refresh.header.listener.OnTwoLevelListener;
@@ -59,8 +61,8 @@ public class HomeFg extends BaseFg {
     TwoLevelHeader header;
     @BindView(R2.id.refreshLayout)
     RefreshLayout refreshLayout;
-    @BindView(R2.id.toolbar)
-    Toolbar toolbar;
+    @BindView(R2.id.topbar)
+    View topbar;
     @BindView(R2.id.root)
     RelativeLayout root;
 
@@ -106,8 +108,8 @@ public class HomeFg extends BaseFg {
         refreshLayout.setOnMultiListener(new SimpleMultiListener() {
             @Override
             public void onHeaderMoving(RefreshHeader header, boolean isDragging, float percent, int offset, int headerHeight, int maxDragHeight) {
-                toolbar.setAlpha(1 - Math.min(percent, 1));
-                secondFloor.setTranslationY(Math.min(offset - secondFloor.getHeight() + toolbar.getHeight(), refreshLayout.getLayout().getHeight() - secondFloor.getHeight()));
+                topbar.setAlpha(1 - Math.min(percent, 1));
+                secondFloor.setTranslationY(Math.min(offset - secondFloor.getHeight() + topbar.getHeight(), refreshLayout.getLayout().getHeight() - secondFloor.getHeight()));
 
             }
 
@@ -190,7 +192,7 @@ public class HomeFg extends BaseFg {
     }
 
 
-    @OnClick({R2.id.toolbar})
+    @OnClick({R2.id.topbar})
     public void onViewClick(View view) {
         header.openTwoLevel(true);
     }

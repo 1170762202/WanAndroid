@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-aspectjx'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -52,6 +53,7 @@ dependencies {
     implementation project(':library-base')
     implementation project(':library-widget')
     implementation project(':library-common')
+    implementation project(':library-aop')
     implementation project(':module-main')
     implementation project(':module-home')
     implementation project(':module-project')
@@ -59,5 +61,6 @@ dependencies {
     implementation project(':module-public')
     implementation project(':module-mine')
     implementation project(':module-web')
+    implementation project(':module-login')
 
 }

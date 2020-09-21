@@ -1,3 +1,5 @@
+include ':module-login'
+include ':library-aop'
 include ':library-common'
 include ':module-web'
 include ':module-mine'

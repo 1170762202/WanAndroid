@@ -3,4 +3,5 @@
     <item name="cardview" type="id" />
     <item name="name" type="id" />
     <item name="topbar" type="id" />
+    <item name="toolbar" type="id" />
 </resources>

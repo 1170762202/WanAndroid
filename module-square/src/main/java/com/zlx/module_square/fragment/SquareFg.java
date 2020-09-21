@@ -10,6 +10,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.gyf.immersionbar.BarHide;
+import com.gyf.immersionbar.ImmersionBar;
 import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_square.R;

@@ -3,7 +3,6 @@ package com.zlx.module_base.base_util;
 import android.util.Log;
 
 import com.zlx.module_base.BuildConfig;
-import com.zlx.module_network.util.LogUtil;
 
 
 /**
@@ -55,7 +54,7 @@ public class LogUtils {
         if (!isDebuggable())
             return;
         getMethodNames(new Throwable().getStackTrace());
-        LogUtil.logSplit("LogUtils", createLog(message), 0);
+        Log.i(className,createLog(message));
     }
 
     public static void d(String message) {

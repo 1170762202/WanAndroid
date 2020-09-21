@@ -33,7 +33,7 @@ public class WebAc extends BaseAc {
         LogUtil.show("webUrl=" + webUrl);
         webView.setTvTitle(tvTitle);
         webView.loadUrl(webUrl);
-        setonRightImgClickListener(view -> {
+        setOnRightImgClickListener(view -> {
             WebDialogFg.newInstance(webUrl).show(getSupportFragmentManager(), "webDialog");
         });
     }

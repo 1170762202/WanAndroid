@@ -1,15 +1,15 @@
 package com.zlx.module_network.api1.livedata;
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 
-import com.zlx.module_network.api2.RetrofitCreateHelper;
-import com.zlx.module_network.interceptor.HttpLoggingInterceptor;
+import com.franmontiel.persistentcookiejar.ClearableCookieJar;
+import com.franmontiel.persistentcookiejar.PersistentCookieJar;
+import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
+import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
+import com.zlx.module_base.BaseApplication;
 import com.zlx.module_network.interceptor.LogInterceptor;
 
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -65,9 +65,17 @@ public class RetrofitCreateLiveDataHelper {
                 .retryOnConnectionFailure(true)//设置出现错误进行重新连接。
                 //失败重连
                 .retryOnConnectionFailure(true)
+                .cookieJar(getCookieJar())
                 .addInterceptor(new LogInterceptor())//添加打印拦截器
                 .build();
     }
+    private ClearableCookieJar cookieJar;
 
+    public ClearableCookieJar getCookieJar() {
+        if (cookieJar == null) {
+            cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(BaseApplication.getInstance()));
+        }
+        return cookieJar;
+    }
 
 }

@@ -33,7 +33,7 @@ public class SubmitButton1 extends View {
 
     private Paint paint;
     private Paint paintArc;
-    private String text = "login";
+    private String text = "登录";
 
     private RectF rectF;
     private float centerAngle = 10;
@@ -47,6 +47,7 @@ public class SubmitButton1 extends View {
     private Paint textPaint;
     private float textSize = 60f;
     private boolean isMorphing = false;
+    private AnimatorSet animatorSet;
 
     public SubmitButton1(Context context) {
         super(context);
@@ -66,7 +67,7 @@ public class SubmitButton1 extends View {
     private void init(Context context) {
         paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setColor(ContextCompat.getColor(context, R.color.main));
+        paint.setColor(ContextCompat.getColor(context, R.color.main_text));
 
         paintArc = new Paint();
         paintArc.setAntiAlias(true);
@@ -157,12 +158,16 @@ public class SubmitButton1 extends View {
         });
     }
 
+    public void setText(String text) {
+        this.text = text;
+        postInvalidate();
+    }
 
     /**
      * 总开关
      */
     public void startAnim() {
-        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet = new AnimatorSet();
         animatorSet.play(arcValueAnimator).after(animRect2Round).after(animGather);
         animatorSet.start();
     }
@@ -172,6 +177,8 @@ public class SubmitButton1 extends View {
         two_circle_distance = 0;
         centerAngle = 10;
         textPaint.setAlpha(255);
+
+        animatorSet.cancel();
         postInvalidate();
     }
 
@@ -179,7 +186,7 @@ public class SubmitButton1 extends View {
         isMorphing = false;
         two_circle_distance = 0;
         centerAngle = 10;
-//        textPaint.setAlpha(255);
+        textPaint.setAlpha(255);
         postInvalidate();
     }
 

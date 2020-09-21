@@ -8,7 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
-import com.zlx.module_base.adapters.RvAdapterArticleList;
+import com.zlx.library_common.adapters.RvAdapterArticleList;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_base.constant.RouterActivityPath;
@@ -22,7 +22,6 @@ import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_square.R;
 import com.zlx.module_square.R2;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

@@ -9,12 +9,14 @@ import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.module_main.R;
 import com.example.module_main.R2;
 import com.example.module_main.adapter.VpAdapterMain;
 import com.example.module_main.impl.TabPagerListener;
 import com.zlx.module_base.base_ac.BaseAc;
+import com.zlx.module_base.constant.RouterActivityPath;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.widget.bubblenavigation.BubbleNavigationConstraintView;
 import com.zlx.widget.bubblenavigation.listener.BubbleNavigationChangeListener;
@@ -23,6 +25,7 @@ import com.zlx.widget.viewpager.NoScrollViewPager;
 import butterknife.BindView;
 
 
+@Route(path = RouterActivityPath.Main.PAGER_MAIN)
 public class MainActivity extends BaseAc implements BubbleNavigationChangeListener, TabPagerListener {
 
 

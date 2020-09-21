@@ -2,5 +2,8 @@
     package="com.zlx.module_mine">
 
     /
-    <application></application>
+    <application>
+        <activity android:name=".activity.ScoreRankListAc" />
+        <activity android:name=".activity.MyScoreAc" />
+    </application>
 </manifest>

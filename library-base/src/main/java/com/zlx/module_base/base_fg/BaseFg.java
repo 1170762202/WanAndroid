@@ -7,21 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
 import com.kingja.loadsir.callback.Callback;
-import com.kingja.loadsir.callback.ProgressCallback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.zlx.module_base.LoadingCallback;
 import com.zlx.module_base.R;
-import com.zlx.module_base.base_util.PostUtil;
-import com.zlx.module_network.util.LogUtil;
+import com.zlx.module_base.base_util.LogUtils;
 import com.zlx.module_base.base_util.ToastUtil;
 
 import butterknife.ButterKnife;
@@ -64,7 +61,7 @@ public abstract class BaseFg extends Fragment {
     private void initImmersionBar() {
         if (immersionBar()) {
             ImmersionBar.with(this)
-                    .titleBar(R.id.toolbar, false)
+                    .titleBar(R.id.statusBarView,false)
                     .statusBarDarkFont(true)
                     .keyboardEnable(true)
                     .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
@@ -80,7 +77,7 @@ public abstract class BaseFg extends Fragment {
                 @Override
                 public void onReload(View v) {
                     // 重新加载逻辑
-                    LogUtil.show("重新加载逻辑");
+                    LogUtils.i("重新加载逻辑");
                 }
             });
         }
@@ -112,27 +109,6 @@ public abstract class BaseFg extends Fragment {
         return view;
     }
 
-
-    @SuppressLint("CheckResult")
-    protected void requestPermissions(String... permissions) {
-        final RxPermissions rxPermissions = new RxPermissions(this);
-        rxPermissions.request(permissions)
-                .subscribe(aBoolean -> {
-                    if (aBoolean) {
-                        getPermissionSuccess();
-                    } else {
-                        getPermissionFailured();
-                    }
-                });
-    }
-
-    protected void getPermissionSuccess() {
-        LogUtil.show("Base--->getPermissionSuccess");
-    }
-
-    protected void getPermissionFailured() {
-        LogUtil.show("Base--->getPermissionFailured");
-    }
 
     protected void toast(String content) {
         ToastUtil.showShort(getContext(), content);

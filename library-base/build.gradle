@@ -42,8 +42,6 @@ buildscript {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 //    implementation project(path: ':client')
-    api project(':library-common')
-    api project(':library-network')
     api rootProject.ext.dependencies.appcompat
     api rootProject.ext.dependencies.arouterApi
     api rootProject.ext.dependencies.butterknife
@@ -86,5 +84,14 @@ dependencies {
     api 'com.google.android:flexbox:2.0.1'
 
     api "com.github.hackware1993:MagicIndicator:1.6.0"
+    api 'com.tencent:mmkv-static:1.2.2'
 
+    def retrofit_version = "2.6.1"
+    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    api "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    api "io.reactivex.rxjava2:rxjava:2.2.11"
+    api "io.reactivex.rxjava2:rxandroid:2.1.1"
+    api "com.squareup.okhttp3:okhttp:4.0.0"
 }
