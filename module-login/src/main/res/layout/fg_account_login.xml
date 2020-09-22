@@ -98,7 +98,7 @@
             android:layout_marginTop="10dp"
             android:background="@color/no_transparent_10_percent" />
 
-        <com.zlx.widget.submit_button.SubmitButton1
+        <com.zlx.widget.submit_button.SubmitButton
             android:id="@+id/btnLogin"
             android:layout_width="220dp"
             android:layout_height="50dp"

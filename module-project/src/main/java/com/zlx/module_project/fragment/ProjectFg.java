@@ -9,9 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+import com.zlx.library_common.MMkvHelper;
 import com.zlx.library_common.adapters.RvAdapterArticleList;
 import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.base_util.RouterUtil;
@@ -72,11 +75,17 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
         initListView();
         initSlide();
         initEvents();
-        listProjectsTab();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        listProjectsTab();
+
+    }
 
     private void initEvents() {
+
         smartRefreshLayout.setOnRefreshLoadMoreListener(this);
     }
 
@@ -101,20 +110,16 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
     }
 
     private void listProjectsTab() {
-
-        ApiUtil.getProjectApi().listProjectsTab().observe(this,
-                new BaseObserver<>(new BaseObserverCallBack<ApiResponse<List<ProjectListRes>>>() {
-                    @Override
-                    public void onSuccess(ApiResponse<List<ProjectListRes>> data) {
-                        adapterTitle.refresh(data.getData());
-                        if (data.getData().size() > 0) {
-                            ProjectListRes projectListRes = data.getData().get(0);
-                            tvName.setText(projectListRes.getName());
-                            id = projectListRes.getId();
-                            listProjects(id, true);
-                        }
-                    }
-                }));
+        List<ProjectListRes> projectTabs = MMkvHelper.getInstance().getProjectTabs(ProjectListRes.class);
+        if (projectTabs.size() > 0) {
+            adapterTitle.refresh(projectTabs);
+            if (projectTabs.size() > 0) {
+                ProjectListRes projectListRes = projectTabs.get(0);
+                tvName.setText(projectListRes.getName());
+                id = projectListRes.getId();
+                listProjects(id, true);
+            }
+        }
     }
 
     private int page = 0;
@@ -132,7 +137,7 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
                     public void onSuccess(ApiResponse<ArticleListRes> data) {
                         if (refresh) {
                             adapterArticleList.setList(data.getData().getDatas());
-                        }else {
+                        } else {
                             adapterArticleList.addData(data.getData().getDatas());
                         }
                     }
@@ -161,7 +166,7 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
         });
         rvTitle.setAdapter(adapterTitle);
 
-        adapterArticleList = new RvAdapterArticleList(null);
+        adapterArticleList = new RvAdapterArticleList();
         adapterArticleList.setHasTop(true);
         rvContent.addItemDecoration(new CustomItemDecoration(getActivity(),
                 CustomItemDecoration.ItemDecorationDirection.VERTICAL_LIST, R.drawable.linear_split_line));
@@ -169,7 +174,21 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
         adapterArticleList.setOnItemClickListener((adapter, view1, position) -> {
             List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
             RouterUtil.launchWeb(data.get(position).getLink());
-
+        });
+        adapterArticleList.setOnItemChildClickListener((adapter, view, position) -> {
+            if (view.getId() == R.id.ivCollect) {
+                List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
+                ArticleBean articleBean = data.get(position);
+                if (articleBean.isCollect()) {
+                    ApiUtil.getArticleApi().unCollect(articleBean.getId()).observe(this, apiResponse -> {
+                    });
+                } else {
+                    ApiUtil.getArticleApi().collect(articleBean.getId()).observe(this, apiResponse -> {
+                    });
+                }
+                articleBean.setCollect(!articleBean.isCollect());
+                adapterArticleList.notifyItemChanged(position);
+            }
         });
         mLayout.setScrollableView(rvTitle);
     }

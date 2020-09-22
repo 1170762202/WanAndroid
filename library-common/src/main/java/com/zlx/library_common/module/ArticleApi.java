@@ -9,7 +9,9 @@ import com.zlx.module_network.bean.ApiResponse;
 
 import java.util.List;
 
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -71,4 +73,33 @@ public interface ArticleApi {
      */
     @GET("article/list/{page}/json")
     LiveData<ApiResponse<ArticleListRes>> listArticle(@Path("page") int page, @Query("cid") String id);
+
+
+    /**
+     * 我的收藏列表
+     *
+     * @param page
+     * @return
+     */
+    @GET("lg/collect/list/{page}/json")
+    LiveData<ApiResponse<ArticleListRes>> listMyCollect(@Path("page") int page);
+
+    /**
+     * 收藏文章
+     *
+     * @param id
+     * @return
+     */
+    @POST("lg/collect/{id}/json")
+    LiveData<ApiResponse> collect(@Path("id") String id);
+
+    /**
+     * 取消收藏
+     *
+     * @param id
+     * @return
+     */
+    @POST("lg/uncollect_originId/{id}/json")
+    LiveData<ApiResponse> unCollect(@Path("id") String id);
+
 }

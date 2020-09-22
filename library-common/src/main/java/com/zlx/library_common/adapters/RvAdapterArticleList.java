@@ -1,21 +1,17 @@
 package com.zlx.library_common.adapters;
 
 import android.text.TextUtils;
-import android.view.View;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.zlx.library_common.R;
 import com.zlx.library_common.constrant.C;
 import com.zlx.library_common.res_data.ArticleBean;
 import com.zlx.library_common.util.GlideUtil;
-import com.zlx.module_base.R;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 /**
  * FileName: RvAdapterArticleList
@@ -31,18 +27,23 @@ public class RvAdapterArticleList extends BaseMultiItemQuickAdapter<ArticleBean,
         this.hasTop = hasTop;
     }
 
-    public RvAdapterArticleList(@Nullable List<ArticleBean> data) {
-        super(data);
+    public RvAdapterArticleList() {
+        super(null);
         addItemType(C.ARTICLE_ITEM_TEXT, R.layout.rv_item_article_text);
         addItemType(C.ARTICLE_ITEM_TEXT_PIC, R.layout.rv_item_article_text_pic);
+        addChildClickViewIds(R.id.ivCollect);
+
     }
 
     @Override
     protected void convert(@NotNull BaseViewHolder baseViewHolder, ArticleBean articleBean) {
+        String superChapterName = articleBean.getSuperChapterName();
+        String chapterName = articleBean.getChapterName();
         switch (baseViewHolder.getItemViewType()) {
             case C.ARTICLE_ITEM_TEXT:
                 baseViewHolder
-                        .setText(R.id.tvChapter, String.format("%s·%s", articleBean.getSuperChapterName(), articleBean.getChapterName()))
+                        .setText(R.id.tvChapter,
+                                TextUtils.isEmpty(superChapterName) ? chapterName : String.format("%s·%s", superChapterName, chapterName))
                         .setText(R.id.tvTime, articleBean.getNiceDate())
                         .setGone(R.id.tvRefresh, !articleBean.isFresh());
                 break;
@@ -54,6 +55,15 @@ public class RvAdapterArticleList extends BaseMultiItemQuickAdapter<ArticleBean,
         }
         baseViewHolder.setText(R.id.tvTitle, articleBean.getTitle())
                 .setText(R.id.tvAuthor, TextUtils.isEmpty(articleBean.getAuthor()) ? articleBean.getShareUser() : articleBean.getAuthor())
-                .setGone(R.id.top, !(hasTop && baseViewHolder.getAdapterPosition() == 0));
+                .setGone(R.id.top, !(hasTop && baseViewHolder.getAdapterPosition() == 0))
+                .setImageResource(R.id.ivCollect, articleBean.isCollect() ? R.mipmap.ic_collect : R.mipmap.ic_uncollect);
+    }
+
+    /**
+     * 取消收藏，做单个删除
+     */
+    public void cancelCollect(int position) {
+        getData().remove(position);
+        notifyItemRemoved(position);
     }
 }

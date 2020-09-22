@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -55,12 +56,19 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
         holder.tvChapter.setText(String.format("%s·%s", datasBean.getSuperChapterName(), datasBean.getChapterName()));
         holder.tvTime.setText(datasBean.getNiceDate());
         holder.tvRefresh.setVisibility(datasBean.isFresh() ? View.VISIBLE : View.GONE);
+        holder.ivCollect.setImageResource(datasBean.isCollect() ? R.mipmap.ic_collect : R.mipmap.ic_uncollect);
         if (position == 0 && hasTop) {
             holder.top.setVisibility(View.VISIBLE);
         } else {
             holder.top.setVisibility(View.GONE);
         }
-
+        holder.ivCollect.setOnClickListener(view -> {
+            if (onArticleCollect != null) {
+                onArticleCollect.onCollect(datasBean);
+            }
+            datasBean.setCollect(!datasBean.isCollect());
+            notifyItemChanged(position);
+        });
         holder.vItem.setOnClickListener(view -> {
             RouterUtil.launchWeb(articleListResList.get(position).getLink());
         });
@@ -84,7 +92,8 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
         TextView tvRefresh;
         @BindView(R2.id.top)
         View top;
-
+        @BindView(R2.id.ivCollect)
+        ImageView ivCollect;
         @BindView(R2.id.vItem)
         View vItem;
 
@@ -93,5 +102,15 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
             ButterKnife.bind(this, itemView);
 
         }
+    }
+
+    private OnArticleCollect onArticleCollect;
+
+    public void setOnArticleCollect(OnArticleCollect onArticleCollect) {
+        this.onArticleCollect = onArticleCollect;
+    }
+
+    public interface OnArticleCollect {
+        void onCollect(ArticleBean articleBean);
     }
 }

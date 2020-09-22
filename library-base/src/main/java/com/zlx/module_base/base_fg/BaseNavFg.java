@@ -61,9 +61,6 @@ public abstract class BaseNavFg extends Fragment {
         return view;
     }
 
-    protected void toast(String content) {
-        ToastUtil.showShort(getContext(), content);
-    }
 
     @Override
     public void onDestroyView() {

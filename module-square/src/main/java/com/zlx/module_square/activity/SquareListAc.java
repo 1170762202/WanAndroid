@@ -51,19 +51,33 @@ public class SquareListAc extends BaseAc implements OnRefreshLoadMoreListener {
     }
 
     @Override
-    protected void initViews() {
+    public void initViews() {
         super.initViews();
         showLoading();
         id = getIntent().getStringExtra("id");
         title = getIntent().getStringExtra("title");
         setAcTitle(title);
         LogUtil.show("id=" + id + "  title=" + title);
-        adapterArticleList = new RvAdapterArticleList(null);
+        adapterArticleList = new RvAdapterArticleList();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapterArticleList);
         smartRefreshLayout.setEnableLoadMore(true);
         smartRefreshLayout.setEnableRefresh(true);
         smartRefreshLayout.setOnRefreshLoadMoreListener(this);
+        adapterArticleList.setOnItemChildClickListener((adapter, view, position) -> {
+            if (view.getId()==R.id.ivCollect){
+                List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
+                ArticleBean articleBean = data.get(position);
+                if (articleBean.isCollect()){
+                    ApiUtil.getArticleApi().unCollect(articleBean.getId()).observe(this,apiResponse -> {});
+                }else {
+                    ApiUtil.getArticleApi().collect(articleBean.getId()).observe(this,apiResponse -> {});
+                }
+                articleBean.setCollect(!articleBean.isCollect());
+                adapterArticleList.notifyItemChanged(position);
+
+            }
+        });
         adapterArticleList.setOnItemClickListener((adapter, view, position) -> {
             List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
             RouterUtil.launchWeb(data.get(position).getLink());

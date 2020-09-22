@@ -62,6 +62,8 @@ ext {
             /*navigation --end*/
             work                  : "androidx.work:work-runtime:$rootProject.lifecycle_version",
             slidingpanellayout    : "androidx.slidingpanelayout:slidingpanelayout:$rootProject.slidingpanellayout_version",
+            mmkv    : "com.tencent:mmkv-static:1.2.2",
+            glide    : "com.github.bumptech.glide:glide:4.9.0",
     ]
 
     isRunModuleA = false // true是module-a模块可单独运行

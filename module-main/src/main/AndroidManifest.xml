@@ -2,5 +2,6 @@
     package="com.example.module_main">
 
     <application>
+        <activity android:name=".activity.MainActivity" />
     </application>
 </manifest>

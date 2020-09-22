@@ -35,5 +35,6 @@ dependencies {
     api rootProject.ext.dependencies.arouterApi
     annotationProcessor rootProject.ext.dependencies.arouterCompiler
     api project(':library-common')
+    api rootProject.ext.dependencies.rxpermissions
 
 }

@@ -17,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
@@ -25,12 +24,15 @@ import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.zlx.module_base.LoadingCallback;
 import com.zlx.module_base.R;
 import com.zlx.module_base.base_manage.ActivityManage;
 import com.zlx.module_base.base_util.DoubleClickExitDetector;
 import com.zlx.module_base.base_util.InputTools;
 import com.zlx.module_base.base_util.LogUtils;
+import com.zlx.module_base.impl.IAcView;
+import com.zlx.module_base.impl.INetView;
+import com.zlx.module_base.loadsir.EmptyCallback;
+import com.zlx.module_base.loadsir.LoadingCallback;
 
 import butterknife.ButterKnife;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
@@ -40,7 +42,7 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
  * Created by zlx on 2017/6/23.
  */
 
-public abstract class BaseAc extends SwipeBackActivity {
+public abstract class BaseAc extends SwipeBackActivity implements INetView, IAcView {
 
 
     protected Context context;
@@ -55,6 +57,7 @@ public abstract class BaseAc extends SwipeBackActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        beforeOnCreate();
         super.onCreate(savedInstanceState);
         afterOnCreate();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏
@@ -65,7 +68,6 @@ public abstract class BaseAc extends SwipeBackActivity {
             setContentView(getLayoutId());
             ButterKnife.bind(this);
         }
-
         context = this;
         activity = this;
         initImmersionBar();
@@ -77,15 +79,18 @@ public abstract class BaseAc extends SwipeBackActivity {
         getSwipeBackLayout().setEnableGesture(canSwipeBack());
     }
 
-    protected void beforeOnCreate() {
+    @Override
+    public void beforeOnCreate() {
 
     }
 
-    protected void afterOnCreate() {
+    @Override
+    public void afterOnCreate() {
 
     }
 
-    private void initEvents() {
+    @Override
+    public void initEvents() {
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         ivLeft = (ImageView) findViewById(R.id.ivLeft);
         ivRight = (ImageView) findViewById(R.id.ivRight);
@@ -100,23 +105,34 @@ public abstract class BaseAc extends SwipeBackActivity {
         }
     }
 
-    protected void showLoading() {
+    @Override
+    public void showLoading() {
         if (loadService == null) {
-            loadService = LoadSir.getDefault().register(this, new Callback.OnReloadListener() {
-                @Override
-                public void onReload(View v) {
-                    // 重新加载逻辑
-                    LogUtils.i("重新加载逻辑");
-                }
-            });
+            loadService = LoadSir.getDefault().register(this, v -> onRetryBtnClick());
         }
         loadService.showCallback(LoadingCallback.class);
     }
 
-    protected void showSuccess() {
-        if (loadService != null) {
-            loadService.showSuccess();
+
+    @Override
+    public void showEmpty() {
+        if (loadService == null) {
+            loadService = LoadSir.getDefault().register(this, v -> onRetryBtnClick());
         }
+        loadService.showCallback(EmptyCallback.class);
+    }
+
+    @Override
+    public void showSuccess() {
+        if (loadService == null) {
+            loadService = LoadSir.getDefault().register(this, v -> onRetryBtnClick());
+        }
+        loadService.showSuccess();
+    }
+
+    @Override
+    public void onRetryBtnClick() {
+
     }
 
     protected void setRightImg(int bg) {
@@ -143,7 +159,9 @@ public abstract class BaseAc extends SwipeBackActivity {
         }
     }
 
-    private void initImmersionBar() {
+
+    @Override
+    public void initImmersionBar() {
         if (!fullScreen()) {
             if (!transparent()) {
                 if (ImmersionBar.isSupportStatusBarDarkFont()) {
@@ -268,16 +286,6 @@ public abstract class BaseAc extends SwipeBackActivity {
         }
     }
 
-
-//    protected void ChangeOrientation(){
-//        Boolean change = (Boolean) SPUtil.get(this, Config.SP_Landscape, false);
-//        if(change){
-//            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-//        }else{
-//            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
-//        }
-//    }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -307,7 +315,9 @@ public abstract class BaseAc extends SwipeBackActivity {
         return true;
     }
 
-    protected void initViews() {
+    @Override
+    public void initViews() {
+
     }
 
     protected abstract int getLayoutId();

@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import androidx.fragment.app.Fragment;
 
@@ -16,6 +14,7 @@ import com.example.module_main.R2;
 import com.example.module_main.adapter.VpAdapterMain;
 import com.example.module_main.impl.TabPagerListener;
 import com.zlx.module_base.base_ac.BaseAc;
+import com.zlx.module_base.base_util.ToastUtil;
 import com.zlx.module_base.constant.RouterActivityPath;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.widget.bubblenavigation.BubbleNavigationConstraintView;
@@ -46,11 +45,18 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
     }
 
     @Override
-    protected void initViews() {
+    public void initViews() {
         initTab();
 
         initNav();
+
+        requestPermissions(
+                "android.permission.WRITE_EXTERNAL_STORAGE",
+                "android.permission.READ_EXTERNAL_STORAGE"
+        );
     }
+
+
 
     private void initNav() {
 

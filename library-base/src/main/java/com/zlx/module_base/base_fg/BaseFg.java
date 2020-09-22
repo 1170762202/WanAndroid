@@ -1,6 +1,5 @@
 package com.zlx.module_base.base_fg;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,11 +14,9 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
-import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.zlx.module_base.LoadingCallback;
+import com.zlx.module_base.loadsir.LoadingCallback;
 import com.zlx.module_base.R;
 import com.zlx.module_base.base_util.LogUtils;
-import com.zlx.module_base.base_util.ToastUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -107,11 +104,6 @@ public abstract class BaseFg extends Fragment {
     @Override
     public View getView() {
         return view;
-    }
-
-
-    protected void toast(String content) {
-        ToastUtil.showShort(getContext(), content);
     }
 
     @Override

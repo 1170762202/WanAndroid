@@ -5,4 +5,7 @@
     android:orientation="vertical">
 
     <include layout="@layout/top_bar" />
+
+    <include layout="@layout/simple_refresh_layout" />
+
 </LinearLayout>

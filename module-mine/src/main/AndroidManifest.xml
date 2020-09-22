@@ -5,5 +5,10 @@
     <application>
         <activity android:name=".activity.ScoreRankListAc" />
         <activity android:name=".activity.MyScoreAc" />
+        <activity android:name=".activity.SettingAc" />
+        <activity android:name=".activity.AboutUs" />
+        <activity android:name=".activity.MyCollectAc" />
+        <activity android:name=".activity.OpenSourceAc" />
+        <activity android:name=".activity.AboutAuthorAc" />
     </application>
 </manifest>

@@ -40,5 +40,6 @@ public interface LoginApi {
     @POST("user/register")
     LiveData<ApiResponse<UserInfo>> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
 
-
+    @GET("user/logout/json")
+    LiveData<ApiResponse> logout();
 }

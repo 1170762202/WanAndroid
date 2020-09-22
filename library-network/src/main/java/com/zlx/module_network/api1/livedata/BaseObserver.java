@@ -1,8 +1,7 @@
 package com.zlx.module_network.api1.livedata;
 
-import com.zlx.module_base.BaseApplication;
-import com.zlx.module_base.base_util.ToastUtil;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.util.ToastUtil;
 
 public class BaseObserver<T> implements IBaseObserver<T> {
 
@@ -21,7 +20,7 @@ public class BaseObserver<T> implements IBaseObserver<T> {
             } else {
                 baseObserverCallBack.onFail(apiResponse.getErrorMsg());
                 if (baseObserverCallBack.showErrorMsg()) {
-                    ToastUtil.showShort(BaseApplication.getInstance(), apiResponse.getErrorMsg());
+                    ToastUtil.showShort( apiResponse.getErrorMsg());
                 }
             }
         } else {

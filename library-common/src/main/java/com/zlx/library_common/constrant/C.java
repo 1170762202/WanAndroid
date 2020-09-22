@@ -14,4 +14,12 @@ public class C {
     public static final int ARTICLE_ITEM_TEXT_PIC = ARTICLE_ITEM_TEXT + 1;
 
     public static final String USER_INFO = "USER_INFO";
+    public static final String PROJECT_TABS = "PROJECT_TABS";
+
+    public static final String INTERGRAL_URL = "https://www.wanandroid.com/blog/show/2653";
+
+    public static final String WAN_ANDROID = "https://www.wanandroid.com/";
+    public static final String URL_ABOUT = WAN_ANDROID + "about";
+    public static final String SOURCE_URL = "https://github.com/1170762202/ShareLive";
+
 }

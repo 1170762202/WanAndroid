@@ -17,7 +17,7 @@ import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
 import com.zlx.widget.ClearEditText;
-import com.zlx.widget.submit_button.SubmitButton1;
+import com.zlx.widget.submit_button.SubmitButton;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -35,7 +35,7 @@ public class AccountLoginFg extends BaseFg {
     @BindView(R2.id.etPassword)
     EditText etPassword;
     @BindView(R2.id.btnLogin)
-    SubmitButton1 btnLogin;
+    SubmitButton btnLogin;
 
     @Override
     protected int getLayoutId() {
@@ -52,12 +52,12 @@ public class AccountLoginFg extends BaseFg {
     private void login() {
         String username = etAccount.getText().toString().trim();
         if (TextUtils.isEmpty(username)) {
-            ToastUtil.showLong(getContext(), "请输入账号");
+            ToastUtil.showShort("请输入账号");
             return;
         }
         String password = etPassword.getText().toString().trim();
         if (TextUtils.isEmpty(password)) {
-            ToastUtil.showLong(getContext(), "请输入密码");
+            ToastUtil.showShort( "请输入密码");
             return;
         }
 
@@ -88,6 +88,12 @@ public class AccountLoginFg extends BaseFg {
             }
         },2000);
 
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        btnLogin.reset();
     }
 
     @OnClick(R2.id.btnLogin)

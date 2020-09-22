@@ -51,7 +51,6 @@ dependencies {
 
 
     api rootProject.ext.dependencies.fastJson
-    api rootProject.ext.dependencies.slidingpanellayout
     api rootProject.ext.dependencies.work
     api rootProject.ext.dependencies.swipebacklayout
     api rootProject.ext.dependencies.rxpermissions
@@ -61,7 +60,7 @@ dependencies {
     api rootProject.ext.dependencies.navigationUI
 
 
-    api 'com.github.bumptech.glide:glide:4.9.0'
+    api rootProject.ext.dependencies.glide
     api 'org.aspectj:aspectjrt:1.8.9'
     api 'androidx.constraintlayout:constraintlayout:2.0.1'
 
@@ -84,14 +83,18 @@ dependencies {
     api 'com.google.android:flexbox:2.0.1'
 
     api "com.github.hackware1993:MagicIndicator:1.6.0"
-    api 'com.tencent:mmkv-static:1.2.2'
 
-    def retrofit_version = "2.6.1"
-    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
-    api "com.squareup.retrofit2:converter-scalars:$retrofit_version"
-    api "com.squareup.retrofit2:retrofit:$retrofit_version"
-    api "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
-    api "io.reactivex.rxjava2:rxjava:2.2.11"
-    api "io.reactivex.rxjava2:rxandroid:2.1.1"
-    api "com.squareup.okhttp3:okhttp:4.0.0"
+    api rootProject.ext.dependencies.mmkv
+    api rootProject.ext.dependencies.retrofitConvertGson
+    api rootProject.ext.dependencies.retrofitConvertScalars
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies.retrofitAdapterRxJava2
+    api rootProject.ext.dependencies.rxJava
+    api rootProject.ext.dependencies.rxAndroid
+    api rootProject.ext.dependencies.okhttp
+
+
+
+    api  'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    api  'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
 }

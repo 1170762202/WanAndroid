@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+import com.zlx.library_common.res_data.RankBean;
 import com.zlx.library_common.res_data.RankListRes;
 import com.zlx.library_common.res_data.UserInfo;
 import com.zlx.library_common.util.ApiUtil;
@@ -64,7 +65,7 @@ public class ScoreRankListAc extends BaseAc implements OnRefreshLoadMoreListener
     }
 
     @Override
-    protected void initViews() {
+    public void initViews() {
         super.initViews();
         setAcTitle("积分排行榜");
         adapterScoreRankList = new RvAdapterScoreRankList();
@@ -72,8 +73,8 @@ public class ScoreRankListAc extends BaseAc implements OnRefreshLoadMoreListener
         recyclerView.setAdapter(adapterScoreRankList);
         smartRefreshLayout.setOnRefreshLoadMoreListener(this);
         adapterScoreRankList.setOnItemClickListener((adapter, view, position) -> {
-            List<RankListRes.DatasBean> data = adapterScoreRankList.getData();
-            RankListRes.DatasBean datasBean = data.get(position);
+            List<RankBean> data = adapterScoreRankList.getData();
+            RankBean datasBean = data.get(position);
         });
         UserInfo userInfo = MMkvHelper.getInstance().getUserInfo();
         tvName.setText(userInfo.getUsername());

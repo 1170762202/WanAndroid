@@ -37,6 +37,5 @@ dependencies {
     api "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     api 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
 
-    api project(':library-base')
 
 }

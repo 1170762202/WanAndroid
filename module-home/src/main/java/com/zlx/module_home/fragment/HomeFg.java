@@ -105,6 +105,13 @@ public class HomeFg extends BaseFg {
 
 
     private void initEvents() {
+        homeArticleAdapter.setOnArticleCollect(articleBean -> {
+            if (articleBean.isCollect()){
+                ApiUtil.getArticleApi().unCollect(articleBean.getId()).observe(this,apiResponse -> {});
+            }else {
+                ApiUtil.getArticleApi().collect(articleBean.getId()).observe(this,apiResponse -> {});
+            }
+        });
         refreshLayout.setOnMultiListener(new SimpleMultiListener() {
             @Override
             public void onHeaderMoving(RefreshHeader header, boolean isDragging, float percent, int offset, int headerHeight, int maxDragHeight) {

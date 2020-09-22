@@ -16,8 +16,12 @@ import com.zlx.library_common.MMkvHelper;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
+import com.zlx.module_mine.activity.AboutAuthorAc;
+import com.zlx.module_mine.activity.MyCollectAc;
 import com.zlx.module_mine.activity.MyScoreAc;
+import com.zlx.module_mine.activity.OpenSourceAc;
 import com.zlx.module_mine.activity.ScoreRankListAc;
+import com.zlx.module_mine.activity.SettingAc;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
@@ -53,6 +57,7 @@ public class MineFg extends BaseFg {
     TextView tvLevel;
     @BindView(R2.id.tvMyScore)
     TextView tvMyScore;
+    private UserInfo userInfo;
 
     @Override
     protected int getLayoutId() {
@@ -78,7 +83,7 @@ public class MineFg extends BaseFg {
     @Override
     public void onResume() {
         super.onResume();
-        UserInfo userInfo = MMkvHelper.getInstance().getUserInfo();
+        userInfo = MMkvHelper.getInstance().getUserInfo();
         if (userInfo != null) {
             tvName.setText(userInfo.getUsername());
             getScore();
@@ -95,12 +100,16 @@ public class MineFg extends BaseFg {
                 new BaseObserver<>(new BaseObserverCallBack<ApiResponse<UserInfo>>() {
                     @Override
                     public void onSuccess(ApiResponse<UserInfo> data) {
+
                         tvLevel.setVisibility(View.VISIBLE);
-                        UserInfo userInfo = data.getData();
-                        tvId.setText(String.format("ID: %s", userInfo.getUserId()));
-                        tvLevel.setText(String.format("lv.%d", userInfo.getLevel()));
-                        tvMyScore.setText(String.format("当前积分: %s", userInfo.getCoinCount()));
-                        MMkvHelper.getInstance().saveUserInfo(userInfo);
+                        UserInfo userInfo1 = data.getData();
+                        tvId.setText(String.format("ID: %s", userInfo1.getUserId()));
+                        tvLevel.setText(String.format("lv.%d", userInfo1.getLevel()));
+                        tvMyScore.setText(String.format("当前积分: %s", userInfo1.getCoinCount()));
+                        if (userInfo != null) {
+                            userInfo1.setUsername(userInfo.getUsername());
+                        }
+                        MMkvHelper.getInstance().saveUserInfo(userInfo1);
                     }
                 }));
     }
@@ -110,6 +119,7 @@ public class MineFg extends BaseFg {
     public void onViewClicked(View view) {
         int id = view.getId();
         if (id == R.id.ivSet) {
+            SettingAc.launch(getContext());
         } else if (id == R.id.tvName) {
         } else if (id == R.id.tvScoreRankList) {
             ScoreRankListAc.launch(getContext());
@@ -117,9 +127,12 @@ public class MineFg extends BaseFg {
         } else if (id == R.id.llScore) {
             MyScoreAc.launch(getContext());
         } else if (id == R.id.llCollect) {
+            MyCollectAc.launch(getContext());
         } else if (id == R.id.llShare) {
         } else if (id == R.id.llProjects) {
+            OpenSourceAc.launch(getContext());
         } else if (id == R.id.llAbout) {
+            AboutAuthorAc.launch(getContext());
         }
     }
 }

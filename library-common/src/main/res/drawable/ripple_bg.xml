@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"> <!--波纹颜色-->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <!-- 填充背景色-->
+            <solid android:color="#F4F3F6" />
+        </shape>
+    </item>
+    <item android:state_pressed="false">
+        <shape android:shape="rectangle">
+            <!-- 填充背景色-->
+            <solid android:color="#ffffff" />
+        </shape>
+    </item>
+
+</selector>

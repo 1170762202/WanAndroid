@@ -26,7 +26,7 @@ public class WebAc extends BaseAc {
     }
 
     @Override
-    protected void initViews() {
+    public void initViews() {
         super.initViews();
         setRightImg(R.mipmap.ic_more_menu);
         webUrl = getIntent().getStringExtra("webUrl");

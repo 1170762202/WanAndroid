@@ -18,12 +18,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
-    api 'com.github.bumptech.glide:glide:4.9.0'
     api project(':library-network')
+    api rootProject.ext.dependencies.appcompat
+    api rootProject.ext.dependencies.mmkv
+    api rootProject.ext.dependencies.glide
 
 }

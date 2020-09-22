@@ -15,8 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.gyf.immersionbar.BarHide;
-import com.gyf.immersionbar.ImmersionBar;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -32,7 +30,7 @@ import com.zlx.library_common.util.ApiUtil;
 import com.zlx.module_public.R;
 import com.zlx.module_public.R2;
 import com.zlx.module_public.adapters.AuthorAdapter;
-import com.zlx.module_public.adapters.HomeArticleAdapter;
+import com.zlx.module_public.adapters.PublicArticleAdapter;
 import com.zlx.module_public.guillotine.animation.GuillotineAnimation;
 import com.zlx.widget.hivelayoutmanager.HiveLayoutManager;
 
@@ -72,7 +70,7 @@ public class PublicFg extends BaseFg implements OnRefreshLoadMoreListener {
     private AuthorAdapter authorAdapter;
     private GuillotineAnimation guillotineAnimation;
 
-    private HomeArticleAdapter homeArticleAdapter;
+    private PublicArticleAdapter publicArticleAdapter;
     private List<ArticleBean> articleList = new ArrayList<>();
 
     @Override
@@ -121,11 +119,23 @@ public class PublicFg extends BaseFg implements OnRefreshLoadMoreListener {
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        homeArticleAdapter = new HomeArticleAdapter(articleList);
-        recyclerView.setAdapter(homeArticleAdapter);
+        publicArticleAdapter = new PublicArticleAdapter(articleList);
+        recyclerView.setAdapter(publicArticleAdapter);
+        publicArticleAdapter.setOnArticleCollect(articleBean -> {
+            if (articleBean.isCollect()){
+                ApiUtil.getArticleApi().unCollect(articleBean.getId()).observe(this,apiResponse -> {});
+            }else {
+                ApiUtil.getArticleApi().collect(articleBean.getId()).observe(this,apiResponse -> {});
+            }
+        });
         smartRefreshLayout.setEnableLoadMore(true);
         smartRefreshLayout.setEnableRefresh(true);
         smartRefreshLayout.setOnRefreshLoadMoreListener(this);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         listAuthor();
     }
 

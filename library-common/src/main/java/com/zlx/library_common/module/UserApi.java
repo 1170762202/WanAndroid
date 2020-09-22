@@ -25,10 +25,27 @@ import retrofit2.http.Path;
  */
 public interface UserApi {
 
+    /**
+     * 积分排行榜接口
+     *
+     * @param page
+     * @return
+     */
     @GET("coin/rank/{page}/json")
     LiveData<ApiResponse<RankListRes>> listScoreRank(@Path("page") int page);
 
     //获取个人积分
     @GET("lg/coin/userinfo/json")
     LiveData<ApiResponse<UserInfo>> getIntegral();
+
+    /**
+     * 获取个人积分列表
+     *
+     * @param page
+     * @return
+     */
+    @GET("lg/coin/list/{page}/json")
+    LiveData<ApiResponse<RankListRes>> listIntegral(@Path("page") int page);
+
+
 }

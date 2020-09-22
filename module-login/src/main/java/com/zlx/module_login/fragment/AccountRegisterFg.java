@@ -17,7 +17,7 @@ import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
 import com.zlx.widget.ClearEditText;
-import com.zlx.widget.submit_button.SubmitButton1;
+import com.zlx.widget.submit_button.SubmitButton;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -35,7 +35,7 @@ public class AccountRegisterFg extends BaseFg {
     @BindView(R2.id.etPassword)
     EditText etPassword;
     @BindView(R2.id.btnLogin)
-    SubmitButton1 btnLogin;
+    SubmitButton btnLogin;
 
     @Override
     protected int getLayoutId() {
@@ -49,7 +49,7 @@ public class AccountRegisterFg extends BaseFg {
     }
 
     @OnClick(R2.id.ivCha)
-    public void cha(){
+    public void cha() {
         NavHostFragment.findNavController(this).navigateUp();
 
     }
@@ -57,25 +57,31 @@ public class AccountRegisterFg extends BaseFg {
     private void register() {
         String username = etAccount.getText().toString().trim();
         if (TextUtils.isEmpty(username)) {
-            ToastUtil.showLong(getContext(), "请输入账号");
+            ToastUtil.showShort("请输入账号");
             return;
         }
         String password = etPassword.getText().toString().trim();
         if (TextUtils.isEmpty(password)) {
-            ToastUtil.showLong(getContext(), "请输入密码");
+            ToastUtil.showShort("请输入密码");
             return;
         }
         btnLogin.startAnim();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                ApiUtil.getLoginApi().register(username, password,password).observe(getViewLifecycleOwner(),
+                ApiUtil.getLoginApi().register(username, password, password).observe(getViewLifecycleOwner(),
                         new BaseObserver<>(new BaseObserverCallBack<ApiResponse<UserInfo>>() {
                             @Override
                             public void onSuccess(ApiResponse<UserInfo> data) {
                                 MMkvHelper.getInstance().saveUserInfo(data.getData());
                                 getActivity().finish();
                             }
+
+                            @Override
+                            public boolean showErrorMsg() {
+                                return true;
+                            }
+
                             @Override
                             public void onFinish() {
                                 super.onFinish();
@@ -84,8 +90,15 @@ public class AccountRegisterFg extends BaseFg {
                             }
                         }));
             }
-        },2000);
+        }, 2000);
     }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        btnLogin.reset();
+    }
+
     @OnClick(R2.id.btnLogin)
     public void onViewClicked() {
         register();
