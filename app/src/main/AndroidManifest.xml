@@ -28,15 +28,7 @@
             android:name="notch.config"
             android:value="portrait|landscape" />
 
-        <activity
-            android:name="com.zlx.module_login.activity.SplashAc"
-            android:theme="@style/AppTheme.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
     </application>
 

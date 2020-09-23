@@ -10,6 +10,7 @@ import com.zlx.module_login.R2;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.util.LogUtil;
 
 import java.util.List;
 
@@ -34,8 +35,6 @@ public class SplashAc extends BaseAc {
     @Override
     public void initViews() {
         super.initViews();
-        particleview.startAnim();
-
         ApiUtil.getProjectApi().listProjectsTab().observe(this,
                 new BaseObserver<>(new BaseObserverCallBack<ApiResponse<List<ProjectListRes>>>() {
                     @Override
@@ -50,5 +49,7 @@ public class SplashAc extends BaseAc {
                         }
                     }
                 }));
+        particleview.startAnim();
+
     }
 }

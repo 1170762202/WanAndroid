@@ -1,4 +1,4 @@
-package com.zlx.module_base;
+package com.zlx.library_db.manager;
 
 import android.content.Context;
 import android.text.TextUtils;
@@ -6,6 +6,9 @@ import android.text.TextUtils;
 import androidx.room.Room;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.amitshekhar.DebugDB;
+
 
 /**
  * @date: 2019\9\4 0004
@@ -28,8 +31,8 @@ public class DbUtil {
         return instance;
     }
 
-    public void init(Context context, String dbName) {
-        this.context = context.getApplicationContext();
+    public void init(Context context,String dbName) {
+        this.context =context.getApplicationContext();
         this.dbName = dbName;
         appDataBase = null;
     }

@@ -17,5 +17,5 @@ public interface IModuleInit {
     /**
      * 可以后初始化的
      */
-    boolean onInitLow(BaseApplication application);
+    boolean onInitAfter(BaseApplication application);
 }

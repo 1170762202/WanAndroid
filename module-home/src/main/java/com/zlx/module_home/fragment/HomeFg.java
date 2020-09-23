@@ -1,10 +1,15 @@
 package com.zlx.module_home.fragment;
 
+import android.app.SearchableInfo;
+import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -20,6 +25,7 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener;
 import com.zlx.module_home.R2;
+import com.zlx.module_home.activity.SearchAc;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.library_common.res_data.ArticleBean;
@@ -65,6 +71,8 @@ public class HomeFg extends BaseFg {
     View topbar;
     @BindView(R2.id.root)
     RelativeLayout root;
+    @BindView(R2.id.ivSearch)
+    ImageView ivSearch;
 
     private VirtualLayoutManager virtualLayoutManager = new VirtualLayoutManager(getActivity());
     private DelegateAdapter delegateAdapter = new DelegateAdapter(virtualLayoutManager);
@@ -199,8 +207,13 @@ public class HomeFg extends BaseFg {
     }
 
 
-    @OnClick({R2.id.topbar})
+    @OnClick({R2.id.topbar,R2.id.ivSearch})
     public void onViewClick(View view) {
-        header.openTwoLevel(true);
+        if (view.getId()==R.id.topbar){
+            header.openTwoLevel(true);
+        }else if (view.getId()==R.id.ivSearch){
+            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),ivSearch,"search");
+            ActivityCompat.startActivity(getActivity(),new Intent(getContext(),SearchAc.class),activityOptionsCompat.toBundle());
+        }
     }
 }

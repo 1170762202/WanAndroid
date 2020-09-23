@@ -29,7 +29,7 @@
                     android:background="#cfd8dc"
                     android:gravity="center_horizontal"
                     android:paddingTop="100dp"
-                    android:text="欢迎来到二楼!"
+                    android:text="恭喜发现彩蛋!"
                     android:textColor="#333333"
                     android:textSize="30sp" />
 
@@ -57,12 +57,14 @@
                         android:visibility="gone" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:background="#cfd8dc"
+                        android:drawableTop="@mipmap/ic_author_qe"
                         android:gravity="center_horizontal"
                         android:paddingTop="100dp"
-                        android:text="待开发"
+                        android:text="作者微信"
                         android:textColor="#333333"
                         android:textSize="30sp" />
 
@@ -101,31 +103,39 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:contentInsetStart="0dp">
-            <include layout="@layout/statusview"/>
+
+            <include layout="@layout/statusview" />
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@color/white"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
 
                 <TextView
                     android:id="@+id/tvTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:drawableEnd="@mipmap/ic_home_up"
+                    android:layout_weight="1"
                     android:drawablePadding="10dp"
                     android:ellipsize="end"
                     android:gravity="center"
                     android:maxLines="1"
-                    android:text="点我有惊喜"
+                    android:paddingStart="10dp"
+                    android:text="@string/app_name"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
+                <ImageView
+                    android:id="@+id/ivSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ripple_bg"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_search" />
             </LinearLayout>
         </LinearLayout>
 

@@ -1,8 +1,5 @@
 package com.zlx.module_base.database.entity;
 
-import android.provider.Settings;
-
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 

@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
@@ -42,7 +43,7 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
  * Created by zlx on 2017/6/23.
  */
 
-public abstract class BaseAc extends SwipeBackActivity implements INetView, IAcView {
+public abstract class BaseAc extends AppCompatActivity implements INetView, IAcView {
 
 
     protected Context context;
@@ -62,7 +63,6 @@ public abstract class BaseAc extends SwipeBackActivity implements INetView, IAcV
         afterOnCreate();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏
         setTheme(getMTheme());
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setSuspension();
         if (getLayoutId() != 0) {
             setContentView(getLayoutId());
@@ -76,7 +76,7 @@ public abstract class BaseAc extends SwipeBackActivity implements INetView, IAcV
         doubleClickExitDetector =
                 new DoubleClickExitDetector(context, "再按一次退出", 2000);
 
-        getSwipeBackLayout().setEnableGesture(canSwipeBack());
+//        getSwipeBackLayout().setEnableGesture(canSwipeBack());
     }
 
     @Override
@@ -113,6 +113,13 @@ public abstract class BaseAc extends SwipeBackActivity implements INetView, IAcV
         loadService.showCallback(LoadingCallback.class);
     }
 
+    @Override
+    public void showLoading(View view) {
+        if (loadService == null) {
+            loadService = LoadSir.getDefault().register(view, v -> onRetryBtnClick());
+        }
+        loadService.showCallback(LoadingCallback.class);
+    }
 
     @Override
     public void showEmpty() {
@@ -261,6 +268,8 @@ public abstract class BaseAc extends SwipeBackActivity implements INetView, IAcV
         return false;
     }
 
+
+
     /**
      * 获取InputMethodManager，隐藏软键盘
      *
@@ -286,30 +295,6 @@ public abstract class BaseAc extends SwipeBackActivity implements INetView, IAcV
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-//        if (hasSocket()) {
-//            if (!CommonUtil.isServiceExisted(this, "com.mrdxm.xqdwl.service.SocketService")) {
-//                startSocket();
-//            } else {
-//                if (!WsManager.getInstance().isConnect()) {
-//                    startSocket();
-//                }
-//            }
-//        }
-    }
-
-    private void startSocket() {
-//        log("-----------------startSocket-----------------");
-//        Intent intent = new Intent(this, SocketService.class);
-//        intent.setAction("com.zlx.myservice");
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            context.startForegroundService(new Intent(context, SocketService.class));
-//        } else {
-//            context.startService(new Intent(context, SocketService.class));
-//        }
-    }
 
     protected boolean canSwipeBack() {
         return true;
@@ -349,11 +334,6 @@ public abstract class BaseAc extends SwipeBackActivity implements INetView, IAcV
         LogUtils.i("Base--->getPermissionFail");
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ActivityManage.removeActivity(this);
-    }
 
     private DoubleClickExitDetector doubleClickExitDetector;
 
@@ -377,29 +357,6 @@ public abstract class BaseAc extends SwipeBackActivity implements INetView, IAcV
         return true;
     }
 
-    @Override
-    public void startActivity(Intent intent, @Nullable Bundle options) {
-        super.startActivity(intent, options);
-        if (hasAcAnim()) {
-            overridePendingTransition(R.anim.anim_enter, R.anim.anim_exit);
-        }
-    }
-
-    @Override
-    public void startActivity(Intent intent) {
-        super.startActivity(intent);
-        if (hasAcAnim()) {
-            overridePendingTransition(R.anim.anim_enter, R.anim.anim_exit);
-        }
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
-        if (hasAcAnim()) {
-            overridePendingTransition(R.anim.back_enter, R.anim.back_exit);
-        }
-    }
 
     @Override
     protected void onPause() {
@@ -408,26 +365,4 @@ public abstract class BaseAc extends SwipeBackActivity implements INetView, IAcV
     }
 
 
-    @Override
-    public void startActivityForResult(Intent intent, int requestCode) {
-        super.startActivityForResult(intent, requestCode);
-        if (hasAcAnim()) {
-            overridePendingTransition(R.anim.anim_enter, R.anim.anim_exit);
-        }
-    }
-
-    public void startActivityForResult(Intent intent, int requestCode, boolean anim) {
-        super.startActivityForResult(intent, requestCode, null);
-        if (anim) {
-            overridePendingTransition(R.anim.anim_enter, R.anim.anim_exit);
-        }
-    }
-
-    @Override
-    public void startActivityForResult(Intent intent, int requestCode, @Nullable Bundle options) {
-        super.startActivityForResult(intent, requestCode, options);
-        if (hasAcAnim()) {
-            overridePendingTransition(R.anim.back_enter, R.anim.anim_exit);
-        }
-    }
 }

@@ -46,8 +46,6 @@ dependencies {
     api rootProject.ext.dependencies.arouterApi
     api rootProject.ext.dependencies.butterknife
 
-    api rootProject.ext.dependencies.room
-    annotationProcessor rootProject.ext.dependencies.roomCompiler
 
 
     api rootProject.ext.dependencies.fastJson
@@ -97,4 +95,7 @@ dependencies {
 
     api  'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
     api  'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
+
+    api project(':library-db')
+    api 'com.aitangba:swipeback:1.0.3'
 }

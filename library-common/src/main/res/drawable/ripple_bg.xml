@@ -3,7 +3,7 @@
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <!-- 填充背景色-->
-            <solid android:color="#F4F3F6" />
+            <solid android:color="#DFDEE1" />
         </shape>
     </item>
     <item android:state_pressed="false">

@@ -1,3 +1,4 @@
+include ':library-db'
 include ':module-login'
 include ':library-aop'
 include ':library-common'

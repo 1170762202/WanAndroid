@@ -312,6 +312,13 @@
                     android:layout_weight="1"
                     android:text="关于作者"
                     android:textColor="@color/black" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/main_text"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="12sp"
+                    android:text="请他吃份早餐吧~"/>
 
                 <ImageView
                     android:layout_width="wrap_content"

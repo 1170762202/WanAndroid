@@ -1,12 +1,16 @@
 package com.zlx.module_base.module;
 
+import android.view.View;
+
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.kingja.loadsir.callback.Callback;
+import com.kingja.loadsir.core.Convertor;
 import com.kingja.loadsir.core.LoadSir;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.squareup.leakcanary.LeakCanary;
 import com.tencent.mmkv.MMKV;
+import com.zlx.library_db.manager.DbUtil;
 import com.zlx.module_base.BaseApplication;
 import com.zlx.module_base.loadsir.EmptyCallback;
 import com.zlx.module_base.loadsir.ErrorCallback;
@@ -34,20 +38,22 @@ public class CommonModuleInit implements IModuleInit {
                 .commit();
 
 
-        if (LeakCanary.isInAnalyzerProcess(application)) {
-            // This process is dedicated to LeakCanary for heap analysis.
-            // You should not init your app in this process.
-            return false;
-        }
-        LeakCanary.install(application);
+        DbUtil.getInstance().init(application, "wanandroid");
 
+
+//        if (LeakCanary.isInAnalyzerProcess(application)) {
+//            // This process is dedicated to LeakCanary for heap analysis.
+//            // You should not init your app in this process.
+//            return false;
+//        }
+//        LeakCanary.install(application);
 
 
         return false;
     }
 
     @Override
-    public boolean onInitLow(BaseApplication application) {
+    public boolean onInitAfter(BaseApplication application) {
         return false;
     }
 }

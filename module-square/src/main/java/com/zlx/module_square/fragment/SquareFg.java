@@ -1,17 +1,10 @@
 package com.zlx.module_square.fragment;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.gyf.immersionbar.BarHide;
-import com.gyf.immersionbar.ImmersionBar;
 import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_square.R;
@@ -19,7 +12,6 @@ import com.zlx.module_square.R2;
 import com.zlx.module_square.adapters.TabNavigatorAdapter;
 import com.zlx.module_square.adapters.VpAdapterSquare;
 import com.zlx.module_square.impl.TabPagerListener;
-import com.zlx.module_square.widget.OnTabClickListener;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;

@@ -5,11 +5,12 @@ import androidx.lifecycle.LiveData;
 import com.zlx.library_common.res_data.ArticleListRes;
 import com.zlx.library_common.res_data.BannerRes;
 import com.zlx.library_common.res_data.PublicAuthorListRes;
+import com.zlx.library_common.res_data.SearchBeanRes;
 import com.zlx.module_network.bean.ApiResponse;
 
 import java.util.List;
 
-import retrofit2.http.FormUrlEncoded;
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -101,5 +102,18 @@ public interface ArticleApi {
      */
     @POST("lg/uncollect_originId/{id}/json")
     LiveData<ApiResponse> unCollect(@Path("id") String id);
+
+    /**
+     * 热门搜索
+     *
+     * @return
+     */
+    @POST("hotkey/json")
+    LiveData<ApiResponse<List<SearchBeanRes>>> hotSearch();
+
+
+    //搜索内容
+    @POST("article/query/{page}/json")
+    LiveData<ApiResponse<ArticleListRes>> search(@Path("page") int pageNo, @Query("k") String k);
 
 }

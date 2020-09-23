@@ -13,6 +13,12 @@ public class C {
     //文章文字、图片
     public static final int ARTICLE_ITEM_TEXT_PIC = ARTICLE_ITEM_TEXT + 1;
 
+    //搜索历史
+    public static final int SEARCH_HIS = 10;
+    //热门搜索
+    public static final int SEARCH_HOT = SEARCH_HIS + 1;
+    public static final int SEARCH_CLEAR = SEARCH_HOT + 1;
+
     public static final String USER_INFO = "USER_INFO";
     public static final String PROJECT_TABS = "PROJECT_TABS";
 

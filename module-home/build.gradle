@@ -6,6 +6,9 @@ android {
 
 
     defaultConfig {
+        if (isMainModule.toBoolean()) {
+            applicationId "com.zlx.home"
+        }
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         javaCompileOptions {
@@ -33,6 +36,7 @@ dependencies {
     implementation project(':library-widget')
     implementation project(':library-common')
     implementation project(':library-network')
+    implementation project(':library-db')
 
     annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
     annotationProcessor rootProject.ext.dependencies.arouterCompiler

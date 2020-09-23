@@ -5,6 +5,9 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
+        if (isMainModule.toBoolean()) {
+            applicationId "com.zlx.web"
+        }
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         javaCompileOptions {

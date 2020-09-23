@@ -2,4 +2,8 @@
     package="com.zlx.module_home">
 
     /
+    <application>
+        <activity android:name=".activity.SearchAc" />
+        <activity android:name=".activity.SearchResultAc" />
+    </application>
 </manifest>

@@ -14,6 +14,7 @@
             <option value="$PROJECT_DIR$/library-aop" />
             <option value="$PROJECT_DIR$/library-base" />
             <option value="$PROJECT_DIR$/library-common" />
+            <option value="$PROJECT_DIR$/library-db" />
             <option value="$PROJECT_DIR$/library-network" />
             <option value="$PROJECT_DIR$/library-widget" />
             <option value="$PROJECT_DIR$/module-home" />

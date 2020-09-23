@@ -3,6 +3,14 @@
 
     <application
         android:label="@string/app_name">
+        <activity
+            android:name="com.zlx.module_login.activity.SplashAc">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.LoginAc" />
     </application>
 </manifest>

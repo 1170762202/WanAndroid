@@ -69,7 +69,6 @@ public class MyCollectAc extends BaseAc implements OnRefreshLoadMoreListener {
         });
         adapterArticleList.setOnItemChildClickListener((adapter, view, position) -> {
             if (view.getId()==R.id.ivCollect){
-                LogUtil.show("click");
                 List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
                 ArticleBean articleBean = data.get(position);
                 ApiUtil.getArticleApi().unCollect(articleBean.getId()).observe(this,apiResponse -> {});
@@ -121,7 +120,6 @@ public class MyCollectAc extends BaseAc implements OnRefreshLoadMoreListener {
 
     @Override
     public void onRetryBtnClick() {
-        LogUtil.show("click");
         showLoading();
         listMyCollect(true);
     }

@@ -45,13 +45,13 @@ public class ModuleLifecycleConfig {
     /**
      * 后初始化
      */
-    public void initModuleLow(@Nullable BaseApplication application) {
+    public void initModuleAfter(@Nullable BaseApplication application) {
         for (String moduleName : ModuleLifecycleReflects.initModuleNames) {
             try {
                 Class<?> clazz = Class.forName(moduleName);
                 IModuleInit init = (IModuleInit) clazz.newInstance();
                 // 调用初始化方法
-                init.onInitLow(application);
+                init.onInitAfter(application);
             } catch (ClassNotFoundException | InstantiationException
                     | IllegalAccessException e) {
                 e.printStackTrace();

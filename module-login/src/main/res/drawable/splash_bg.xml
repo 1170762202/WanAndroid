@@ -4,14 +4,17 @@
 
     <item>
         <shape>
-            <size tools:width="360dp"
-                tools:height="360dp"/>
+            <size
+                android:width="360dp"
+                android:height="360dp" />
             <solid android:color="@color/main_text" />
         </shape>
     </item>
 
     <item>
-        <bitmap android:src="@mipmap/logo" android:gravity="center"/>
+        <bitmap
+            android:gravity="center"
+            android:src="@mipmap/logo" />
     </item>
 
 </layer-list>

@@ -11,6 +11,6 @@ import android.app.Application;
 public class UtilsBridge {
 
     public static Application getApplicationByReflect() {
-        return Utils.getInstance().getApplicationByReflect();
+        return UtilsActivityLifecycleImpl.INSTANCE.getApplicationByReflect();
     }
 }

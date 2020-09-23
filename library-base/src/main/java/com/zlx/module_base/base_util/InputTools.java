@@ -2,6 +2,7 @@ package com.zlx.module_base.base_util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -78,13 +79,21 @@ public class InputTools {
         }
     }
 
+    public static void showSoftInput(View view){
+        new Handler().postDelayed(() -> {
+            toggleSoftInput(view);
+        }, 500);
+    }
     /**
      * 强制显示输入法
      *
      * @param
      */
-    public static void toggleSoftInput(View view) {
+    private static void toggleSoftInput(View view) {
         try {
+            view.setFocusable(true);
+            view.setFocusableInTouchMode(true);
+            view.requestFocus();
             InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.showSoftInput(view, InputMethodManager.RESULT_UNCHANGED_SHOWN);
             imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY,
