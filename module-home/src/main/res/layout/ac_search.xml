@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <include layout="@layout/statusview" />
@@ -30,11 +31,10 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="4dp"
             android:background="@color/bg_common"
+            android:transitionName="search"
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="6dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:transitionName="search"
+
             android:gravity="center_vertical"
             android:hint="请输入关键字进行搜索"
             android:imeOptions="actionSearch"

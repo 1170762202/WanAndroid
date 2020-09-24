@@ -11,7 +11,7 @@
         <!--禁止多点误触-->
         <item name="android:windowEnableSplitTouch">false</item>
         <item name="android:splitMotionEvents">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">true</item>
 
         <item name="android:textColor">#333333</item>
         <item name="android:textSize">14sp</item>

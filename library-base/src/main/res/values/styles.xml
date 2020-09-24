@@ -6,13 +6,6 @@
         <item name="colorPrimary">@color/main</item>
         <item name="colorPrimaryDark">@color/main</item>
         <item name="colorAccent">@color/main</item>
-        <!--页面背景色-->
-        <item name="android:windowBackground">@color/main</item>
-        <!--禁止多点误触-->
-        <item name="android:windowEnableSplitTouch">false</item>
-        <item name="android:splitMotionEvents">false</item>
-        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">false</item>
-
     </style>
 
     <!-- Base application theme. -->

@@ -1,13 +1,11 @@
 package com.zlx.module_home.fragment;
 
-import android.app.SearchableInfo;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
-import com.gyf.immersionbar.BarHide;
-import com.gyf.immersionbar.ImmersionBar;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.header.TwoLevelHeader;
 import com.scwang.smart.refresh.header.listener.OnTwoLevelListener;
@@ -24,21 +20,21 @@ import com.scwang.smart.refresh.layout.api.RefreshHeader;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.constant.RefreshState;
 import com.scwang.smart.refresh.layout.simple.SimpleMultiListener;
-import com.zlx.module_home.R2;
-import com.zlx.module_home.activity.SearchAc;
-import com.zlx.module_network.api1.livedata.BaseObserver;
-import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.library_common.res_data.ArticleBean;
-import com.zlx.library_common.util.ApiUtil;
-import com.zlx.module_base.base_fg.BaseFg;
-import com.zlx.module_network.util.LogUtil;
 import com.zlx.library_common.res_data.ArticleListRes;
 import com.zlx.library_common.res_data.BannerRes;
+import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_home.R;
+import com.zlx.module_home.R2;
+import com.zlx.module_home.activity.SearchAc;
 import com.zlx.module_home.adapters.HomeArticleAdapter;
 import com.zlx.module_home.adapters.HomeBannerAdapter;
+import com.zlx.module_network.api1.livedata.BaseObserver;
+import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -213,7 +209,7 @@ public class HomeFg extends BaseFg {
             header.openTwoLevel(true);
         }else if (view.getId()==R.id.ivSearch){
             ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(),ivSearch,"search");
-            ActivityCompat.startActivity(getActivity(),new Intent(getContext(),SearchAc.class),activityOptionsCompat.toBundle());
+            ActivityCompat.startActivity(getActivity(),new Intent(getActivity(), SearchAc.class),activityOptionsCompat.toBundle());
         }
     }
 }

@@ -4,7 +4,8 @@
     <application
         android:label="@string/app_name">
         <activity
-            android:name="com.zlx.module_login.activity.SplashAc">
+            android:name="com.zlx.module_login.activity.SplashAc"
+            android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

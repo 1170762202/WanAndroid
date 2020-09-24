@@ -6,8 +6,11 @@
 
     <include layout="@layout/top_bar" />
 
-    <com.zlx.widget.webview.Html5WebView
-        android:id="@+id/webView"
+    <LinearLayout
+        android:id="@+id/parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    </LinearLayout>
 </LinearLayout>

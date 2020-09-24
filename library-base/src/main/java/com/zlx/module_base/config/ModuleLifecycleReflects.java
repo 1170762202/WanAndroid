@@ -10,7 +10,6 @@ public class ModuleLifecycleReflects {
      * 基础库
      */
     private static final String BaseInit = "com.zlx.module_base.module.CommonModuleInit";
-    private static final String BaseInit1 = "com.zlx.library_common.module.CommonModuleInit";
 
-    public static String[] initModuleNames = {BaseInit,BaseInit1};
+    public static String[] initModuleNames = {BaseInit};
 }

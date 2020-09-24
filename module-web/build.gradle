@@ -38,5 +38,5 @@ dependencies {
     implementation project(':library-network')
     annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
     annotationProcessor rootProject.ext.dependencies.arouterCompiler
-
+    implementation 'com.just.agentweb:agentweb-androidx:4.1.4' // (必选)
 }

@@ -1,5 +1,6 @@
 package com.zlx.module_base.module;
 
+import android.app.Application;
 import android.view.View;
 
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -23,7 +24,7 @@ import com.zlx.module_base.loadsir.LoadingCallback;
  */
 public class CommonModuleInit implements IModuleInit {
     @Override
-    public boolean onInitAhead(BaseApplication application) {
+    public boolean onInitAhead(Application application) {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator((context, layout) -> new ClassicsHeader(application));
         SmartRefreshLayout.setDefaultRefreshFooterCreator((context, layout) -> new ClassicsFooter(application));
         MMKV.initialize(application);

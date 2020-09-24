@@ -1,8 +1,10 @@
 package com.zlx.module_mine.adapters;
 
+import android.animation.ValueAnimator;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,8 @@ import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.SingleLayoutHelper;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
+import com.zlx.library_common.MMkvHelper;
+import com.zlx.library_common.constrant.C;
 import com.zlx.library_common.res_data.RankBean;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
@@ -51,9 +55,21 @@ public class RvAdapterMyScoreHeader extends DelegateAdapter.Adapter<RvAdapterMyS
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvScore.setText(score);
+        startAnim(holder.tvScore);
     }
-
+    private void startAnim(TextView textView){
+        String coinCount = MMkvHelper.getInstance().getUserInfo().getCoinCount();
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, Integer.parseInt(coinCount));
+        //播放时长
+        valueAnimator.setDuration(C.DURATION);
+        valueAnimator.setInterpolator(new DecelerateInterpolator());
+        valueAnimator.addUpdateListener(valueAnimator1 -> {
+            //获取改变后的值
+            int currentValue = (int) valueAnimator1.getAnimatedValue();
+            textView.setText(currentValue + "");
+        });
+        valueAnimator.start();
+    }
     @Override
     public int getItemCount() {
         return 1;

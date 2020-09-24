@@ -34,6 +34,7 @@ import com.zlx.module_base.impl.IAcView;
 import com.zlx.module_base.impl.INetView;
 import com.zlx.module_base.loadsir.EmptyCallback;
 import com.zlx.module_base.loadsir.LoadingCallback;
+import com.zlx.module_base.widget.slideback.SlideBack;
 
 import butterknife.ButterKnife;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
@@ -45,9 +46,6 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 public abstract class BaseAc extends AppCompatActivity implements INetView, IAcView {
 
-
-    protected Context context;
-    protected Activity activity;
 
     protected TextView tvTitle;
 
@@ -68,15 +66,17 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
             setContentView(getLayoutId());
             ButterKnife.bind(this);
         }
-        context = this;
-        activity = this;
         initImmersionBar();
         initEvents();
         initViews();
         doubleClickExitDetector =
-                new DoubleClickExitDetector(context, "再按一次退出", 2000);
+                new DoubleClickExitDetector(this, "再按一次退出", 2000);
 
-//        getSwipeBackLayout().setEnableGesture(canSwipeBack());
+        if (canSwipeBack()){
+            //开启滑动返回
+            SlideBack.create()
+                    .attachToActivity(this);
+        }
     }
 
     @Override

@@ -28,4 +28,5 @@ public class C {
     public static final String URL_ABOUT = WAN_ANDROID + "about";
     public static final String SOURCE_URL = "https://github.com/1170762202/ShareLive";
 
+    public static final long DURATION = 1500;
 }

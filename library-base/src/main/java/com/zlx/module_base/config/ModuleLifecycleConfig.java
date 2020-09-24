@@ -1,5 +1,7 @@
 package com.zlx.module_base.config;
 
+import android.app.Application;
+
 import androidx.annotation.Nullable;
 
 import com.zlx.module_base.BaseApplication;
@@ -28,7 +30,7 @@ public class ModuleLifecycleConfig {
     /**
      * 优先初始化
      */
-    public void initModuleAhead(@Nullable BaseApplication application) {
+    public void initModuleAhead(@Nullable Application application) {
         for (String moduleName : ModuleLifecycleReflects.initModuleNames) {
             try {
                 Class<?> clazz = Class.forName(moduleName);

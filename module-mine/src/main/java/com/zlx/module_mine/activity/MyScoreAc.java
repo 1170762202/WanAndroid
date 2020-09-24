@@ -1,7 +1,9 @@
 package com.zlx.module_mine.activity;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
+import android.view.animation.DecelerateInterpolator;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,6 +13,7 @@ import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+import com.zlx.library_common.MMkvHelper;
 import com.zlx.library_common.constrant.C;
 import com.zlx.library_common.res_data.RankBean;
 import com.zlx.library_common.res_data.RankListRes;
@@ -84,19 +87,11 @@ public class MyScoreAc extends BaseAc implements OnRefreshLoadMoreListener {
         smartRefreshLayout.setOnRefreshLoadMoreListener(this);
         showLoading();
         listScore(true);
-        getScore();
+
     }
 
-    private void getScore() {
-        ApiUtil.getUserApi().getIntegral().observe(this,
-                new BaseObserver<>(new BaseObserverCallBack<ApiResponse<UserInfo>>() {
-                    @Override
-                    public void onSuccess(ApiResponse<UserInfo> data) {
-                        UserInfo userInfo = data.getData();
-                        adapterMyScoreHeader.setScore(userInfo.getCoinCount());
-                    }
-                }));
-    }
+
+
 
     private int page = 1;
 
@@ -136,8 +131,6 @@ public class MyScoreAc extends BaseAc implements OnRefreshLoadMoreListener {
 
     @Override
     public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-        getScore();
         listScore(true);
-
     }
 }

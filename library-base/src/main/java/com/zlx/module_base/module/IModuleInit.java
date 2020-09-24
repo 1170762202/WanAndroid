@@ -1,5 +1,7 @@
 package com.zlx.module_base.module;
 
+import android.app.Application;
+
 import com.zlx.module_base.BaseApplication;
 
 /**
@@ -12,7 +14,7 @@ public interface IModuleInit {
     /**
      * 需要优先初始化的
      */
-    boolean onInitAhead(BaseApplication application);
+    boolean onInitAhead(Application application);
 
     /**
      * 可以后初始化的

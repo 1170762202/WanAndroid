@@ -3,6 +3,10 @@ package com.zlx.module_home.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Matrix;
+import android.graphics.RectF;
+import android.os.Parcelable;
+import android.transition.Fade;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,11 +14,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.app.SharedElementCallback;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
+import com.gyf.immersionbar.BarHide;
+import com.gyf.immersionbar.ImmersionBar;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
@@ -68,6 +75,7 @@ public class SearchResultAc extends BaseAc implements OnRefreshLoadMoreListener 
         return R.layout.ac_search_result;
     }
 
+
     @Override
     public void initViews() {
         super.initViews();
@@ -79,12 +87,9 @@ public class SearchResultAc extends BaseAc implements OnRefreshLoadMoreListener 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapterArticleList);
         showLoading(smartRefreshLayout);
-        adapterArticleList.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
-                List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
-                RouterUtil.launchWeb(data.get(position).getLink());
-            }
+        adapterArticleList.setOnItemClickListener((adapter, view, position) -> {
+            List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
+            RouterUtil.launchWeb(data.get(position).getLink());
         });
         adapterArticleList.setOnItemChildClickListener((adapter, view, position) -> {
             if (view.getId() == R.id.ivCollect) {
