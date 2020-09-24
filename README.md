@@ -7,7 +7,6 @@
 #### 首页有彩蛋哦，等你发现！！！
 
 ###效果图
-如果显示不出，请前往[简书](https://www.jianshu.com/p/6a2c7120254c)
 
 
 
@@ -103,6 +102,11 @@
 )
 *   [PersistentCookieJar]([https://github.com/franmontiel/PersistentCookieJar](https://github.com/franmontiel/PersistentCookieJar)
 )
+
+[点我下载或者扫码下载](https://github.com/1170762202/WanAndroid/blob/master/app/release/app-release.apk)
+
+
+![1600940185(1).jpg](https://upload-images.jianshu.io/upload_images/4906229-85878a0fa91d042e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 致谢
