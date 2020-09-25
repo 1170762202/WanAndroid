@@ -1,5 +1,5 @@
 
-###简介
+### 简介
 本项目基于 组件化 + Arouter + Jetpack + Rxjava + Retrofit + AOP 等框架实现的一款开源项目。如有任何疑问或bug欢迎给我提[issues]((https://github.com/1170762202/WanAndroid/issues)),项目会一直维护下去，一起努力打造一个完美的app。
 [源码地址](https://github.com/1170762202/WanAndroid)
 喜欢的话，记得给个star哦!
@@ -66,42 +66,42 @@
 ## 主要开源框架
 
 *   [flexbox-layout](https://github.com/google/flexbox-layout)
-*   [RxJava]([https://github.com/ReactiveX/RxJava](https://github.com/ReactiveX/RxJava)
-)
-*   [RxAndroid]([https://github.com/ReactiveX/RxAndroid](https://github.com/ReactiveX/RxAndroid)
-)
-*   [Retrofit]([https://github.com/square/retrofit](https://github.com/square/retrofit)
-)
-*   [okhttp]([https://github.com/square/okhttp](https://github.com/square/okhttp)
-)
-*   [Glide]([https://github.com/bumptech/glide](https://github.com/bumptech/glide)
-)
-*   [BaseRecyclerViewAdapterHelper]([https://github.com/CymChad/BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
-)
-*   [EventBus]([https://github.com/greenrobot/EventBus](https://github.com/greenrobot/EventBus)
-)
-*   [Arouter]([https://github.com/alibaba/ARouter](https://github.com/alibaba/ARouter)
-)
-*   [ImmersionBar]([https://github.com/gyf-dev/ImmersionBar](https://github.com/gyf-dev/ImmersionBar)
-)
-*   [Particle]([https://github.com/JeasonWong/Particle](https://github.com/JeasonWong/Particle)
-)
-*   [banner]([https://github.com/youth5201314/banner](https://github.com/youth5201314/banner)
-)
-*   [LoadSir]([https://github.com/KingJA/LoadSir](https://github.com/KingJA/LoadSir)
-)
-*   [MagicIndicator]([https://github.com/hackware1993/MagicIndicator](https://github.com/hackware1993/MagicIndicator)
-)
-*   [MMKV]([https://github.com/Tencent/MMKV](https://github.com/Tencent/MMKV)
-)
-*   [SmartRefreshLayout]([https://github.com/scwang90/SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)
-)
-*   [AgentWeb]([https://github.com/Justson/AgentWeb](https://github.com/Justson/AgentWeb)
-)
-*   [aop]([https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx](https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx)
-)
-*   [PersistentCookieJar]([https://github.com/franmontiel/PersistentCookieJar](https://github.com/franmontiel/PersistentCookieJar)
-)
+*   [RxJava](https://github.com/ReactiveX/RxJava)
+
+*   [RxAndroid](https://github.com/ReactiveX/RxAndroid)
+
+*   [Retrofit](https://github.com/square/retrofit)
+
+*   [okhttp](https://github.com/square/okhttp)
+
+*   [Glide](https://github.com/bumptech/glide)
+
+*   [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
+
+*   [EventBus](https://github.com/greenrobot/EventBus)
+
+*   [Arouter](https://github.com/alibaba/ARouter)
+
+*   [ImmersionBar](https://github.com/gyf-dev/ImmersionBar)
+
+*   [Particle](https://github.com/JeasonWong/Particle)
+
+*   [banner](https://github.com/youth5201314/banner)
+
+*   [LoadSir](https://github.com/KingJA/LoadSir)
+
+*   [MagicIndicator](https://github.com/hackware1993/MagicIndicator)
+
+*   [MMKV](https://github.com/Tencent/MMKV)
+
+*   [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)
+
+*   [AgentWeb](https://github.com/Justson/AgentWeb)
+
+*   [aop](https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx)
+
+*   [PersistentCookieJar](https://github.com/franmontiel/PersistentCookieJar)
+
 
 [点我下载或者扫码下载](https://github.com/1170762202/WanAndroid/blob/master/app/release/app-release.apk)
 
