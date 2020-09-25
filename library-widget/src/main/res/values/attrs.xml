@@ -2,16 +2,7 @@
 <resources>
     <attr name="srlShadowColor" format="color"/>
     <attr name="srlShadowRadius" format="dimension"/>
-    <declare-styleable name="WaveSwipeHeader">
-        <attr name="wshPrimaryColor" format="color" />
-        <attr name="wshAccentColor" format="color" />
-        <attr name="wshShadowColor" format="color" />
-        <attr name="wshShadowRadius" format="dimension"/>
-        <attr name="srlPrimaryColor"  />
-        <attr name="srlAccentColor" />
-        <attr name="srlShadowColor" />
-        <attr name="srlShadowRadius" />
-    </declare-styleable>
+
     <declare-styleable name="BubbleToggleView">
         <attr name="bt_icon" format="reference" />
         <attr name="bt_iconWidth" format="dimension" />
@@ -42,22 +33,6 @@
 
 
 
-    <declare-styleable name="RippleView">
-        <attr name="rv_alpha" format="integer" />
-        <attr name="rv_framerate" format="integer"/>
-        <attr name="rv_rippleDuration" format="integer"/>
-        <attr name="rv_zoomDuration" format="integer" />
-        <attr name="rv_color" format="color" />
-        <attr name="rv_centered" format="boolean" />
-        <attr name="rv_type" format="enum">
-            <enum name="simpleRipple" value="0"/>
-            <enum name="doubleRipple" value="1"/>
-            <enum name="rectangle" value="2" />
-        </attr>
-        <attr name="rv_ripplePadding" format="dimension" />
-        <attr name="rv_zoom" format="boolean" />
-        <attr name="rv_zoomScale" format="float" />
-    </declare-styleable>
 
     <declare-styleable name="SideBar">
         <attr name="maxTranslationX" format="dimension" />

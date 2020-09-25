@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +21,7 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.zlx.module_base.base_fg.BaseFg;
+import com.zlx.module_base.base_util.SizeUtils;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
@@ -27,11 +30,16 @@ import com.zlx.library_common.res_data.ArticleBean;
 import com.zlx.library_common.res_data.ArticleListRes;
 import com.zlx.library_common.res_data.PublicAuthorListRes;
 import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_public.R;
 import com.zlx.module_public.R2;
 import com.zlx.module_public.adapters.AuthorAdapter;
 import com.zlx.module_public.adapters.PublicArticleAdapter;
 import com.zlx.module_public.guillotine.animation.GuillotineAnimation;
+import com.zlx.widget.fantasyslide.FantasyDrawerLayout;
+import com.zlx.widget.fantasyslide.FantasyListener;
+import com.zlx.widget.fantasyslide.SideBar;
+import com.zlx.widget.fantasyslide.SimpleFantasyListener;
 import com.zlx.widget.hivelayoutmanager.HiveLayoutManager;
 
 import java.util.ArrayList;
@@ -122,16 +130,20 @@ public class PublicFg extends BaseFg implements OnRefreshLoadMoreListener {
         publicArticleAdapter = new PublicArticleAdapter(articleList);
         recyclerView.setAdapter(publicArticleAdapter);
         publicArticleAdapter.setOnArticleCollect(articleBean -> {
-            if (articleBean.isCollect()){
-                ApiUtil.getArticleApi().unCollect(articleBean.getId()).observe(this,apiResponse -> {});
-            }else {
-                ApiUtil.getArticleApi().collect(articleBean.getId()).observe(this,apiResponse -> {});
+            if (articleBean.isCollect()) {
+                ApiUtil.getArticleApi().unCollect(articleBean.getId()).observe(this, apiResponse -> {
+                });
+            } else {
+                ApiUtil.getArticleApi().collect(articleBean.getId()).observe(this, apiResponse -> {
+                });
             }
         });
         smartRefreshLayout.setEnableLoadMore(true);
         smartRefreshLayout.setEnableRefresh(true);
         smartRefreshLayout.setOnRefreshLoadMoreListener(this);
+
     }
+
 
     @Override
     public void onResume() {
@@ -181,7 +193,6 @@ public class PublicFg extends BaseFg implements OnRefreshLoadMoreListener {
                     tvTitle.setText(name);
                     id = publicAuthorListRes.getId();
                     listArticle(id, true);
-
                 }
             }
         }));

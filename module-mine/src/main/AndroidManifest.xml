@@ -10,5 +10,6 @@
         <activity android:name=".activity.MyCollectAc" />
         <activity android:name=".activity.OpenSourceAc" />
         <activity android:name=".activity.AboutAuthorAc" />
+        <activity android:name=".activity.MyShareAc" />
     </application>
 </manifest>

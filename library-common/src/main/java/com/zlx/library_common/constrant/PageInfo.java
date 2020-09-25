@@ -20,7 +20,6 @@ public class PageInfo {
         return page == 1;
     }
 
-    /**************************************  我是分割线   ***************************************/
     public int zeroPage = 0;
 
     public void nextZeroPage() {

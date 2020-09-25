@@ -97,5 +97,4 @@ dependencies {
     api  'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
 
     api project(':library-db')
-    api 'com.aitangba:swipeback:1.0.3'
 }

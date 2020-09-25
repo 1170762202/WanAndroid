@@ -6,12 +6,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.google.android.flexbox.FlexboxLayout;
 import com.zlx.module_base.BaseRecycleAdapter;
 import com.zlx.library_common.res_data.ArticleBean;
 import com.zlx.library_common.res_data.NaviListRes;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_square.R;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -23,26 +27,20 @@ import java.util.Queue;
  * Email: 1170762202@qq.com
  * Description: 流式布局
  */
-public class RvAdapterNavi extends BaseRecycleAdapter<NaviListRes> {
+public class RvAdapterNavi extends BaseQuickAdapter<NaviListRes, BaseViewHolder> {
 
     private LayoutInflater layoutInflater = null;
     private Queue<AppCompatTextView> mFlexItemTextViewCaches = new LinkedList<>();
 
-    public RvAdapterNavi(List<NaviListRes> datas) {
-        super(datas);
+    public RvAdapterNavi() {
+        super(R.layout.rv_item_flex);
     }
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.rv_item_flex;
-    }
-
-    @Override
-    protected void bindData(BaseViewHolder holder, NaviListRes res, int position) {
-        TextView tvTitle = holder.getView(R.id.tvTitle);
-        FlexboxLayout flexLayout = holder.getView(R.id.flexLayout);
-        tvTitle.setText(res.getName());
-        List<ArticleBean> children = res.getArticles();
+    protected void convert(@NotNull BaseViewHolder baseViewHolder, NaviListRes naviListRes) {
+        baseViewHolder.setText(R.id.tvTitle,naviListRes.getName());
+        FlexboxLayout flexLayout =  baseViewHolder.getView(R.id.flexLayout);
+        List<ArticleBean> children = naviListRes.getArticles();
 //            flexLayout.removeAllViews();  //注释这条属性，用下面onViewRecycled()方法也行
         for (int i = 0; i < children.size(); i++) {
             ArticleBean datasBean = children.get(i);
@@ -79,4 +77,5 @@ public class RvAdapterNavi extends BaseRecycleAdapter<NaviListRes> {
             layoutInflater = LayoutInflater.from(flexboxLayout.getContext());
         return (AppCompatTextView) layoutInflater.inflate(R.layout.flextlayout_item_label, flexboxLayout, false);
     }
+
 }

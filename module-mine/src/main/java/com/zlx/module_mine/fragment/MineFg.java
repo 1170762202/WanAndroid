@@ -19,6 +19,7 @@ import com.zlx.module_mine.R2;
 import com.zlx.module_mine.activity.AboutAuthorAc;
 import com.zlx.module_mine.activity.MyCollectAc;
 import com.zlx.module_mine.activity.MyScoreAc;
+import com.zlx.module_mine.activity.MyShareAc;
 import com.zlx.module_mine.activity.OpenSourceAc;
 import com.zlx.module_mine.activity.ScoreRankListAc;
 import com.zlx.module_mine.activity.SettingAc;
@@ -129,6 +130,7 @@ public class MineFg extends BaseFg {
         } else if (id == R.id.llCollect) {
             MyCollectAc.launch(getContext());
         } else if (id == R.id.llShare) {
+//            MyShareAc.launch(getContext());
         } else if (id == R.id.llProjects) {
             OpenSourceAc.launch(getContext());
         } else if (id == R.id.llAbout) {

@@ -33,7 +33,6 @@ public class NavigationFg extends BaseFg {
     RecyclerView recyclerView;
 
     RvAdapterNavi adapter;
-    private List<NaviListRes> dataList = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -43,7 +42,7 @@ public class NavigationFg extends BaseFg {
     @Override
     protected void initViews() {
         super.initViews();
-        adapter = new RvAdapterNavi(dataList);
+        adapter = new RvAdapterNavi();
         FlexboxLayoutManager layoutManager = new FlexboxLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
@@ -55,7 +54,7 @@ public class NavigationFg extends BaseFg {
                 new BaseObserver<>(new BaseObserverCallBack<ApiResponse<List<NaviListRes>>>() {
                     @Override
                     public void onSuccess(ApiResponse<List<NaviListRes>> data) {
-                        adapter.refresh(data.getData());
+                        adapter.setList(data.getData());
                     }
 
                     @Override

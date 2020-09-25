@@ -9,23 +9,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.zlx.library_common.MMkvHelper;
 import com.zlx.library_common.adapters.RvAdapterArticleList;
+import com.zlx.library_common.res_data.ArticleBean;
+import com.zlx.library_common.res_data.ArticleListRes;
+import com.zlx.library_common.res_data.ProjectListRes;
+import com.zlx.library_common.util.ApiUtil;
 import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
-import com.zlx.library_common.res_data.ArticleBean;
-import com.zlx.library_common.res_data.ArticleListRes;
-import com.zlx.library_common.res_data.ProjectListRes;
-import com.zlx.library_common.util.ApiUtil;
 import com.zlx.module_project.R;
 import com.zlx.module_project.R2;
 import com.zlx.module_project.adapters.RvAdapterTitle;
@@ -59,7 +57,6 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
     View root;
 
     private RvAdapterTitle adapterTitle;
-    private List<ProjectListRes> projectList = new ArrayList<>();
 
     private RvAdapterArticleList adapterArticleList;
 
@@ -112,7 +109,7 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
     private void listProjectsTab() {
         List<ProjectListRes> projectTabs = MMkvHelper.getInstance().getProjectTabs(ProjectListRes.class);
         if (projectTabs.size() > 0) {
-            adapterTitle.refresh(projectTabs);
+            adapterTitle.setList(projectTabs);
             if (projectTabs.size() > 0) {
                 ProjectListRes projectListRes = projectTabs.get(0);
                 tvName.setText(projectListRes.getName());
@@ -153,17 +150,17 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
     }
 
     private void initListView() {
-        adapterTitle = new RvAdapterTitle(projectList);
-        adapterTitle.setListener(position -> {
+        adapterTitle = new RvAdapterTitle();
+        adapterTitle.setOnItemClickListener((adapter, view1, position) -> {
             mLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
 
-            ProjectListRes projectListRes = projectList.get(position);
+            ProjectListRes projectListRes = adapterTitle.getData().get(position);
             tvName.setText(projectListRes.getName());
 
             id = projectListRes.getId();
             listProjects(id, true);
-
         });
+
         rvTitle.setAdapter(adapterTitle);
 
         adapterArticleList = new RvAdapterArticleList();

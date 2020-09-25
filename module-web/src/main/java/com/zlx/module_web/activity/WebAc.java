@@ -18,7 +18,6 @@ import com.zlx.module_web.R;
 import com.zlx.module_web.R2;
 import com.zlx.module_web.WebLayout;
 import com.zlx.module_web.fragment.WebDialogFg;
-import com.zlx.widget.webview.Html5WebView;
 
 import butterknife.BindView;
 

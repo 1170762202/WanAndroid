@@ -6,7 +6,7 @@
     android:background="@color/guillotine_background_dark"
     android:orientation="vertical">
 
-    <include layout="@layout/statusview"/>
+    <include layout="@layout/statusview" />
 
     <FrameLayout
         android:id="@+id/root"
@@ -55,7 +55,10 @@
                 </FrameLayout>
             </androidx.appcompat.widget.Toolbar>
 
-            <include layout="@layout/simple_refresh_layout" />
+
+                <include layout="@layout/simple_refresh_layout" />
+
+
         </LinearLayout>
 
     </FrameLayout>

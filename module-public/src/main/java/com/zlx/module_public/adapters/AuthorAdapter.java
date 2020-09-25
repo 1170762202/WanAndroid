@@ -3,6 +3,8 @@ package com.zlx.module_public.adapters;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.zlx.module_base.BaseRecycleAdapter;
 import com.zlx.module_base.OnItemClickListener;
 import com.zlx.library_common.res_data.PublicAuthorListRes;
@@ -28,7 +30,7 @@ public class AuthorAdapter extends BaseRecycleAdapter<PublicAuthorListRes> {
         TextView textView = holder.getView(R.id.text);
         ImageView image = holder.getView(R.id.image);
         textView.setText(bean.getName());
-        HiveDrawable hiveDrawable = new HiveDrawable(HiveLayoutManager.VERTICAL, getContext().getColor(R.color.main_text));
+        HiveDrawable hiveDrawable = new HiveDrawable(HiveLayoutManager.VERTICAL, ContextCompat.getColor(getContext(),R.color.main_text));
         image.setImageDrawable(hiveDrawable);
         image.setOnClickListener(view -> {
             if (listener != null) {
