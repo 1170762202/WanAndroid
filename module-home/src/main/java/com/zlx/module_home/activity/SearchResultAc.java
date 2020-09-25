@@ -1,32 +1,21 @@
 package com.zlx.module_home.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Matrix;
-import android.graphics.RectF;
-import android.os.Parcelable;
-import android.transition.Fade;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.app.SharedElementCallback;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
-import com.gyf.immersionbar.BarHide;
-import com.gyf.immersionbar.ImmersionBar;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.zlx.library_common.adapters.RvAdapterArticleList;
-import com.zlx.library_common.constrant.PageInfo;
+import com.zlx.library_common.constrant.PageImpl;
 import com.zlx.library_common.res_data.ArticleBean;
 import com.zlx.library_common.res_data.ArticleListRes;
 import com.zlx.library_common.util.ApiUtil;
@@ -37,7 +26,6 @@ import com.zlx.module_home.R2;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
-import com.zlx.module_network.util.LogUtil;
 
 import java.util.List;
 
@@ -62,7 +50,7 @@ public class SearchResultAc extends BaseAc implements OnRefreshLoadMoreListener 
     private RvAdapterArticleList adapterArticleList;
 
     private String searchContent;
-    private PageInfo pageInfo;
+    private PageImpl pageImpl = new PageImpl();
 
     public static void start(Activity activity, String searchContent, ActivityOptionsCompat optionsCompat) {
         Intent intent = new Intent(activity, SearchResultAc.class);
@@ -79,7 +67,6 @@ public class SearchResultAc extends BaseAc implements OnRefreshLoadMoreListener 
     @Override
     public void initViews() {
         super.initViews();
-        pageInfo = new PageInfo();
         searchContent = getIntent().getStringExtra("searchContent");
         etSearch.setText(searchContent);
         smartRefreshLayout.setOnRefreshLoadMoreListener(this);
@@ -117,11 +104,11 @@ public class SearchResultAc extends BaseAc implements OnRefreshLoadMoreListener 
 
     private void search(boolean refresh) {
         if (refresh) {
-            pageInfo.resetZero();
+            pageImpl.resetZero();
         } else {
-            pageInfo.nextZeroPage();
+            pageImpl.nextZeroPage();
         }
-        ApiUtil.getArticleApi().search(pageInfo.zeroPage, searchContent).observe(this,
+        ApiUtil.getArticleApi().search(pageImpl.zeroPage, searchContent).observe(this,
                 new BaseObserver<>(new BaseObserverCallBack<ApiResponse<ArticleListRes>>() {
                     @Override
                     public void onSuccess(ApiResponse<ArticleListRes> data) {

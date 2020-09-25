@@ -5,7 +5,7 @@ package com.zlx.library_common.constrant;
  * Email: 1170762202@qq.com
  * Description:
  */
-public class PageInfo {
+public class PageImpl {
     public int page = 1;
 
     public void nextPage() {

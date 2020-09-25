@@ -10,7 +10,7 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.zlx.library_common.adapters.RvAdapterArticleList;
-import com.zlx.library_common.constrant.PageInfo;
+import com.zlx.library_common.constrant.PageImpl;
 import com.zlx.library_common.res_data.ArticleBean;
 import com.zlx.library_common.res_data.MyShareBean;
 import com.zlx.library_common.util.ApiUtil;
@@ -18,12 +18,10 @@ import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
-import com.zlx.module_mine.adapters.RvAdapterMyShare;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -44,7 +42,7 @@ public class MyShareAc extends BaseAc implements OnRefreshLoadMoreListener {
 
     private RvAdapterArticleList adapterArticleList;
 
-    private PageInfo pageInfo = new PageInfo();
+    private PageImpl pageImpl = new PageImpl();
 
     public static void launch(Context context) {
         context.startActivity(new Intent(context, MyShareAc.class));
@@ -94,11 +92,11 @@ public class MyShareAc extends BaseAc implements OnRefreshLoadMoreListener {
 
     private void listMyShare(boolean refresh) {
         if (refresh) {
-            pageInfo.reset();
+            pageImpl.reset();
         } else {
-            pageInfo.nextPage();
+            pageImpl.nextPage();
         }
-        ApiUtil.getArticleApi().listMyShare(pageInfo.page).observe(this,
+        ApiUtil.getArticleApi().listMyShare(pageImpl.page).observe(this,
                 new BaseObserver<>(new BaseObserverCallBack<ApiResponse<MyShareBean>>() {
                     @Override
                     public void onSuccess(ApiResponse<MyShareBean> data) {
