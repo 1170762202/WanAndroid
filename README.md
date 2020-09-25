@@ -67,41 +67,41 @@
 
 *   [flexbox-layout](https://github.com/google/flexbox-layout)
 *   [RxJava](https://github.com/ReactiveX/RxJava)
-)
+
 *   [RxAndroid](https://github.com/ReactiveX/RxAndroid)
-)
+
 *   [Retrofit](https://github.com/square/retrofit)
-)
+
 *   [okhttp](https://github.com/square/okhttp)
-)
+
 *   [Glide](https://github.com/bumptech/glide)
-)
+
 *   [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper)
-)
+
 *   [EventBus](https://github.com/greenrobot/EventBus)
-)
+
 *   [Arouter](https://github.com/alibaba/ARouter)
-)
+
 *   [ImmersionBar](https://github.com/gyf-dev/ImmersionBar)
-)
+
 *   [Particle](https://github.com/JeasonWong/Particle)
-)
+
 *   [banner](https://github.com/youth5201314/banner)
-)
+
 *   [LoadSir](https://github.com/KingJA/LoadSir)
-)
+
 *   [MagicIndicator](https://github.com/hackware1993/MagicIndicator)
-)
+
 *   [MMKV](https://github.com/Tencent/MMKV)
-)
+
 *   [SmartRefreshLayout](https://github.com/scwang90/SmartRefreshLayout)
-)
+
 *   [AgentWeb](https://github.com/Justson/AgentWeb)
-)
+
 *   [aop](https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx)
-)
+
 *   [PersistentCookieJar](https://github.com/franmontiel/PersistentCookieJar)
-)
+
 
 [点我下载或者扫码下载](https://github.com/1170762202/WanAndroid/blob/master/app/release/app-release.apk)
 
