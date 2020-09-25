@@ -6,12 +6,22 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
+import com.zlx.library_common.adapters.RvAdapterArticleList;
+import com.zlx.library_common.constrant.PageInfo;
+import com.zlx.library_common.res_data.ArticleBean;
+import com.zlx.library_common.res_data.MyShareBean;
+import com.zlx.library_common.util.ApiUtil;
 import com.zlx.module_base.base_ac.BaseAc;
+import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
 import com.zlx.module_mine.adapters.RvAdapterMyShare;
+import com.zlx.module_network.api1.livedata.BaseObserver;
+import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
+import com.zlx.module_network.bean.ApiResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +36,15 @@ import butterknife.OnClick;
  */
 public class MyShareAc extends BaseAc implements OnRefreshLoadMoreListener {
 
-//    @BindView(R2.id.smartRefreshLayout)
-//    SmartRefreshLayout smartRefreshLayout;
+    @BindView(R2.id.smartRefreshLayout)
+    SmartRefreshLayout smartRefreshLayout;
     @BindView(R2.id.recyclerView)
     RecyclerView recyclerView;
 
 
-    private RvAdapterMyShare adapterMyShare;
+    private RvAdapterArticleList adapterArticleList;
+
+    private PageInfo pageInfo = new PageInfo();
 
     public static void launch(Context context) {
         context.startActivity(new Intent(context, MyShareAc.class));
@@ -47,25 +59,82 @@ public class MyShareAc extends BaseAc implements OnRefreshLoadMoreListener {
     public void initViews() {
         super.initViews();
         setAcTitle("我的分享");
-        adapterMyShare = new RvAdapterMyShare();
-        recyclerView.setAdapter(adapterMyShare);
-//        smartRefreshLayout.setOnRefreshLoadMoreListener(this);
+        adapterArticleList = new RvAdapterArticleList();
+        recyclerView.setAdapter(adapterArticleList);
+        smartRefreshLayout.setOnRefreshLoadMoreListener(this);
+        adapterArticleList.setOnItemChildClickListener((adapter, view, position) -> {
+            if (view.getId() == R.id.ivCollect) {
+                List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
+                ArticleBean articleBean = data.get(position);
+                if (articleBean.isCollect()) {
+                    ApiUtil.getArticleApi().unCollect(articleBean.getId()).observe(this, apiResponse -> {
+                    });
+                } else {
+                    ApiUtil.getArticleApi().collect(articleBean.getId()).observe(this, apiResponse -> {
+                    });
+                }
+                articleBean.setCollect(!articleBean.isCollect());
+                adapterArticleList.notifyItemChanged(position);
+
+            }
+        });
+        adapterArticleList.setOnItemClickListener((adapter, view, position) -> {
+            List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
+            RouterUtil.launchWeb(data.get(position).getLink());
+        });
+
+        showLoading(smartRefreshLayout);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         listMyShare(true);
     }
 
     private void listMyShare(boolean refresh) {
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            list.add(i+"");
+        if (refresh) {
+            pageInfo.reset();
+        } else {
+            pageInfo.nextPage();
         }
-        adapterMyShare.setList(list);
-//        smartRefreshLayout.finishRefresh();
-//        smartRefreshLayout.finishLoadMore();
+        ApiUtil.getArticleApi().listMyShare(pageInfo.page).observe(this,
+                new BaseObserver<>(new BaseObserverCallBack<ApiResponse<MyShareBean>>() {
+                    @Override
+                    public void onSuccess(ApiResponse<MyShareBean> data) {
+                        if (refresh) {
+                            adapterArticleList.setList(data.getData().getShareArticles().getDatas());
+                        } else {
+                            adapterArticleList.addData(data.getData().getShareArticles().getDatas());
+
+                        }
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        super.onFinish();
+                        if (adapterArticleList.getData().size() > 0) {
+                            showSuccess();
+                        } else {
+                            showEmpty();
+                        }
+                        smartRefreshLayout.finishRefresh();
+                        smartRefreshLayout.finishLoadMore();
+                    }
+                }));
     }
 
-    @OnClick(R2.id.fab)
-    public void submit() {
+    @Override
+    public void onRetryBtnClick() {
+        super.onRetryBtnClick();
+        showLoading(smartRefreshLayout);
+        listMyShare(true);
+    }
 
+
+    @OnClick(R2.id.fab)
+    public void share() {
+        ShareArticleAc.launch(this);
     }
 
     @Override

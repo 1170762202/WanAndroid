@@ -1,10 +1,10 @@
-package com.example.module_main.adapter;
+package com.zlx.module_main.adapter;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.module_main.impl.TabPagerListener;
+import com.zlx.module_main.impl.TabPagerListener;
 
 /**
  * @date: 2019\3\5 0005

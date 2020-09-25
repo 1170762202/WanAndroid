@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 
 import com.zlx.library_common.res_data.ArticleListRes;
 import com.zlx.library_common.res_data.BannerRes;
+import com.zlx.library_common.res_data.MyShareBean;
 import com.zlx.library_common.res_data.PublicAuthorListRes;
 import com.zlx.library_common.res_data.SearchBeanRes;
 import com.zlx.module_network.bean.ApiResponse;
@@ -116,4 +117,21 @@ public interface ArticleApi {
     @POST("article/query/{page}/json")
     LiveData<ApiResponse<ArticleListRes>> search(@Path("page") int pageNo, @Query("k") String k);
 
+
+    /**
+     * 我的分享
+     * @param page
+     * @return
+     */
+    @GET("user/lg/private_articles/{page}/json")
+    LiveData<ApiResponse<MyShareBean>> listMyShare(@Path("page") int page);
+
+    /**
+     * 分享文章
+     * @param title
+     * @param link
+     * @return
+     */
+    @POST("lg/user_article/add/json")
+    LiveData<ApiResponse> shareArticle(@Query("title") String title,@Query("link") String link);
 }

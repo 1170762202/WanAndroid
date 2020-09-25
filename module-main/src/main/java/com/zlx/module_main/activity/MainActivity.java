@@ -1,4 +1,4 @@
-package com.example.module_main.activity;
+package com.zlx.module_main.activity;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,12 +9,11 @@ import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.module_main.R;
-import com.example.module_main.R2;
-import com.example.module_main.adapter.VpAdapterMain;
-import com.example.module_main.impl.TabPagerListener;
+import com.zlx.module_main.R;
+import com.zlx.module_main.R2;
+import com.zlx.module_main.adapter.VpAdapterMain;
+import com.zlx.module_main.impl.TabPagerListener;
 import com.zlx.module_base.base_ac.BaseAc;
-import com.zlx.module_base.base_util.ToastUtil;
 import com.zlx.module_base.constant.RouterActivityPath;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.widget.bubblenavigation.BubbleNavigationConstraintView;

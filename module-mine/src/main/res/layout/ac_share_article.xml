@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/top_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="50dp"
+        android:paddingEnd="20dp">
+
+        <com.zlx.widget.shadow.ShadowLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:hl_cornerRadius="10dp"
+            app:hl_shadowLimit="5dp">
+
+            <com.zlx.widget.ClearEditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:hint="请输入标题"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp" />
+        </com.zlx.widget.shadow.ShadowLayout>
+
+        <com.zlx.widget.shadow.ShadowLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:hl_cornerRadius="10dp"
+            app:hl_shadowLimit="5dp">
+
+        <EditText
+            android:id="@+id/etLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@null"
+            android:gravity="start"
+            android:minHeight="100dp"
+            android:maxHeight="200dp"
+            android:hint="请输入链接地址"
+            android:padding="10dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp" />
+        </com.zlx.widget.shadow.ShadowLayout>
+
+
+        <TextView
+            android:id="@+id/tvShare"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/main_text"
+            android:gravity="center"
+            android:text="分享"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+</LinearLayout>

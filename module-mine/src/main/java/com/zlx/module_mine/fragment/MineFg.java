@@ -130,7 +130,7 @@ public class MineFg extends BaseFg {
         } else if (id == R.id.llCollect) {
             MyCollectAc.launch(getContext());
         } else if (id == R.id.llShare) {
-//            MyShareAc.launch(getContext());
+            MyShareAc.launch(getContext());
         } else if (id == R.id.llProjects) {
             OpenSourceAc.launch(getContext());
         } else if (id == R.id.llAbout) {

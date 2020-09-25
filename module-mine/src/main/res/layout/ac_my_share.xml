@@ -16,13 +16,15 @@
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/index_app_bar"
+            theme="@style/AppTheme.AppBarOverlay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="?attr/actionBarSize"
                 android:gravity="center_vertical"
+                android:background="@color/white"
                 android:orientation="horizontal"
                 app:layout_scrollFlags="scroll|enterAlways">
 
@@ -48,15 +50,6 @@
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
-                <ImageView
-                    android:id="@+id/ivRight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:src="@mipmap/ic_write1"
-                    tools:visibility="visible" />
             </LinearLayout>
 
 
@@ -67,15 +60,14 @@
             android:id="@+id/smartRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:srlAccentColor="#444444"
             app:srlEnableLoadMore="true"
-
             app:srlPrimaryColor="@android:color/transparent">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/rv_item_my_share" />
@@ -86,17 +78,15 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
+            android:layout_gravity="bottom|right|end"
             android:layout_margin="20dp"
             android:scaleType="center"
             android:src="@mipmap/ic_write"
-            app:backgroundTint="@color/colorAccent"
             app:backgroundTintMode="src_in"
             app:elevation="5dp"
             app:fabSize="auto"
-            app:layout_behavior="com.zlx.module_mine.widget.behavior.FloatActionButtonBehavior"
-            app:pressedTranslationZ="10dp"
-            app:rippleColor="#000000" />
+            app:layout_behavior="@string/behavior_my_fab_scale"
+            app:pressedTranslationZ="10dp" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </LinearLayout>
