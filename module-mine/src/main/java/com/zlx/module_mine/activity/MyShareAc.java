@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
@@ -21,6 +22,7 @@ import com.zlx.module_mine.R2;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.widget.CustomItemDecoration;
 
 import java.util.List;
 
@@ -59,6 +61,8 @@ public class MyShareAc extends BaseAc implements OnRefreshLoadMoreListener {
         setAcTitle("我的分享");
         adapterArticleList = new RvAdapterArticleList();
         recyclerView.setAdapter(adapterArticleList);
+        recyclerView.addItemDecoration(new CustomItemDecoration(this,
+                CustomItemDecoration.ItemDecorationDirection.VERTICAL_LIST, R.drawable.linear_split_line));
         smartRefreshLayout.setOnRefreshLoadMoreListener(this);
         adapterArticleList.setOnItemChildClickListener((adapter, view, position) -> {
             if (view.getId() == R.id.ivCollect) {
@@ -80,6 +84,16 @@ public class MyShareAc extends BaseAc implements OnRefreshLoadMoreListener {
             List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
             RouterUtil.launchWeb(data.get(position).getLink());
         });
+        adapterArticleList.setOnItemLongClickListener((adapter, view, position) -> {
+            new AlertDialog.Builder(this)
+                    .setMessage("确定删除?")
+                    .setPositiveButton("确定", (dialogInterface, i) -> {
+                        deleteArticle(adapterArticleList.getData().get(position).getId());
+                        adapter.removeAt(position);
+                    })
+                    .show();
+            return false;
+        });
 
         showLoading(smartRefreshLayout);
     }
@@ -88,6 +102,16 @@ public class MyShareAc extends BaseAc implements OnRefreshLoadMoreListener {
     protected void onResume() {
         super.onResume();
         listMyShare(true);
+    }
+
+    private void deleteArticle(String id) {
+        ApiUtil.getArticleApi().deleteArticle(id).observe(this,
+                new BaseObserver<>(new BaseObserverCallBack<ApiResponse>() {
+                    @Override
+                    public void onSuccess(ApiResponse data) {
+
+                    }
+                }));
     }
 
     private void listMyShare(boolean refresh) {

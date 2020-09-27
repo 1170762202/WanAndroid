@@ -120,6 +120,7 @@ public interface ArticleApi {
 
     /**
      * 我的分享
+     *
      * @param page
      * @return
      */
@@ -128,10 +129,21 @@ public interface ArticleApi {
 
     /**
      * 分享文章
+     *
      * @param title
      * @param link
      * @return
      */
     @POST("lg/user_article/add/json")
-    LiveData<ApiResponse> shareArticle(@Query("title") String title,@Query("link") String link);
+    LiveData<ApiResponse> shareArticle(@Query("title") String title, @Query("link") String link);
+
+
+    /**
+     * 删除文章
+     *
+     * @param id 文章id
+     * @return
+     */
+    @POST("lg/user_article/delete/{id}/json")
+    LiveData<ApiResponse> deleteArticle(@Path("id") String id);
 }

@@ -21,6 +21,7 @@ import com.zlx.library_common.util.ApiUtil;
 import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_square.R;
 import com.zlx.module_square.R2;
+import com.zlx.widget.CustomItemDecoration;
 
 import java.util.List;
 
@@ -61,6 +62,8 @@ public class SquareListAc extends BaseAc implements OnRefreshLoadMoreListener {
         adapterArticleList = new RvAdapterArticleList();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapterArticleList);
+        recyclerView.addItemDecoration(new CustomItemDecoration(this,
+                CustomItemDecoration.ItemDecorationDirection.VERTICAL_LIST, R.drawable.linear_split_line));
         smartRefreshLayout.setEnableLoadMore(true);
         smartRefreshLayout.setEnableRefresh(true);
         smartRefreshLayout.setOnRefreshLoadMoreListener(this);
