@@ -3,6 +3,7 @@ package com.zlx.module_mine.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.widget.EditText;
 
 import com.zlx.library_common.util.ApiUtil;
 import com.zlx.module_base.base_ac.BaseAc;
@@ -27,7 +28,7 @@ public class ShareArticleAc extends BaseAc {
     @BindView(R2.id.etTitle)
     ClearEditText etTitle;
     @BindView(R2.id.etLink)
-    ClearEditText etLink;
+    EditText etLink;
 
 
     public static void launch(Context context) {
@@ -57,6 +58,7 @@ public class ShareArticleAc extends BaseAc {
         if (TextUtils.isEmpty(link)) {
             ToastUtil.showShort("请输入链接");
         }
+        showLoading();
         ApiUtil.getArticleApi().shareArticle(title,link).observe(this,
                 new BaseObserver<>(new BaseObserverCallBack<ApiResponse>() {
                     @Override
@@ -68,6 +70,12 @@ public class ShareArticleAc extends BaseAc {
                     @Override
                     public boolean showErrorMsg() {
                         return true;
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        super.onFinish();
+                        showSuccess();
                     }
                 }));
     }

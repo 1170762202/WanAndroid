@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
+import com.zlx.library_common.widget.shinebutton.ShineButton;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.library_common.res_data.ArticleBean;
 import com.zlx.module_home.R;
@@ -56,13 +57,12 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
         holder.tvChapter.setText(String.format("%s·%s", datasBean.getSuperChapterName(), datasBean.getChapterName()));
         holder.tvTime.setText(datasBean.getNiceDate());
         holder.tvRefresh.setVisibility(datasBean.isFresh() ? View.VISIBLE : View.GONE);
-        holder.ivCollect.setImageResource(datasBean.isCollect() ? R.mipmap.ic_collect : R.mipmap.ic_uncollect);
         if (position == 0 && hasTop) {
             holder.top.setVisibility(View.VISIBLE);
         } else {
             holder.top.setVisibility(View.GONE);
         }
-        holder.ivCollect.setOnClickListener(view -> {
+        holder.shineButton.setOnClickListener(view -> {
             if (onArticleCollect != null) {
                 onArticleCollect.onCollect(datasBean);
             }
@@ -72,6 +72,7 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
         holder.vItem.setOnClickListener(view -> {
             RouterUtil.launchWeb(articleListResList.get(position).getLink());
         });
+        holder.shineButton.setChecked(datasBean.isCollect());
     }
 
     @Override
@@ -92,10 +93,10 @@ public class HomeArticleAdapter extends DelegateAdapter.Adapter<HomeArticleAdapt
         TextView tvRefresh;
         @BindView(R2.id.top)
         View top;
-        @BindView(R2.id.ivCollect)
-        ImageView ivCollect;
         @BindView(R2.id.vItem)
         View vItem;
+        @BindView(R2.id.ivCollect)
+        ShineButton shineButton;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

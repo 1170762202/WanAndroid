@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
+import com.zlx.library_common.widget.shinebutton.ShineButton;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.library_common.res_data.ArticleBean;
 import com.zlx.module_public.R;
@@ -56,7 +57,7 @@ public class PublicArticleAdapter extends DelegateAdapter.Adapter<PublicArticleA
         holder.tvChapter.setText(String.format("%s·%s", datasBean.getSuperChapterName(), datasBean.getChapterName()));
         holder.tvTime.setText(datasBean.getNiceDate());
         holder.tvRefresh.setVisibility(datasBean.isFresh() ? View.VISIBLE : View.GONE);
-        holder.ivCollect.setImageResource(datasBean.isCollect() ? R.mipmap.ic_collect : R.mipmap.ic_uncollect);
+        holder.shineButton.setChecked(datasBean.isCollect());
 
         if (position == 0 && hasTop) {
             holder.top.setVisibility(View.VISIBLE);
@@ -68,7 +69,7 @@ public class PublicArticleAdapter extends DelegateAdapter.Adapter<PublicArticleA
             RouterUtil.launchWeb(articleListResList.get(position).getLink());
         });
 
-        holder.ivCollect.setOnClickListener(view -> {
+        holder.shineButton.setOnClickListener(view -> {
             if (onArticleCollect != null) {
                 onArticleCollect.onCollect(datasBean);
             }
@@ -96,7 +97,7 @@ public class PublicArticleAdapter extends DelegateAdapter.Adapter<PublicArticleA
         @BindView(R2.id.top)
         View top;
         @BindView(R2.id.ivCollect)
-        ImageView ivCollect;
+        ShineButton shineButton;
 
         @BindView(R2.id.vItem)
         View vItem;

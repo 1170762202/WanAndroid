@@ -31,5 +31,4 @@ dependencies {
     api rootProject.ext.dependencies.appcompat
     api rootProject.ext.dependencies.mmkv
     api rootProject.ext.dependencies.glide
-
 }

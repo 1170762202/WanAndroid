@@ -75,6 +75,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -87,12 +88,14 @@
                 android:textSize="12sp"
                 tools:text="作者" />
 
-            <ImageView
+            <com.zlx.library_common.widget.shinebutton.ShineButton
                 android:id="@+id/ivCollect"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:src="@mipmap/ic_uncollect" />
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:btn_color="@android:color/darker_gray"
+                app:btn_fill_color="@color/shine_fill_color"
+                app:enable_flashing="true"
+                app:siShape="@raw/star" />
         </LinearLayout>
     </LinearLayout>
 

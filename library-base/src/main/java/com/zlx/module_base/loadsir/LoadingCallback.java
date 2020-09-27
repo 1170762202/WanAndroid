@@ -24,7 +24,7 @@ public class LoadingCallback extends Callback {
     //是否在显示Callback视图的时候显示原始图(SuccessView)，返回true显示，false隐藏
     @Override
     public boolean getSuccessVisible() {
-        return super.getSuccessVisible();
+        return true;
     }
 
     //将Callback添加到当前视图时的回调，View为当前Callback的布局View

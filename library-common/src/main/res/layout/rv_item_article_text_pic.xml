@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -37,7 +38,8 @@
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="2"
                 android:ellipsize="end"
                 android:maxLines="2"
                 android:textColor="#000000"
@@ -47,8 +49,9 @@
             <TextView
                 android:id="@+id/tvContent"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginTop="10dp"
+                android:layout_weight="1"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="#444444"
@@ -58,28 +61,31 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
+                android:layout_height="0dp"
                 android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/tvAuthor"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:ellipsize="end"
                     android:maxLines="1"
                     android:textColor="#999999"
                     android:textSize="12sp"
                     tools:text="名字" />
 
-                <ImageView
+                <com.zlx.library_common.widget.shinebutton.ShineButton
                     android:id="@+id/ivCollect"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:src="@mipmap/ic_uncollect" />
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:btn_color="@android:color/darker_gray"
+                    app:btn_fill_color="@color/shine_fill_color"
+                    app:enable_flashing="true"
+                    app:siShape="@raw/star" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

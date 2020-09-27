@@ -10,6 +10,7 @@ import com.zlx.library_common.R;
 import com.zlx.library_common.constrant.C;
 import com.zlx.library_common.res_data.ArticleBean;
 import com.zlx.library_common.util.GlideUtil;
+import com.zlx.library_common.widget.shinebutton.ShineButton;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -55,8 +56,10 @@ public class RvAdapterArticleList extends BaseMultiItemQuickAdapter<ArticleBean,
         }
         baseViewHolder.setText(R.id.tvTitle, articleBean.getTitle())
                 .setText(R.id.tvAuthor, TextUtils.isEmpty(articleBean.getAuthor()) ? articleBean.getShareUser() : articleBean.getAuthor())
-                .setGone(R.id.top, !(hasTop && baseViewHolder.getAdapterPosition() == 0))
-                .setImageResource(R.id.ivCollect, articleBean.isCollect() ? R.mipmap.ic_collect : R.mipmap.ic_uncollect);
+                .setGone(R.id.top, !(hasTop && baseViewHolder.getAdapterPosition() == 0));
+        ShineButton shineButton = baseViewHolder.getView(R.id.ivCollect);
+        shineButton.setChecked(articleBean.isCollect());
+
     }
 
     /**

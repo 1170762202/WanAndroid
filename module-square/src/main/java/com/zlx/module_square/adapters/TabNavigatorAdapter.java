@@ -6,6 +6,8 @@ import android.util.TypedValue;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
+import androidx.core.content.ContextCompat;
+
 import com.zlx.module_square.R;
 import com.zlx.module_square.widget.OnTabClickListener;
 import com.zlx.module_square.widget.ScaleTransitionPagerTitleView;
@@ -50,8 +52,8 @@ public class TabNavigatorAdapter extends CommonNavigatorAdapter {
         scaleTransitionPagerTitleView.setText(tabNameList.get(index));
         scaleTransitionPagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
         scaleTransitionPagerTitleView.setPadding(40, 0, 40, 0);
-        scaleTransitionPagerTitleView.setNormalColor(context.getResources().getColor(R.color.c_666666));
-        scaleTransitionPagerTitleView.setSelectedColor(context.getResources().getColor(R.color.colorPrimary));
+        scaleTransitionPagerTitleView.setNormalColor(ContextCompat.getColor(context, R.color.c_666666));
+        scaleTransitionPagerTitleView.setSelectedColor(ContextCompat.getColor(context, R.color.colorPrimary));
         scaleTransitionPagerTitleView.setOnClickListener(view -> {
             if (null != onTabClickListener)
                 onTabClickListener.onTabClick(view, index);
@@ -83,7 +85,7 @@ public class TabNavigatorAdapter extends CommonNavigatorAdapter {
         indicator.setRoundRadius((float) UIUtil.dip2px(context, 3.0));
         indicator.setStartInterpolator(new AccelerateInterpolator());
         indicator.setEndInterpolator(new DecelerateInterpolator(2.0f));
-        indicator.setColors(context.getResources().getColor(R.color.colorPrimary));
+        indicator.setColors(ContextCompat.getColor(context, R.color.colorPrimary));
         return indicator;
     }
 
