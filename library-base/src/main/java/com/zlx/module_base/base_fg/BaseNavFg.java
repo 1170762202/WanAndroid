@@ -1,6 +1,5 @@
 package com.zlx.module_base.base_fg;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.zlx.module_base.base_util.LogUtils;
-import com.zlx.module_base.base_util.ToastUtil;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

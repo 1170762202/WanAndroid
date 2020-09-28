@@ -3,7 +3,7 @@ package com.zlx.module_base.base_ac;
 import androidx.lifecycle.ViewModelProvider;
 
 
-import com.zlx.module_base.base_api.BaseViewModel;
+import com.zlx.module_base.base_api.viewmodel.BaseViewModel;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

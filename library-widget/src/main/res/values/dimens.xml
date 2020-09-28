@@ -12,4 +12,5 @@
     <dimen name="default_nav_item_badge_text_size">7sp</dimen>
     <dimen name="float_marginBottom">20dp</dimen>
     <dimen name="float_marginRight">20dp</dimen>
+    <dimen name="dp_70">70dp</dimen>
 </resources>

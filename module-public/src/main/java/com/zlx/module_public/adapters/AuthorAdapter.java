@@ -5,9 +5,9 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
-import com.zlx.module_base.BaseRecycleAdapter;
-import com.zlx.module_base.OnItemClickListener;
-import com.zlx.library_common.res_data.PublicAuthorListRes;
+import com.zlx.module_base.base_adapter.BaseRecycleAdapter;
+import com.zlx.module_base.base_adapter.OnItemClickListener;
+import com.zlx.module_base.base_api.res_data.PublicAuthorListRes;
 import com.zlx.module_public.R;
 import com.zlx.widget.hivelayoutmanager.HiveDrawable;
 import com.zlx.widget.hivelayoutmanager.HiveLayoutManager;

@@ -34,7 +34,7 @@ dependencies {
     api "org.aspectj:aspectjrt:1.9.5"
     api rootProject.ext.dependencies.arouterApi
     annotationProcessor rootProject.ext.dependencies.arouterCompiler
-    api project(':library-common')
+    api project(':library-base')
     api rootProject.ext.dependencies.rxpermissions
 
 }

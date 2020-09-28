@@ -95,7 +95,7 @@
                     android:textSize="12sp"
                     tools:text="作者" />
 
-                <com.zlx.library_common.widget.shinebutton.ShineButton
+                <com.zlx.module_base.widget.shinebutton.ShineButton
                     android:id="@+id/ivCollect"
                     android:layout_width="20dp"
                     android:layout_height="20dp"

@@ -1,9 +1,7 @@
 package com.zlx.module_mine.activity;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
-import android.view.animation.DecelerateInterpolator;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,12 +11,10 @@ import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
-import com.zlx.library_common.MMkvHelper;
-import com.zlx.library_common.constrant.C;
-import com.zlx.library_common.res_data.RankBean;
-import com.zlx.library_common.res_data.RankListRes;
-import com.zlx.library_common.res_data.UserInfo;
-import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_base.constant.C;
+import com.zlx.module_base.base_api.res_data.RankBean;
+import com.zlx.module_base.base_api.res_data.RankListRes;
+import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_mine.R;

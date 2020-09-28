@@ -10,12 +10,8 @@ import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.google.android.flexbox.FlexboxLayout;
-import com.zlx.library_common.constrant.C;
-import com.zlx.library_common.res_data.SearchBeanRes;
-import com.zlx.library_db.entity.SearchHistoryEntity;
-import com.zlx.module_base.OnItemClickListener;
-import com.zlx.module_base.adapters.BaseViewHolder;
-import com.zlx.module_base.base_util.RouterUtil;
+import com.zlx.module_base.base_api.res_data.SearchBeanRes;
+import com.zlx.module_base.base_adapter.BaseViewHolder;
 import com.zlx.module_home.R;
 import com.zlx.module_home.bean.SearchBean;
 

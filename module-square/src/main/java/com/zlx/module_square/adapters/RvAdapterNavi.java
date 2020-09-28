@@ -1,7 +1,6 @@
 package com.zlx.module_square.adapters;
 
 import android.view.LayoutInflater;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -9,9 +8,8 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.google.android.flexbox.FlexboxLayout;
-import com.zlx.module_base.BaseRecycleAdapter;
-import com.zlx.library_common.res_data.ArticleBean;
-import com.zlx.library_common.res_data.NaviListRes;
+import com.zlx.module_base.base_api.res_data.ArticleBean;
+import com.zlx.module_base.base_api.res_data.NaviListRes;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_square.R;
 

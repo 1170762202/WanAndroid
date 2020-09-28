@@ -1,6 +1,6 @@
 package com.zlx.module_home.bean;
 
-import com.zlx.library_common.res_data.SearchBeanRes;
+import com.zlx.module_base.base_api.res_data.SearchBeanRes;
 
 import java.util.List;
 

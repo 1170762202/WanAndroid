@@ -60,12 +60,12 @@
             android:id="@+id/smartRefreshLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:srlAccentColor="#444444"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             app:srlEnableLoadMore="true"
             app:srlPrimaryColor="@android:color/transparent">
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.yanzhenjie.recyclerview.SwipeRecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

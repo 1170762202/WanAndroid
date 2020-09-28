@@ -13,16 +13,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
-import com.gyf.immersionbar.BarHide;
-import com.gyf.immersionbar.ImmersionBar;
-import com.zlx.library_common.res_data.SearchBeanRes;
-import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_base.base_api.res_data.SearchBeanRes;
+import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.library_db.dao.SearchHistoryDao;
 import com.zlx.library_db.entity.SearchHistoryEntity;
 import com.zlx.library_db.manager.DbUtil;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_util.InputTools;
-import com.zlx.module_base.base_util.ToastUtil;
 import com.zlx.module_home.R;
 import com.zlx.module_home.R2;
 import com.zlx.module_home.adapters.RvAdapterSearchClear;
@@ -32,6 +29,7 @@ import com.zlx.module_home.bean.SearchBean;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.widget.popwindow.PopUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -133,7 +131,7 @@ public class SearchAc extends BaseAc {
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
             String trim = etSearch.getText().toString().trim();
             if (TextUtils.isEmpty(trim)) {
-                ToastUtil.showShort("请输入内容再搜索");
+                PopUtil.show("请输入内容再搜索");
                 etSearch.setSelection(0);
             } else {
                 skipResult(trim);

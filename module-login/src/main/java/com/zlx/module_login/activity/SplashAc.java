@@ -1,8 +1,8 @@
 package com.zlx.module_login.activity;
 
-import com.zlx.library_common.MMkvHelper;
-import com.zlx.library_common.res_data.ProjectListRes;
-import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_base.database.MMkvHelper;
+import com.zlx.module_base.base_api.res_data.ProjectListRes;
+import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_login.R;
@@ -10,7 +10,6 @@ import com.zlx.module_login.R2;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
-import com.zlx.module_network.util.LogUtil;
 
 import java.util.List;
 

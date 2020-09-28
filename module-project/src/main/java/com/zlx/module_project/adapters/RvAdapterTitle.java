@@ -2,7 +2,7 @@ package com.zlx.module_project.adapters;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.zlx.library_common.res_data.ProjectListRes;
+import com.zlx.module_base.base_api.res_data.ProjectListRes;
 import com.zlx.module_project.R;
 
 import org.jetbrains.annotations.NotNull;

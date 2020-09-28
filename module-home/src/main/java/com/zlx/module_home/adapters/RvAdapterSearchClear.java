@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.SingleLayoutHelper;
-import com.zlx.module_base.adapters.BaseViewHolder;
+import com.zlx.module_base.base_adapter.BaseViewHolder;
 import com.zlx.module_home.R;
 
 /**

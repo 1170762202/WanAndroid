@@ -12,12 +12,12 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
-import com.zlx.library_common.MMkvHelper;
-import com.zlx.library_common.adapters.RvAdapterArticleList;
-import com.zlx.library_common.res_data.ArticleBean;
-import com.zlx.library_common.res_data.ArticleListRes;
-import com.zlx.library_common.res_data.ProjectListRes;
-import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_base.database.MMkvHelper;
+import com.zlx.module_base.adapters.RvAdapterArticleList;
+import com.zlx.module_base.base_api.res_data.ArticleBean;
+import com.zlx.module_base.base_api.res_data.ArticleListRes;
+import com.zlx.module_base.base_api.res_data.ProjectListRes;
+import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_fg.BaseFg;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_base.constant.RouterFragmentPath;
@@ -30,7 +30,6 @@ import com.zlx.module_project.adapters.RvAdapterTitle;
 import com.zlx.widget.CustomItemDecoration;
 import com.zlx.widget.slidinguppanel.SlidingUpPanelLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

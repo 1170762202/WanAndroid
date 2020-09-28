@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.SingleLayoutHelper;
-import com.zlx.library_common.res_data.RankBean;
+import com.zlx.module_base.base_api.res_data.RankBean;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
 

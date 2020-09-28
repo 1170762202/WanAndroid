@@ -16,7 +16,7 @@ import com.youth.banner.adapter.BannerImageAdapter;
 import com.youth.banner.holder.BannerImageHolder;
 import com.youth.banner.indicator.CircleIndicator;
 import com.youth.banner.transformer.MZScaleInTransformer;
-import com.zlx.library_common.res_data.BannerRes;
+import com.zlx.module_base.base_api.res_data.BannerRes;
 import com.zlx.module_home.R;
 import com.zlx.module_home.R2;
 

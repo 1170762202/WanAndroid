@@ -13,15 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.SingleLayoutHelper;
-import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
-import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.zlx.library_common.MMkvHelper;
-import com.zlx.library_common.constrant.C;
-import com.zlx.library_common.res_data.RankBean;
+import com.zlx.module_base.database.MMkvHelper;
+import com.zlx.module_base.constant.C;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
-
-import org.jetbrains.annotations.NotNull;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

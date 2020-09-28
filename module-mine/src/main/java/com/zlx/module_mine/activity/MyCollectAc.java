@@ -2,22 +2,18 @@ package com.zlx.module_mine.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemChildClickListener;
-import com.kingja.loadsir.callback.Callback;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
-import com.zlx.library_common.adapters.RvAdapterArticleList;
-import com.zlx.library_common.res_data.ArticleBean;
-import com.zlx.library_common.res_data.ArticleListRes;
-import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_base.adapters.RvAdapterArticleList;
+import com.zlx.module_base.base_api.res_data.ArticleBean;
+import com.zlx.module_base.base_api.res_data.ArticleListRes;
+import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_mine.R;
@@ -25,7 +21,6 @@ import com.zlx.module_mine.R2;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
-import com.zlx.module_network.util.LogUtil;
 import com.zlx.widget.CustomItemDecoration;
 
 import java.util.List;

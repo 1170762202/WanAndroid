@@ -6,8 +6,8 @@ import com.franmontiel.persistentcookiejar.ClearableCookieJar;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
+import com.zlx.library_common.provier.AppProvider;
 import com.zlx.module_network.interceptor.LogInterceptor;
-import com.zlx.module_network.util.UtilsBridge;
 
 import java.util.concurrent.TimeUnit;
 
@@ -73,7 +73,7 @@ public class RetrofitCreateLiveDataHelper {
 
     public ClearableCookieJar getCookieJar() {
         if (cookieJar == null) {
-            cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(UtilsBridge.getApplicationByReflect()));
+            cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(AppProvider.getInstance().getApp()));
         }
         return cookieJar;
     }

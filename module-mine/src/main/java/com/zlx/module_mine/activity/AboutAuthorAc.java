@@ -6,9 +6,9 @@ import android.widget.ImageView;
 
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_util.FileUtils;
-import com.zlx.module_base.base_util.ToastUtil;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
+import com.zlx.module_network.widget.popwindow.PopUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -44,13 +44,13 @@ public class AboutAuthorAc extends BaseAc {
     @OnClick(R2.id.ivWx)
     public void saveWx() {
         FileUtils.saveImage(this, ivWx);
-        ToastUtil.showShort("保存成功");
+        PopUtil.show("保存成功");
     }
 
     @OnClick(R2.id.ivZfb)
     public void saveZfb() {
         FileUtils.saveImage(this, ivZfb);
-        ToastUtil.showShort("保存成功");
+        PopUtil.show("保存成功");
     }
 
 }

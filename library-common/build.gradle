@@ -26,9 +26,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
-    api project(':library-network')
-    api rootProject.ext.dependencies.appcompat
-    api rootProject.ext.dependencies.mmkv
-    api rootProject.ext.dependencies.glide
+    implementation 'androidx.annotation:annotation:1.1.0'
+
 }

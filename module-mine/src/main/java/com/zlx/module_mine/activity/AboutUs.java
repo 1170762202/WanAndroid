@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 
-import com.zlx.library_common.constrant.C;
+import com.zlx.module_base.constant.C;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_mine.R;

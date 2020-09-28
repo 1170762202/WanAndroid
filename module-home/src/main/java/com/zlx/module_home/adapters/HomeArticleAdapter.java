@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
-import com.zlx.library_common.widget.shinebutton.ShineButton;
+import com.zlx.module_base.widget.shinebutton.ShineButton;
 import com.zlx.module_base.base_util.RouterUtil;
-import com.zlx.library_common.res_data.ArticleBean;
+import com.zlx.module_base.base_api.res_data.ArticleBean;
 import com.zlx.module_home.R;
 import com.zlx.module_home.R2;
 

@@ -13,12 +13,12 @@
 
 
 
-![欢迎页.gif](https://upload-images.jianshu.io/upload_images/4906229-f904c725092c2f32.gif?imageMogr2/auto-orient/strip) | ![登录.gif](https://upload-images.jianshu.io/upload_images/4906229-825577eb221a70a5.gif?imageMogr2/auto-orient/strip) | ![首页.gif](https://upload-images.jianshu.io/upload_images/4906229-b9451cbd01f718c4.gif?imageMogr2/auto-orient/strip) |
-|:-|:-|:-|
+![欢迎页.gif](https://upload-images.jianshu.io/upload_images/4906229-f904c725092c2f32.gif?imageMogr2/auto-orient/strip) | ![登录.gif](https://upload-images.jianshu.io/upload_images/4906229-825577eb221a70a5.gif?imageMogr2/auto-orient/strip) | ![首页.gif](https://upload-images.jianshu.io/upload_images/4906229-b9451cbd01f718c4.gif?imageMogr2/auto-orient/strip) |  ![收藏动画.gif](https://upload-images.jianshu.io/upload_images/4906229-93679f83ed8aa0f2.gif?imageMogr2/auto-orient/strip)
+|:-|:-|:-|:-|
 
 
-![公众号.gif](https://upload-images.jianshu.io/upload_images/4906229-d48f9cbd51cf4eb8.gif?imageMogr2/auto-orient/strip) | ![项目.gif](https://upload-images.jianshu.io/upload_images/4906229-80cbbffc39439e92.gif?imageMogr2/auto-orient/strip) | ![广场.gif](https://upload-images.jianshu.io/upload_images/4906229-188c6ab70160c07b.gif?imageMogr2/auto-orient/strip) |
-|:-|:-|:-|
+![公众号.gif](https://upload-images.jianshu.io/upload_images/4906229-d48f9cbd51cf4eb8.gif?imageMogr2/auto-orient/strip) | ![项目.gif](https://upload-images.jianshu.io/upload_images/4906229-80cbbffc39439e92.gif?imageMogr2/auto-orient/strip) | ![广场.gif](https://upload-images.jianshu.io/upload_images/4906229-188c6ab70160c07b.gif?imageMogr2/auto-orient/strip) | ![分享文章.gif](https://upload-images.jianshu.io/upload_images/4906229-8a2e58bd4c6dd95b.gif?imageMogr2/auto-orient/strip)
+|:-|:-|:-|:-|
 
 
 ### 主要功能

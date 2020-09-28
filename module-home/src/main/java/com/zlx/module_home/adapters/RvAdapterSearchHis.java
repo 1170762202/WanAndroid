@@ -11,7 +11,7 @@ import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.zlx.library_db.entity.SearchHistoryEntity;
-import com.zlx.module_base.adapters.BaseViewHolder;
+import com.zlx.module_base.base_adapter.BaseViewHolder;
 import com.zlx.module_home.R;
 
 import java.util.ArrayList;

@@ -7,8 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.android.flexbox.FlexboxLayout;
-import com.zlx.module_base.BaseRecycleAdapter;
-import com.zlx.library_common.res_data.TreeListRes;
+import com.zlx.module_base.base_adapter.BaseRecycleAdapter;
+import com.zlx.module_base.base_api.res_data.TreeListRes;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_square.R;
 

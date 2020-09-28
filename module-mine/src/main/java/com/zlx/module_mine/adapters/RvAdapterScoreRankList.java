@@ -2,8 +2,7 @@ package com.zlx.module_mine.adapters;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
-import com.zlx.library_common.res_data.RankBean;
-import com.zlx.library_common.res_data.RankListRes;
+import com.zlx.module_base.base_api.res_data.RankBean;
 import com.zlx.module_mine.R;
 
 import org.jetbrains.annotations.NotNull;

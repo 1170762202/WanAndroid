@@ -6,16 +6,16 @@ import android.widget.EditText;
 
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.zlx.library_common.res_data.UserInfo;
-import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_base.base_api.res_data.UserInfo;
+import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_fg.BaseFg;
-import com.zlx.library_common.MMkvHelper;
-import com.zlx.module_base.base_util.ToastUtil;
+import com.zlx.module_base.database.MMkvHelper;
 import com.zlx.module_login.R;
 import com.zlx.module_login.R2;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.widget.popwindow.PopUtil;
 import com.zlx.widget.ClearEditText;
 import com.zlx.widget.submit_button.SubmitButton;
 
@@ -57,12 +57,12 @@ public class AccountRegisterFg extends BaseFg {
     private void register() {
         String username = etAccount.getText().toString().trim();
         if (TextUtils.isEmpty(username)) {
-            ToastUtil.showShort("请输入账号");
+            PopUtil.show("请输入账号");
             return;
         }
         String password = etPassword.getText().toString().trim();
         if (TextUtils.isEmpty(password)) {
-            ToastUtil.showShort("请输入密码");
+            PopUtil.show("请输入密码");
             return;
         }
         btnLogin.startAnim();

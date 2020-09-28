@@ -7,16 +7,16 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.zlx.library_common.MMkvHelper;
-import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_base.database.MMkvHelper;
+import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_ac.BaseVMAc;
-import com.zlx.module_base.base_util.ToastUtil;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
 import com.zlx.module_mine.viewmodel.MineViewModel;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.widget.popwindow.PopUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -68,7 +68,7 @@ public class SettingAc extends BaseVMAc<MineViewModel> {
                     .setPositiveButton("确定", (dialogInterface, i) -> viewModel.clearCache())
                     .show();
         } else if (id == R.id.llVersion) {
-            ToastUtil.showShort("当前已是最新版本");
+            PopUtil.show("当前已是最新版本");
         } else if (id == R.id.llDesc) {
             new AlertDialog.Builder(this)
                     .setTitle("提示")

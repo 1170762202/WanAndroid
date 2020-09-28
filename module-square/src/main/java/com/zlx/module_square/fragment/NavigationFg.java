@@ -9,13 +9,12 @@ import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
-import com.zlx.library_common.res_data.NaviListRes;
-import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_base.base_api.res_data.NaviListRes;
+import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_square.R;
 import com.zlx.module_square.R2;
 import com.zlx.module_square.adapters.RvAdapterNavi;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;

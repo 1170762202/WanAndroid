@@ -5,14 +5,14 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.widget.EditText;
 
-import com.zlx.library_common.util.ApiUtil;
+import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_ac.BaseAc;
-import com.zlx.module_base.base_util.ToastUtil;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.widget.popwindow.PopUtil;
 import com.zlx.widget.ClearEditText;
 
 import butterknife.BindView;
@@ -51,20 +51,19 @@ public class ShareArticleAc extends BaseAc {
     public void onViewClicked() {
         String title = etTitle.getText().toString().trim();
         if (TextUtils.isEmpty(title)) {
-            ToastUtil.showShort("请输入标题");
+            PopUtil.show("请输入标题");
             return;
         }
         String link = etLink.getText().toString().trim();
         if (TextUtils.isEmpty(link)) {
-            ToastUtil.showShort("请输入链接");
+            PopUtil.show("请输入链接");
         }
         showLoading();
         ApiUtil.getArticleApi().shareArticle(title,link).observe(this,
                 new BaseObserver<>(new BaseObserverCallBack<ApiResponse>() {
                     @Override
                     public void onSuccess(ApiResponse data) {
-                        ToastUtil.showShort("分享成功");
-                        finish();
+                        PopUtil.show("分享成功", () -> finish());
                     }
 
                     @Override
