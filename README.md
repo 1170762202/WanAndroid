@@ -46,7 +46,7 @@
       ||--library-db// room数据库封装
       ||--library-network// 网络请求封装（livedata+rxjava+retrofit）
       ||--library-base// 基础封装（BaseAc、BaseFg、BaseUtil等）
-      ||--library-common//共用的组件、适配器、api返回实体类等
+      ||--library-common//通用库（全局Context获取等）
       ||--library-widget// 控件封装
   ||--modules// 功能模块
     ||--module-main// 主页模块

@@ -8,6 +8,11 @@ import com.zlx.module_base.base_api.module.UserApi;
 import com.zlx.module_network.api1.livedata.RetrofitCreateLiveDataHelper;
 import com.zlx.module_network.constrant.U;
 
+/**
+  * Created by zlx on 2020/9/28 15:09
+  * Email: 1170762202@qq.com
+  * Description: 不同模块BASE_URL可能不同
+*/
 public class ApiUtil {
 
     public static ProjectApi getProjectApi() {
