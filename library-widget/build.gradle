@@ -43,4 +43,6 @@ dependencies {
     api 'com.github.razerdp:BasePopup:2.2.8'
 
     api 'com.yanzhenjie.recyclerview:x:1.3.2'
+
+    api "com.github.skydoves:indicatorscrollview:1.0.2"
 }

@@ -20,15 +20,17 @@
 ![公众号.gif](https://upload-images.jianshu.io/upload_images/4906229-d48f9cbd51cf4eb8.gif?imageMogr2/auto-orient/strip) | ![项目.gif](https://upload-images.jianshu.io/upload_images/4906229-80cbbffc39439e92.gif?imageMogr2/auto-orient/strip) | ![广场.gif](https://upload-images.jianshu.io/upload_images/4906229-188c6ab70160c07b.gif?imageMogr2/auto-orient/strip) | ![分享文章.gif](https://upload-images.jianshu.io/upload_images/4906229-8a2e58bd4c6dd95b.gif?imageMogr2/auto-orient/strip)
 |:-|:-|:-|:-|
 
+![1.gif](https://upload-images.jianshu.io/upload_images/4906229-ff3a3a02522c6a23.gif?imageMogr2/auto-orient/strip) | ![1.gif](https://upload-images.jianshu.io/upload_images/4906229-ff3a3a02522c6a23.gif?imageMogr2/auto-orient/strip) | ![1.gif](https://upload-images.jianshu.io/upload_images/4906229-ff3a3a02522c6a23.gif?imageMogr2/auto-orient/strip) | ![1.gif](https://upload-images.jianshu.io/upload_images/4906229-ff3a3a02522c6a23.gif?imageMogr2/auto-orient/strip) |
+|:-|:-|:-|:-|
 
 ### 主要功能
-
 * 首页、项目、广场、公众号、我的
 * 登录、注册 动画交互
 * 搜索页面共享元素动画过渡
 * 项目页面仿高德地图滑动面板交互
 * 广场页面tab跟随滑动系数渐变、列表采用谷歌爸爸的[flexboxlayout]([https://github.com/google/flexbox-layout](https://github.com/google/flexbox-layout)
 )流式布局
+* 广场页面根据滑动系数给indicator添加动画效果
 * 公众号页面点击左上角为一个90°的arc交互动画，列表数据从下往上过渡的动画效果
 * 我的页面仿百度外卖个人中心水波纹效果
 * 整体采用[Material Design]([https://www.material.io/](https://www.material.io/)

@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
-
 import com.zlx.module_web.R;
 import com.zlx.module_web.R2;
 
@@ -50,6 +49,7 @@ public class WebDialogFg extends DialogFragment {
         Dialog dialog = super.onCreateDialog(savedInstanceState);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(true); //点击边际可消失
         dialog.getWindow().setWindowAnimations(R.style.dialog_animation);
 //        dialog.getWindow().setLayout(100, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -70,8 +70,9 @@ public class WebDialogFg extends DialogFragment {
         }
     }
 
-    @OnClick({R2.id.tvOpen, R2.id.llCancel})
+    @OnClick({R2.id.tvOpen, R2.id.llCancel,R2.id.parent})
     public void onViewClick(View view) {
+
         if (view.getId() == R.id.tvOpen) {
             if (!TextUtils.isEmpty(url) && (url.startsWith("http") || url.startsWith("https"))) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
@@ -79,7 +80,7 @@ public class WebDialogFg extends DialogFragment {
                 startActivity(i);
             }
             dismiss();
-        } else if (view.getId() == R.id.llCancel) {
+        } else if (view.getId() == R.id.llCancel || view.getId()==R.id.parent) {
             dismiss();
         }
     }

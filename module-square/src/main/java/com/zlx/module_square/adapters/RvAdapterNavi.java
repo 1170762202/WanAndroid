@@ -9,7 +9,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.google.android.flexbox.FlexboxLayout;
 import com.zlx.module_base.base_api.res_data.ArticleBean;
-import com.zlx.module_base.base_api.res_data.NaviListRes;
+import com.zlx.module_base.base_api.res_data.TreeListRes;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_square.R;
 
@@ -25,7 +25,7 @@ import java.util.Queue;
  * Email: 1170762202@qq.com
  * Description: 流式布局
  */
-public class RvAdapterNavi extends BaseQuickAdapter<NaviListRes, BaseViewHolder> {
+public class RvAdapterNavi extends BaseQuickAdapter<TreeListRes, BaseViewHolder> {
 
     private LayoutInflater layoutInflater = null;
     private Queue<AppCompatTextView> mFlexItemTextViewCaches = new LinkedList<>();
@@ -35,7 +35,7 @@ public class RvAdapterNavi extends BaseQuickAdapter<NaviListRes, BaseViewHolder>
     }
 
     @Override
-    protected void convert(@NotNull BaseViewHolder baseViewHolder, NaviListRes naviListRes) {
+    protected void convert(@NotNull BaseViewHolder baseViewHolder, TreeListRes naviListRes) {
         baseViewHolder.setText(R.id.tvTitle,naviListRes.getName());
         FlexboxLayout flexLayout =  baseViewHolder.getView(R.id.flexLayout);
         List<ArticleBean> children = naviListRes.getArticles();

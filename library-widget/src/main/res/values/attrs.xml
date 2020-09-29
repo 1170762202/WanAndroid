@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="IndicatorView">
+        <attr format="dimension" name="indicator_itemPadding"/>
+        <attr format="float" name="indicator_expandingRatio"/>
+        <attr format="float" name="indicator_expandingAllItemRatio"/>
+    </declare-styleable>
     <declare-styleable name="ShineButton">
         <attr name="btn_color" format="color" />
         <attr name="btn_fill_color" format="color" />

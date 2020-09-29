@@ -3,6 +3,7 @@ package com.zlx.module_mine.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;

@@ -1,7 +1,9 @@
 package com.zlx.module_web.activity;
 
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
@@ -20,6 +22,8 @@ import com.zlx.module_web.WebLayout;
 import com.zlx.module_web.fragment.WebDialogFg;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 @Route(path = RouterActivityPath.Web.PAGER_WEB)
 public class WebAc extends BaseAc {
@@ -41,9 +45,6 @@ public class WebAc extends BaseAc {
         setRightImg(R.mipmap.ic_more_menu);
         webUrl = getIntent().getStringExtra("webUrl");
         LogUtil.show("webUrl=" + webUrl);
-        setOnRightImgClickListener(view -> {
-            WebDialogFg.newInstance(webUrl).show(getSupportFragmentManager(), "webDialog");
-        });
 
         AgentWeb.with(this)
                 .setAgentWebParent(parent, new LinearLayout.LayoutParams(-1, -1))
@@ -63,6 +64,7 @@ public class WebAc extends BaseAc {
     private String getUrl() {
         return webUrl;
     }
+
     private WebViewClient mWebViewClient = new WebViewClient() {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
@@ -82,4 +84,14 @@ public class WebAc extends BaseAc {
             setAcTitle(title);
         }
     };
+
+    @OnClick({R2.id.rlClose, R2.id.llRight})
+    public void onViewClicked(View view) {
+        int id = view.getId();
+        if (id == R.id.rlClose) {
+            finish();
+        } else if (id == R.id.llRight) {
+            WebDialogFg.newInstance(webUrl).show(getSupportFragmentManager(), "webDialog");
+        }
+    }
 }
