@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-aspectjx'
+apply plugin: 'com.jakewharton.butterknife'
+
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
@@ -53,33 +55,26 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     // AndroidJUnitRunner and JUnit Rules
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test:rules:1.1.1'
-
-
-    annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
-
-    /*materialedittex*/
-    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
-
-
-
-    implementation 'com.nhaarman.listviewanimations:lib-core:3.1.0@aar'
-    implementation 'com.github.ozodrukh:CircularReveal:1.0.5@aar'
-
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test:rules:1.3.0'
 
 
     implementation project(':library-base')
     implementation project(':library-widget')
     implementation project(':library-common')
     implementation project(':library-aop')
-    implementation project(':module-main')
-    implementation project(':module-home')
-    implementation project(':module-project')
-    implementation project(':module-square')
-    implementation project(':module-public')
-    implementation project(':module-mine')
-    implementation project(':module-web')
-    implementation project(':module-login')
+    if (!isRunModule.toBoolean()) {
+        implementation project(':module-home')
+        implementation project(':module-project')
+        implementation project(':module-square')
+        implementation project(':module-public')
+        implementation project(':module-mine')
+        implementation project(':module-web')
+        implementation project(':module-login')
+    }
+
+
+    annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
+    annotationProcessor rootProject.ext.dependencies.arouterCompiler
 
 }

@@ -24,6 +24,7 @@ import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_project.R;
 import com.zlx.module_project.R2;
 import com.zlx.module_project.adapters.RvAdapterTitle;
@@ -76,6 +77,7 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
     @Override
     public void onResume() {
         super.onResume();
+        LogUtil.show("onResume");
         listProjectsTab();
 
     }
@@ -115,6 +117,22 @@ public class ProjectFg extends BaseFg implements OnRefreshLoadMoreListener {
                 id = projectListRes.getId();
                 listProjects(id, true);
             }
+        }else {
+            ApiUtil.getProjectApi().listProjectsTab().observe(this,
+                    new BaseObserver<>(new BaseObserverCallBack<ApiResponse<List<ProjectListRes>>>() {
+                        @Override
+                        public void onSuccess(ApiResponse<List<ProjectListRes>> data) {
+                            List<ProjectListRes> dataData = data.getData();
+                            if (dataData.size() > 0) {
+                                MMkvHelper.getInstance().saveProjectTabs(dataData);
+                                adapterTitle.setList(dataData);
+                                ProjectListRes projectListRes = dataData.get(0);
+                                tvName.setText(projectListRes.getName());
+                                id = projectListRes.getId();
+                                listProjects(id, true);
+                            }
+                        }
+                    }));
         }
     }
 

@@ -5,9 +5,6 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        if (isMainModule.toBoolean()) {
-            applicationId "com.zlx.web"
-        }
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         javaCompileOptions {
@@ -32,11 +29,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(':library-base')
-    implementation project(':library-widget')
-    implementation project(':library-common')
-    implementation project(':library-network')
+    api project(':library-base')
     annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
     annotationProcessor rootProject.ext.dependencies.arouterCompiler
-    implementation 'com.just.agentweb:agentweb-androidx:4.1.4' // (必选)
+    api 'com.just.agentweb:agentweb-androidx:4.1.4' // (必选)
 }

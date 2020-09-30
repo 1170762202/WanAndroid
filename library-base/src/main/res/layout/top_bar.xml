@@ -48,7 +48,6 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:src="@mipmap/ic_more_menu"
             android:visibility="gone"
             tools:visibility="visible" />
     </LinearLayout>

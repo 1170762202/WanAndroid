@@ -3,4 +3,5 @@
         <item>体系</item>
         <item>导航</item>
     </string-array>
+    <string name="app_name">广场模块</string>
 </resources>

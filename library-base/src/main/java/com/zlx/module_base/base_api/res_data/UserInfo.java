@@ -41,6 +41,9 @@ public class UserInfo implements Parcelable {
     private String rank;
     private String userId, reason, desc, date;
 
+    public UserInfo() {
+    }
+
     protected UserInfo(Parcel in) {
         email = in.readString();
         icon = in.readString();

@@ -1,4 +1,9 @@
-apply plugin: 'com.android.library'
+if (isRunModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+}else {
+    apply plugin: 'com.android.library'
+}
+
 apply plugin: 'com.jakewharton.butterknife'
 
 android {
@@ -6,8 +11,8 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        if (isMainModule.toBoolean()) {
-            applicationId "com.zlx.login"
+        if (isRunModule.toBoolean()) {
+            applicationId "com.zlx.module_login"
         }
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -29,17 +34,28 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets {
+
+        main {
+            // 1.单独调试与集成调试时使用不同的 AndroidManifest.xml 文件
+            // 我们还可以根据不同工程配置不同的 Java 源代码、不同的 resource 资源文件等的
+            if (isRunModule.toBoolean()) {
+
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation project(':library-base')
     implementation project(':library-widget')
-    implementation project(':library-common')
     implementation project(':library-network')
     implementation project(':library-aop')
     annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
     annotationProcessor rootProject.ext.dependencies.arouterCompiler
-    implementation 'me.wangyuwei:ParticleView:1.0.4'
 
 }

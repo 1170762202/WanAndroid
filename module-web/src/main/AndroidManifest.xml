@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zlx.module_web">
 
-    /
     <application>
-        <activity android:name=".activity.WebAc" />
+        <activity
+            android:name=".activity.WebAc"/>
     </application>
 </manifest>

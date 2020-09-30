@@ -1,5 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zlx.module_project">
 
-    /
+    <application>
+
+        <activity android:name=".activity.ProjectAc"/>
+
+    </application>
 </manifest>

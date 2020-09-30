@@ -25,4 +25,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:background">@color/main</item>
     </style>
+    <style name="AppTheme.Splash">
+        <item name="android:windowBackground">@drawable/splash_bg</item>
+    </style>
 </resources>

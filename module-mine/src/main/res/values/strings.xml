@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">我的</string>
+    <string name="app_name">我的模块</string>
     <string name="behavior_my_fab_scale">com.zlx.module_mine.widget.behavior.ScaleDownShowBehavior
     </string>
 </resources>

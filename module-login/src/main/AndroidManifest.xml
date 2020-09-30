@@ -1,17 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zlx.module_login">
 
-    <application
-        android:label="@string/app_name">
-        <activity
-            android:name="com.zlx.module_login.activity.SplashAc"
-            android:theme="@style/AppTheme.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+    <application>
         <activity android:name=".activity.LoginAc" />
     </application>
 </manifest>

@@ -4,6 +4,10 @@
 [源码地址](https://github.com/1170762202/WanAndroid)
 喜欢的话，记得给个star哦!
 
+### [1.1.1版本更新](https://github.com/1170762202/WanAndroid/releases)
+* module单独编译运行
+* module-main迁移至app，并移除module-main
+
 #### [历史版本](https://github.com/1170762202/WanAndroid/releases)
 
 #### 首页有彩蛋哦，等你发现！！！
@@ -51,7 +55,6 @@
       ||--library-common//通用库（全局Context获取等）
       ||--library-widget// 控件封装
   ||--modules// 功能模块
-    ||--module-main// 主页模块
     ||--module-home// 首页模块
     ||--module-login// 登录模块
     ||--module-project// 项目模块
@@ -62,6 +65,11 @@
 ||-- README.md
  ```
 
+#### module单独编译运行说明
+gradle.properties 文件下有个"集成开发模式" 和 "组件开发模式"的切换开关 true表示组件独立运行，false表示一个library
+````java
+isRunModule=true
+````
 
 
 

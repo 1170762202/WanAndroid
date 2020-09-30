@@ -17,7 +17,6 @@
             android:id="@+id/indicatorView"
             android:layout_width="60dp"
             android:layout_height="match_parent"
-            android:background="#ffffff"
             android:paddingLeft="6dp"
             android:paddingRight="6dp"
             android:paddingTop="10dp"

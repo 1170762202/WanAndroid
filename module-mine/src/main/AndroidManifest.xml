@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zlx.module_mine">
 
-    /
+
     <application>
         <activity android:name=".activity.ScoreRankListAc" />
         <activity android:name=".activity.MyScoreAc" />
@@ -12,5 +12,7 @@
         <activity android:name=".activity.AboutAuthorAc" />
         <activity android:name=".activity.MyShareAc" />
         <activity android:name=".activity.ShareArticleAc" />
+
+        <activity android:name=".activity.MineAc" />
     </application>
 </manifest>

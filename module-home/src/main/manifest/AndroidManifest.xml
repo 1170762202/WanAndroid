@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zlx.module_home">
+
+    <application
+        android:allowBackup="true"
+        android:name=".HomeApp"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/logo"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".activity.HomeAc">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.SearchAc" />
+        <activity android:name=".activity.SearchResultAc" />
+    </application>
+</manifest>

@@ -1,5 +1,3 @@
 <resources>
-    <style name="AppTheme.Splash">
-        <item name="android:windowBackground">@drawable/splash_bg</item>
-    </style>
+
 </resources>

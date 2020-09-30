@@ -97,6 +97,7 @@ dependencies {
     api  'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
 
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
+    api 'me.wangyuwei:ParticleView:1.0.4'
 
     api project(':library-db')
     api project(':library-network')

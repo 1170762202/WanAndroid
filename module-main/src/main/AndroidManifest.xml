@@ -1,7 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zlx.module_main">
-
-    <application>
-        <activity android:name="com.zlx.module_main.activity.MainActivity" />
-    </application>
-</manifest>
