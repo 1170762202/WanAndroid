@@ -8,6 +8,10 @@
 * module单独编译运行
 * module-main迁移至app，并移除module-main
 
+![1.png](https://upload-images.jianshu.io/upload_images/4906229-2b91016927347d31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) | ![2.png](https://upload-images.jianshu.io/upload_images/4906229-f4a679ae485e111d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+|:-|:-|
+
+
 #### [历史版本](https://github.com/1170762202/WanAndroid/releases)
 
 #### 首页有彩蛋哦，等你发现！！！
