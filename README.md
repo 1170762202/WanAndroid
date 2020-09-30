@@ -8,8 +8,6 @@
 * module单独编译运行
 * module-main迁移至app，并移除module-main
 
-![1.png](https://upload-images.jianshu.io/upload_images/4906229-2b91016927347d31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) | ![2.png](https://upload-images.jianshu.io/upload_images/4906229-f4a679ae485e111d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-|:-|:-|
 
 
 #### [历史版本](https://github.com/1170762202/WanAndroid/releases)
@@ -17,8 +15,10 @@
 #### 首页有彩蛋哦，等你发现！！！
 
 ### 效果图
-[效果图加载不出来点我](https://www.jianshu.com/p/96830179c418)
+## [效果图加载不出来点我](https://www.jianshu.com/p/96830179c418)
 
+![1.png](https://upload-images.jianshu.io/upload_images/4906229-2b91016927347d31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240) | ![2.png](https://upload-images.jianshu.io/upload_images/4906229-f4a679ae485e111d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+|:-|:-|
 
 
 ![欢迎页.gif](https://upload-images.jianshu.io/upload_images/4906229-f904c725092c2f32.gif?imageMogr2/auto-orient/strip) | ![登录.gif](https://upload-images.jianshu.io/upload_images/4906229-825577eb221a70a5.gif?imageMogr2/auto-orient/strip) | ![首页.gif](https://upload-images.jianshu.io/upload_images/4906229-b9451cbd01f718c4.gif?imageMogr2/auto-orient/strip) |  ![收藏动画.gif](https://upload-images.jianshu.io/upload_images/4906229-93679f83ed8aa0f2.gif?imageMogr2/auto-orient/strip)
