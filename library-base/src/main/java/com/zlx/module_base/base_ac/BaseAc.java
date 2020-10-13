@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
@@ -169,13 +170,14 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
 
     @Override
     public void initImmersionBar() {
+        boolean b = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES;
         if (!fullScreen()) {
             if (!transparent()) {
                 if (ImmersionBar.isSupportStatusBarDarkFont()) {
                     ImmersionBar.with(this)
                             .keyboardEnable(true)
                             .statusBarColor(R.color.main)
-                            .statusBarDarkFont(true)
+                            .statusBarDarkFont(!b)
                             .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
                             .init();
                 } else {
@@ -183,7 +185,7 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
                     ImmersionBar.with(this)
                             .statusBarColor(R.color.main)
                             .keyboardEnable(true)
-                            .statusBarDarkFont(true)
+                            .statusBarDarkFont(!b)
                             .navigationBarDarkIcon(true)
                             .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
                             .init();
@@ -191,7 +193,7 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
             } else {
                 ImmersionBar.with(this)
                         .statusBarView(R.id.statusBarView)
-                        .statusBarDarkFont(true)
+                        .statusBarDarkFont(!b)
                         .keyboardEnable(true)
                         .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
                         .init();

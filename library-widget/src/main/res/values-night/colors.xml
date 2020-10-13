@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--首页底部tab-->
+    <color name="default_inactive">#ffffff</color>
+    <color name="main_tab1_active">#979595</color>
+    <color name="main_tab1_inactive">#ffffff</color>
+    <color name="main_tab1_light">#ffffff</color>
+    <color name="main_tab2_active">#979595</color>
+    <color name="main_tab2_inactive">#ffffff</color>
+    <color name="main_tab2_light">#ffffff</color>
+    <color name="main_tab3_active">#979595</color>
+    <color name="main_tab3_inactive">#ffffff</color>
+    <color name="main_tab3_light">#ffffff</color>
+    <color name="main_tab4_active">#979595</color>
+    <color name="main_tab4_inactive">#ffffff</color>
+    <color name="main_tab4_light">#ffffff</color>
+    <color name="main_tab5_active">#979595</color>
+    <color name="main_tab5_inactive">#ffffff</color>
+    <color name="main_tab5_light">#ffffff</color>
+    <!--首页底部tab-->
+</resources>

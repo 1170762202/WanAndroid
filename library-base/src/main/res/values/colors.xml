@@ -43,4 +43,12 @@
 
     <color name="guillotine_background">#FFFFFF</color>
     <color name="guillotine_background_dark">#F4F3F6</color>
+
+
+    <!--首页底部tab-->
+    <color name="bg_main_tab">#ffffff</color>
+    <!--首页底部tab-->
+    <color name="text_color">#151515</color>
+
+
 </resources>
