@@ -1,9 +1,11 @@
 *.iml
 .gradle
 /local.properties
+/.idea
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
+/.idea/compiler.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
@@ -11,3 +13,4 @@
 /build
 /captures
 .externalNativeBuild
+/library-db/schemas/com.zlx.library_db.manager.AppDataBase/1.json
