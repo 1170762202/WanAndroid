@@ -17,12 +17,14 @@ import java.util.List;
 @Dao
 public interface SearchHistoryDao {
 
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     long insertPerson(SearchHistoryEntity entity);
 
 
     @Query("select * from SearchHistoryEntity")
     public List<SearchHistoryEntity> selectHis();
+
 
     @Query("delete from SearchHistoryEntity where id= :id")
     void deleteById(long id);

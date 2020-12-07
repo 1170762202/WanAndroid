@@ -55,12 +55,12 @@ public class CommonModuleInit implements IModuleInit {
 //        LeakCanary.install(application);
 
 
-        NeverCrashHelper.init((t, e) -> {
-            LogUtils.i(e.getMessage());
-            new Handler(Looper.getMainLooper()).post(() -> {
-                Toast.makeText(application, e.getMessage(), Toast.LENGTH_SHORT).show();
-            });
-        });
+//        NeverCrashHelper.init((t, e) -> {
+//            LogUtils.i(e.getMessage());
+//            new Handler(Looper.getMainLooper()).post(() -> {
+//                Toast.makeText(application, e.getMessage(), Toast.LENGTH_SHORT).show();
+//            });
+//        });
         return false;
     }
 

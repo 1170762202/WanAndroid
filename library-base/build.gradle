@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jakewharton.butterknife'
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
@@ -47,7 +48,6 @@ dependencies {
     api rootProject.ext.dependencies.butterknife
 
 
-
     api rootProject.ext.dependencies.fastJson
     api rootProject.ext.dependencies.work
     api rootProject.ext.dependencies.swipebacklayout
@@ -62,7 +62,7 @@ dependencies {
     api 'org.aspectj:aspectjrt:1.8.9'
     api 'androidx.constraintlayout:constraintlayout:2.0.1'
 
-    api ('com.alibaba.android:vlayout:1.2.8@aar') {
+    api('com.alibaba.android:vlayout:1.2.8@aar') {
         transitive = true
     }
     api 'com.youth.banner:banner:2.1.0'
@@ -92,13 +92,14 @@ dependencies {
     api rootProject.ext.dependencies.okhttp
 
 
-
-    api  'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
-    api  'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
+    api 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    api 'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
 
     api "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
     api 'me.wangyuwei:ParticleView:1.0.4'
 
+
     api project(':library-db')
     api project(':library-network')
+
 }

@@ -1,5 +1,8 @@
 package com.zlx.module_square.fragment;
 
+import android.view.MotionEvent;
+import android.view.View;
+
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -12,6 +15,7 @@ import com.zlx.module_square.R2;
 import com.zlx.module_square.adapters.TabNavigatorAdapter;
 import com.zlx.module_square.adapters.VpAdapterSquare;
 import com.zlx.module_square.impl.TabPagerListener;
+import com.zlx.widget.viewpager.animviewpager.LiquidSwipeViewPager;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -35,7 +39,7 @@ public class SquareFg extends BaseFg implements TabPagerListener {
     @BindView(R2.id.magicIndicator)
     MagicIndicator magicIndicator;
     @BindView(R2.id.viewPager)
-    ViewPager viewPager;
+    LiquidSwipeViewPager viewPager;
 
 
     @Override
@@ -62,6 +66,12 @@ public class SquareFg extends BaseFg implements TabPagerListener {
         viewPager.setOffscreenPageLimit(stringArray.length);
         viewPager.setAdapter(vpAdapterSquare);
         ViewPagerHelper.bind(magicIndicator, viewPager);
+        viewPager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return false;
+            }
+        });
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.zlx.sharelive.activity;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.alibaba.fastjson.JSON;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.constant.RouterActivityPath;
 import com.zlx.module_base.constant.RouterFragmentPath;
@@ -19,8 +21,8 @@ import com.zlx.widget.bubblenavigation.BubbleNavigationConstraintView;
 import com.zlx.widget.bubblenavigation.listener.BubbleNavigationChangeListener;
 import com.zlx.widget.viewpager.NoScrollViewPager;
 
-import butterknife.BindView;
 
+import butterknife.BindView;
 
 @Route(path = RouterActivityPath.Main.PAGER_MAIN)
 public class MainActivity extends BaseAc implements BubbleNavigationChangeListener, TabPagerListener {
@@ -52,8 +54,8 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
                 "android.permission.WRITE_EXTERNAL_STORAGE",
                 "android.permission.READ_EXTERNAL_STORAGE"
         );
-    }
 
+    }
 
 
     private void initNav() {
@@ -105,7 +107,6 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
 
         } else if (position == 2) {
             return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Square.PAGER_SQUARE).navigation();
-
         } else if (position == 3) {
             return (Fragment) ARouter.getInstance().build(RouterFragmentPath.Public.PAGER_PUBLIC).navigation();
 

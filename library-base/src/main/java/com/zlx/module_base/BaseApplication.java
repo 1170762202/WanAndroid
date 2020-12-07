@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import com.zlx.module_base.base_manage.ActivityManage;
 
+
 public class BaseApplication extends Application {
 
     private static BaseApplication instance;

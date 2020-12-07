@@ -1,6 +1,5 @@
 ext {
 
-
     android = [
             compileSdkVersion: 28,
             minSdkVersion    : 21,
@@ -45,13 +44,12 @@ ext {
             /*navigation --end*/
             work                  : "androidx.work:work-runtime:$rootProject.lifecycle_version",
 
-
             swipebacklayout       : "me.imid.swipebacklayout.lib:library:1.1.0",
             rxpermissions         : "com.github.tbruyelle:rxpermissions:0.10.2",
             websocket             : "com.neovisionaries:nv-websocket-client:2.7",
             slidingpanellayout    : "androidx.slidingpanelayout:slidingpanelayout:1.1.0",
-            mmkv    : "com.tencent:mmkv-static:1.2.2",
-            glide    : "com.github.bumptech.glide:glide:4.9.0",
+            mmkv                  : "com.tencent:mmkv-static:1.2.2",
+            glide                 : "com.github.bumptech.glide:glide:4.9.0",
     ]
 
 }
