@@ -9,10 +9,10 @@ import com.zlx.module_network.api1.livedata.RetrofitCreateLiveDataHelper;
 import com.zlx.module_network.constrant.U;
 
 /**
-  * Created by zlx on 2020/9/28 15:09
-  * Email: 1170762202@qq.com
-  * Description: 不同模块BASE_URL可能不同
-*/
+ * Created by zlx on 2020/9/28 15:09
+ * Email: 1170762202@qq.com
+ * Description: 不同模块BASE_URL可能不同
+ */
 public class ApiUtil {
 
     public static ProjectApi getProjectApi() {
@@ -31,7 +31,7 @@ public class ApiUtil {
         return RetrofitCreateLiveDataHelper.getInstance().create(U.BASE_URL, LoginApi.class);
     }
 
-  public static UserApi getUserApi() {
+    public static UserApi getUserApi() {
         return RetrofitCreateLiveDataHelper.getInstance().create(U.BASE_URL, UserApi.class);
     }
 
