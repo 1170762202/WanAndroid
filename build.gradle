@@ -8,8 +8,7 @@ buildscript {
 
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.0.1"
-
+        classpath "com.android.tools.build:gradle:4.0.2"
         classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.2'
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10'
     }

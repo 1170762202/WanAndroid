@@ -2,7 +2,6 @@ package com.zlx.sharelive.activity;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 
@@ -10,7 +9,6 @@ import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.alibaba.fastjson.JSON;
 import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.constant.RouterActivityPath;
 import com.zlx.module_base.constant.RouterFragmentPath;
