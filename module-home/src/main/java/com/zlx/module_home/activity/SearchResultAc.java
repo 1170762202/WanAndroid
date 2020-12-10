@@ -91,11 +91,6 @@ public class SearchResultAc extends BaseAc implements OnRefreshLoadMoreListener 
     }
 
     @Override
-    protected boolean hasAcAnim() {
-        return false;
-    }
-
-    @Override
     public void onRetryBtnClick() {
         super.onRetryBtnClick();
         showLoading(smartRefreshLayout);
@@ -148,7 +143,7 @@ public class SearchResultAc extends BaseAc implements OnRefreshLoadMoreListener 
     @OnFocusChange(R2.id.etSearch)
     public void onFocusChange(View view, boolean hasFocus) {
         if (hasFocus) {
-            finishAfterTransition();
+//            finishAfterTransition();
         }
     }
 

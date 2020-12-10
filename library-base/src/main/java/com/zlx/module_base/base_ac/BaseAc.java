@@ -148,7 +148,6 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
             if (bg <= 0) {
                 ivRight.setVisibility(View.GONE);
             } else {
-
                 ivRight.setVisibility(View.VISIBLE);
                 ivRight.setImageResource(bg);
             }
@@ -170,34 +169,14 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
 
     @Override
     public void initImmersionBar() {
-        boolean b = AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES;
         if (!fullScreen()) {
-            if (!transparent()) {
-                if (ImmersionBar.isSupportStatusBarDarkFont()) {
-                    ImmersionBar.with(this)
-                            .keyboardEnable(true)
-                            .statusBarColor(R.color.main)
-                            .statusBarDarkFont(!b)
-                            .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
-                            .init();
-                } else {
-                    LogUtils.i("当前设备不支持状态栏字体变色");
-                    ImmersionBar.with(this)
-                            .statusBarColor(R.color.main)
-                            .keyboardEnable(true)
-                            .statusBarDarkFont(!b)
-                            .navigationBarDarkIcon(true)
-                            .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
-                            .init();
-                }
-            } else {
                 ImmersionBar.with(this)
                         .statusBarView(R.id.statusBarView)
-                        .statusBarDarkFont(!b)
+                        .statusBarDarkFont(true)
+                        .transparentBar()
                         .keyboardEnable(true)
                         .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
                         .init();
-            }
         } else {
             ImmersionBar.with(this)
                     .fullScreen(true)
@@ -207,9 +186,6 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
         }
     }
 
-    protected boolean transparent() {
-        return true;
-    }
 
     protected boolean fullScreen() {
         return false;
@@ -354,11 +330,6 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
             super.onBackPressed();
         }
     }
-
-    protected boolean hasAcAnim() {
-        return true;
-    }
-
 
     @Override
     protected void onPause() {
