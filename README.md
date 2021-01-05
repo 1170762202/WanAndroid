@@ -4,6 +4,9 @@
 [源码地址](https://github.com/1170762202/WanAndroid)
 喜欢的话，记得给个star哦!
 
+### [1.2.1版本更新](https://github.com/1170762202/WanAndroid/releases)
+* 新增国际化，兼容部分机型国际化失败
+
 ### [1.1.1版本更新](https://github.com/1170762202/WanAndroid/releases)
 * module单独编译运行
 * module-main迁移至app，并移除module-main
