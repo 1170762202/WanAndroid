@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.zlx.module_base.base_util.AppUtil;
 import com.zlx.module_base.base_util.LanguageUtil;
 import com.zlx.module_base.database.MMkvHelper;
 import com.zlx.module_base.base_api.util.ApiUtil;
@@ -56,6 +57,7 @@ public class SettingAc extends BaseVMAc<MineViewModel> {
         initData();
 
         viewModel.getCache();
+        tvVersion.setText(AppUtil.getVersion(this));
     }
 
     private void initData() {
