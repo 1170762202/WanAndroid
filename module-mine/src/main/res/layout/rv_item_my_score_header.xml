@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="4dp"
-            android:text="我的积分"
+            android:text="@string/mine_integral"
             android:textColor="#999999" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_marginTop="50dp"
             android:drawableStart="@mipmap/ic_my_score"
             android:drawablePadding="10dp"
-            android:text="积分记录"
+            android:text="@string/mine_integral_record"
             android:textColor="@color/black"
             android:textSize="15sp" />
     </LinearLayout>

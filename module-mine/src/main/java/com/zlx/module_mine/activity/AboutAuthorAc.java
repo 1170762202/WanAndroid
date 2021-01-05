@@ -37,20 +37,20 @@ public class AboutAuthorAc extends BaseAc {
     @Override
     public void initViews() {
         super.initViews();
-        setAcTitle("关于作者");
+        setAcTitle(getString(R.string.mine_about_author));
 
     }
 
     @OnClick(R2.id.ivWx)
     public void saveWx() {
         FileUtils.saveImage(this, ivWx);
-        PopUtil.show("保存成功");
+        PopUtil.show(getString(R.string.save_success));
     }
 
     @OnClick(R2.id.ivZfb)
     public void saveZfb() {
         FileUtils.saveImage(this, ivZfb);
-        PopUtil.show("保存成功");
+        PopUtil.show(getString(R.string.save_success));
     }
 
 }

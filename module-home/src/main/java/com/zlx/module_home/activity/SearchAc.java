@@ -113,7 +113,7 @@ public class SearchAc extends BaseAc {
                     public void onSuccess(ApiResponse<List<SearchBeanRes>> data) {
                         List<SearchBean> list = new ArrayList<>();
                         SearchBean searchBean = new SearchBean();
-                        searchBean.setTitle("热门搜索");
+                        searchBean.setTitle(getString(R.string.hot_search));
                         searchBean.setData(data.getData());
                         list.add(searchBean);
                         adapterSearchHot.refresh(list);

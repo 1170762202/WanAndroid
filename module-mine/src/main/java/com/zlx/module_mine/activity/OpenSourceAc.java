@@ -36,7 +36,7 @@ public class OpenSourceAc extends BaseAc {
     @Override
     public void initViews() {
         super.initViews();
-        setAcTitle("开源项目");
+        setAcTitle(getString(R.string.mine_open_source_project));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapterOpenSourcePro = new RvAdapterOpenSourcePro());
         adapterOpenSourcePro.setList(DataUtil.getPros());

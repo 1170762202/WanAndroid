@@ -31,13 +31,10 @@ public class MineViewModel extends BaseViewModel {
 
 
     public void getCache() {
-        Observable.create(new ObservableOnSubscribe<String>() {
-            @Override
-            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
-                String totalCacheSize = CacheUtil.getTotalCacheSize();
-                if (!emitter.isDisposed()){
-                    emitter.onNext(totalCacheSize);
-                }
+        Observable.create((ObservableOnSubscribe<String>) emitter -> {
+            String totalCacheSize = CacheUtil.getTotalCacheSize();
+            if (!emitter.isDisposed()){
+                emitter.onNext(totalCacheSize);
             }
         }).compose(new IoMainScheduler<>())
                 .subscribe(new Observer<String>() {

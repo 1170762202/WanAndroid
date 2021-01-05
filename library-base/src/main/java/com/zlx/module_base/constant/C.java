@@ -29,4 +29,5 @@ public class C {
     public static final String SOURCE_URL = "https://github.com/1170762202/WanAndroid";
 
     public static final long DURATION = 1500;
+    public static final String LANGUAGE = "LANGUAGE";
 }

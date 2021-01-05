@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="app_name">我的模块</string>
+
+    <string name="mine_integral">Integral</string>
+    <string name="mine_collect">Collect</string>
+    <string name="mine_share">Share</string>
+    <string name="mine_open_source_project">Open source project</string>
+    <string name="mine_about_author">About</string>
+    <string name="mine_desc">Treat him to breakfast~</string>
+    <string name="mine_set">Set</string>
+    <string name="mine_language_set">Language set</string>
+    <string name="mine_clear_cache">Clear cache</string>
+    <string name="mine_current_version">Current version</string>
+    <string name="mine_copyright_notice">Copyright notice</string>
+    <string name="mine_about_us">About us</string>
+    <string name="mine_logout">Logout</string>
+    <string name="mine_scoreboard">Scoreboard</string>
+    <string name="unlogin">UnLogin</string>
+    <string name="mine_current_score">Score</string>
+    <string name="save_success">Save success</string>
+    <string name="mine_integral_record">Integral record</string>
+    <string name="mine_tip">Tip</string>
+    <string name="version_tip">It is currently the latest version</string>
+    <string name="sure_logout">Are you sure you want to log out？</string>
+    <string name="sure">Sure</string>
+    <string name="cancel">Cancel</string>
+
+</resources>

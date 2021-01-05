@@ -104,8 +104,8 @@
                             android:textColor="@color/white"
                             android:textSize="10sp"
                             android:visibility="gone"
-                            tools:visibility="visible"
-                            tools:text="lv:1" />
+                            tools:text="lv:1"
+                            tools:visibility="visible" />
 
 
                     </LinearLayout>
@@ -122,7 +122,7 @@
                     android:paddingTop="2dp"
                     android:paddingEnd="10dp"
                     android:paddingBottom="2dp"
-                    android:text="积分排行榜"
+                    android:text="@string/mine_scoreboard"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
-                    android:text="我的积分"
+                    android:text="@string/mine_integral"
                     android:textColor="@color/black" />
 
                 <TextView
@@ -177,8 +177,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    tools:text="当前积分: "
-                    android:textColor="#595858" />
+                    android:textColor="#595858"
+                    tools:text="当前积分: " />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -209,7 +209,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
-                    android:text="我的收藏"
+                    android:text="@string/mine_collect"
                     android:textColor="@color/black" />
 
                 <ImageView
@@ -241,7 +241,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
-                    android:text="我的分享"
+                    android:text="@string/mine_share"
                     android:textColor="@color/black" />
 
                 <ImageView
@@ -278,7 +278,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
-                    android:text="开源项目"
+                    android:text="@string/mine_open_source_project"
                     android:textColor="@color/black" />
 
                 <ImageView
@@ -310,15 +310,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
-                    android:text="关于作者"
+                    android:text="@string/mine_about_author"
                     android:textColor="@color/black" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/main_text"
                     android:layout_marginEnd="10dp"
-                    android:textSize="12sp"
-                    android:text="请他吃份早餐吧~"/>
+                    android:text="@string/mine_desc"
+                    android:textColor="@color/main_text"
+                    android:textSize="12sp" />
 
                 <ImageView
                     android:layout_width="wrap_content"

@@ -36,7 +36,7 @@
             android:drawablePadding="6dp"
 
             android:gravity="center_vertical"
-            android:hint="请输入关键字进行搜索"
+            android:hint="@string/home_search_keyword_hint"
             android:imeOptions="actionSearch"
             android:inputType="text"
             android:maxLines="1"

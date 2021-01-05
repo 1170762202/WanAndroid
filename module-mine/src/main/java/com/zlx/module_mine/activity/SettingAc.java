@@ -2,11 +2,13 @@ package com.zlx.module_mine.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.zlx.module_base.base_util.LanguageUtil;
 import com.zlx.module_base.database.MMkvHelper;
 import com.zlx.module_base.base_api.util.ApiUtil;
 import com.zlx.module_base.base_ac.BaseVMAc;
@@ -17,6 +19,8 @@ import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;
 import com.zlx.module_network.widget.popwindow.PopUtil;
+
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -32,6 +36,8 @@ public class SettingAc extends BaseVMAc<MineViewModel> {
     TextView tvCache;
     @BindView(R2.id.tvVersion)
     TextView tvVersion;
+    @BindView(R2.id.tvLanguage)
+    TextView tvLanguage;
 
 
     public static void launch(Context context) {
@@ -46,7 +52,7 @@ public class SettingAc extends BaseVMAc<MineViewModel> {
     @Override
     public void initViews() {
         super.initViews();
-        setAcTitle("设置");
+        setAcTitle(getString(R.string.mine_set));
         initData();
 
         viewModel.getCache();
@@ -54,34 +60,37 @@ public class SettingAc extends BaseVMAc<MineViewModel> {
 
     private void initData() {
         viewModel.cacheData.observe(this, s -> tvCache.setText(s));
+        Locale currentLanguage = LanguageUtil.getCurrentLanguage();
+        tvLanguage.setText(String.format("%s-%s", currentLanguage.getLanguage(), currentLanguage.getCountry()));
     }
 
 
-    @OnClick({R2.id.llCache, R2.id.llVersion, R2.id.llDesc, R2.id.llAbout, R2.id.tvLogOut})
+    @OnClick({R2.id.llCache, R2.id.llVersion, R2.id.llDesc, R2.id.llAbout, R2.id.tvLogOut, R2.id.llLanguage})
     public void onViewClicked(View view) {
         int id = view.getId();
         if (id == R.id.llCache) {
             new AlertDialog.Builder(this)
-                    .setTitle("提示")
+                    .setTitle(getString(R.string.mine_tip))
+
                     .setMessage("确定要清除缓存?")
-                    .setNegativeButton("取消", null)
-                    .setPositiveButton("确定", (dialogInterface, i) -> viewModel.clearCache())
+                    .setNegativeButton(getString(R.string.cancel), null)
+                    .setPositiveButton(getString(R.string.sure), (dialogInterface, i) -> viewModel.clearCache())
                     .show();
         } else if (id == R.id.llVersion) {
-            PopUtil.show("当前已是最新版本");
+            PopUtil.show(getString(R.string.version_tip));
         } else if (id == R.id.llDesc) {
             new AlertDialog.Builder(this)
-                    .setTitle("提示")
+                    .setTitle(getString(R.string.mine_tip))
                     .setMessage("本App中所有的Api均由WanAndroid官网提供，可作为学习参考，禁止作为商业用途")
-                    .setPositiveButton("确定", null)
+                    .setPositiveButton(getString(R.string.sure), null)
                     .show();
         } else if (id == R.id.llAbout) {
             AboutUs.launch(this);
         } else if (id == R.id.tvLogOut) {
             new AlertDialog.Builder(this)
-                    .setTitle("提示")
-                    .setMessage("确定退出登录吗？")
-                    .setPositiveButton("确定", (dialogInterface, i) -> {
+                    .setTitle(getString(R.string.mine_tip))
+                    .setMessage(getString(R.string.sure_logout))
+                    .setPositiveButton(getString(R.string.sure), (dialogInterface, i) -> {
                         dialogInterface.dismiss();
                         ApiUtil.getLoginApi().logout().observe(this, new BaseObserver<>(new BaseObserverCallBack<ApiResponse>() {
                             @Override
@@ -90,8 +99,10 @@ public class SettingAc extends BaseVMAc<MineViewModel> {
                                 finish();
                             }
                         }));
-                    }).setNegativeButton("取消", null).show();
+                    }).setNegativeButton(getString(R.string.cancel), null).show();
 
+        } else if (id == R.id.llLanguage) {
+            startActivity(new Intent(this, LanguageSetAc.class));
         }
     }
 }

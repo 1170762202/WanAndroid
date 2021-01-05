@@ -2,7 +2,7 @@
 
     <string name="app_name">广场模块</string>
     <string-array name="square_title" tools:ignore="ExtraTranslation">
-        <item>体系</item>
-        <item>导航</item>
+        <item>System</item>
+        <item>Navigate</item>
     </string-array>
 </resources>

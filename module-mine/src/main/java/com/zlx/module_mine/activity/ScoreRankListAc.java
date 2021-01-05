@@ -67,7 +67,7 @@ public class ScoreRankListAc extends BaseAc implements OnRefreshLoadMoreListener
     @Override
     public void initViews() {
         super.initViews();
-        setAcTitle("积分排行榜");
+        setAcTitle(getString(R.string.mine_scoreboard));
         adapterScoreRankList = new RvAdapterScoreRankList();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapterScoreRankList);

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.zlx.module_base.base_manage.ActivityManage;
+import com.zlx.module_base.base_manage.ActivityUtil;
 
 
 public class BaseApplication extends Application {
@@ -34,7 +34,7 @@ public class BaseApplication extends Application {
                     @Override
                     public void onActivityCreated(@NonNull Activity activity,
                                                   @Nullable Bundle savedInstanceState) {
-                        ActivityManage.addActivity(activity);
+                        ActivityUtil.addActivity(activity);
                     }
 
                     @Override
@@ -65,7 +65,7 @@ public class BaseApplication extends Application {
 
                     @Override
                     public void onActivityDestroyed(@NonNull Activity activity) {
-                        ActivityManage.removeActivity(activity);
+                        ActivityUtil.removeActivity(activity);
                     }
                 });
     }

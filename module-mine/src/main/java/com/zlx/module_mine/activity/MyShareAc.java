@@ -64,7 +64,7 @@ public class MyShareAc extends BaseAc implements OnRefreshLoadMoreListener {
     @Override
     public void initViews() {
         super.initViews();
-        setAcTitle("我的分享");
+        setAcTitle(getString(R.string.mine_share));
         recyclerView.addItemDecoration(new CustomItemDecoration(this,
                 CustomItemDecoration.ItemDecorationDirection.VERTICAL_LIST, R.drawable.linear_split_line));
         recyclerView.setSwipeItemMenuEnabled(true);

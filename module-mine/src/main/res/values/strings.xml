@@ -1,5 +1,27 @@
 <resources>
     <string name="app_name">我的模块</string>
-    <string name="behavior_my_fab_scale">com.zlx.module_mine.widget.behavior.ScaleDownShowBehavior
-    </string>
+    <string name="mine_integral">我的积分</string>
+    <string name="behavior_my_fab_scale">com.zlx.module_mine.widget.behavior.ScaleDownShowBehavior</string>
+    <string name="mine_collect">我的收藏</string>
+    <string name="mine_share">我的分享</string>
+    <string name="mine_open_source_project">开源项目</string>
+    <string name="mine_about_author">关于作者</string>
+    <string name="mine_desc">请他吃份早餐吧~</string>
+    <string name="mine_set">设置</string>
+    <string name="mine_language_set">语言设置</string>
+    <string name="mine_clear_cache">清除缓存</string>
+    <string name="mine_current_version">当前版本</string>
+    <string name="mine_copyright_notice">版权声明</string>
+    <string name="mine_about_us">关于我们</string>
+    <string name="mine_logout">退出登录</string>
+    <string name="mine_scoreboard">积分排行榜</string>
+    <string name="unlogin">未登录</string>
+    <string name="mine_current_score">当前积分</string>
+    <string name="save_success">保存成功</string>
+    <string name="mine_integral_record">积分记录</string>
+    <string name="mine_tip">提示</string>
+    <string name="version_tip">当前已是最新版本</string>
+    <string name="sure_logout">确定退出登录吗？</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
 </resources>

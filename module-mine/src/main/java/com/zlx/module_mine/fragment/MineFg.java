@@ -1,5 +1,6 @@
 package com.zlx.module_mine.fragment;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -91,10 +92,11 @@ public class MineFg extends BaseFg {
         } else {
             tvId.setText("");
             tvMyScore.setText("");
-            tvName.setText("未登录");
+            tvName.setText(R.string.unlogin);
             tvLevel.setVisibility(View.GONE);
         }
     }
+
 
     private void getScore() {
         ApiUtil.getUserApi().getIntegral().observe(this,
@@ -106,7 +108,7 @@ public class MineFg extends BaseFg {
                         UserInfo userInfo1 = data.getData();
                         tvId.setText(String.format("ID: %s", userInfo1.getUserId()));
                         tvLevel.setText(String.format("lv.%d", userInfo1.getLevel()));
-                        tvMyScore.setText(String.format("当前积分: %s", userInfo1.getCoinCount()));
+                        tvMyScore.setText(String.format(getString(R.string.mine_current_score)+": %s", userInfo1.getCoinCount()));
                         if (userInfo != null) {
                             userInfo1.setUsername(userInfo.getUsername());
                         }
@@ -116,7 +118,8 @@ public class MineFg extends BaseFg {
     }
 
     @CheckLogin
-    @OnClick({R2.id.ivSet, R2.id.tvName, R2.id.tvScoreRankList, R2.id.llHead, R2.id.llScore, R2.id.llCollect, R2.id.llShare, R2.id.llProjects, R2.id.llAbout})
+    @OnClick({R2.id.ivSet, R2.id.tvName, R2.id.tvScoreRankList, R2.id.llHead, R2.id.llScore,
+            R2.id.llCollect, R2.id.llShare, R2.id.llProjects, R2.id.llAbout})
     public void onViewClicked(View view) {
         int id = view.getId();
         if (id == R.id.ivSet) {

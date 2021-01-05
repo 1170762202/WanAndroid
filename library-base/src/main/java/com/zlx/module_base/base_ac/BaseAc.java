@@ -1,10 +1,9 @@
 package com.zlx.module_base.base_ac;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -18,18 +17,18 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.view.ContextThemeWrapper;
 
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
-import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 import com.zlx.module_base.R;
-import com.zlx.module_base.base_manage.ActivityManage;
+import com.zlx.module_base.base_manage.ActivityUtil;
 import com.zlx.module_base.base_util.DoubleClickExitDetector;
 import com.zlx.module_base.base_util.InputTools;
+import com.zlx.module_base.base_util.LanguageUtil;
 import com.zlx.module_base.base_util.LogUtils;
 import com.zlx.module_base.impl.IAcView;
 import com.zlx.module_base.impl.INetView;
@@ -38,7 +37,6 @@ import com.zlx.module_base.loadsir.LoadingCallback;
 import com.zlx.module_base.widget.slideback.SlideBack;
 
 import butterknife.ButterKnife;
-import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 
 /**
@@ -59,6 +57,7 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         beforeOnCreate();
         super.onCreate(savedInstanceState);
+        ActivityUtil.addActivity(this);
         afterOnCreate();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏
         setTheme(getMTheme());
@@ -73,7 +72,7 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
         doubleClickExitDetector =
                 new DoubleClickExitDetector(this, "再按一次退出", 2000);
 
-        if (canSwipeBack()){
+        if (canSwipeBack()) {
             //开启滑动返回
             SlideBack.create()
                     .attachToActivity(this);
@@ -143,6 +142,34 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
 
     }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        if (shouldSupportMultiLanguage()) {
+            Context context = LanguageUtil.attachBaseContext(newBase);
+            final Configuration configuration = context.getResources().getConfiguration();
+            // 此处的ContextThemeWrapper是androidx.appcompat.view包下的
+            // 你也可以使用android.view.ContextThemeWrapper，但是使用该对象最低只兼容到API 17
+            // 所以使用 androidx.appcompat.view.ContextThemeWrapper省心
+            final ContextThemeWrapper wrappedContext = new ContextThemeWrapper(context,
+                    R.style.Theme_AppCompat_Empty) {
+                @Override
+                public void applyOverrideConfiguration(Configuration overrideConfiguration) {
+                    if (overrideConfiguration != null) {
+                        overrideConfiguration.setTo(configuration);
+                    }
+                    super.applyOverrideConfiguration(overrideConfiguration);
+                }
+            };
+            super.attachBaseContext(wrappedContext);
+        } else {
+            super.attachBaseContext(newBase);
+        }
+    }
+
+    protected boolean shouldSupportMultiLanguage() {
+        return true;
+    }
+
     protected void setRightImg(int bg) {
         if (ivRight != null) {
             if (bg <= 0) {
@@ -170,13 +197,13 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
     @Override
     public void initImmersionBar() {
         if (!fullScreen()) {
-                ImmersionBar.with(this)
-                        .statusBarView(R.id.statusBarView)
-                        .statusBarDarkFont(true)
-                        .transparentBar()
-                        .keyboardEnable(true)
-                        .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
-                        .init();
+            ImmersionBar.with(this)
+                    .statusBarView(R.id.statusBarView)
+                    .statusBarDarkFont(true)
+                    .transparentBar()
+                    .keyboardEnable(true)
+                    .hideBar(BarHide.FLAG_HIDE_NAVIGATION_BAR)
+                    .init();
         } else {
             ImmersionBar.with(this)
                     .fullScreen(true)
@@ -245,7 +272,6 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
         // 如果焦点不是EditText则忽略，这个发生在视图刚绘制完，第一个焦点不在EditText上，和用户用轨迹球选择其他的焦点
         return false;
     }
-
 
 
     /**

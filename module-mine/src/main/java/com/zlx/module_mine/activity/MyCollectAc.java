@@ -54,7 +54,7 @@ public class MyCollectAc extends BaseAc implements OnRefreshLoadMoreListener {
     @Override
     public void initViews() {
         super.initViews();
-        setAcTitle("我的收藏");
+        setAcTitle(getString(R.string.mine_collect));
         adapterArticleList = new RvAdapterArticleList();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapterArticleList);
@@ -73,7 +73,7 @@ public class MyCollectAc extends BaseAc implements OnRefreshLoadMoreListener {
             }
         });
         smartRefreshLayout.setOnRefreshLoadMoreListener(this);
-        showLoading();
+        showLoading(smartRefreshLayout);
         listMyCollect(true);
     }
 

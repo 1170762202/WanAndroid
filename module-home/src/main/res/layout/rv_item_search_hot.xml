@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="热门搜索"
+        android:text="@string/hot_search"
         android:textColor="#666666" />
 
     <com.google.android.flexbox.FlexboxLayout

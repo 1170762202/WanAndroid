@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Bubble Navigation</string>
+    <string name="app_name">library-widget</string>
+
     <string name="tab1">首页</string>
     <string name="tab2">项目</string>
     <string name="tab5">我的</string>

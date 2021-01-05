@@ -39,6 +39,10 @@ public abstract class BaseRecycleAdapter<T> extends
      */
     protected abstract int getLayoutId();
 
+    public List<T> getDatas() {
+        return datas;
+    }
+
     @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

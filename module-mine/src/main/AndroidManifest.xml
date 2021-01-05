@@ -14,5 +14,6 @@
         <activity android:name=".activity.ShareArticleAc" />
 
         <activity android:name=".activity.MineAc" />
+        <activity android:name=".activity.LanguageSetAc" />
     </application>
 </manifest>
