@@ -58,7 +58,6 @@ public class MainActivity extends BaseAc implements BubbleNavigationChangeListen
 
     private void initNav() {
 
-
         bubbleNavigationLinearView.setTypeface(Typeface.createFromAsset(getAssets(), "rubik.ttf"));
 
         bubbleNavigationLinearView.setBadgeValue(0, null);

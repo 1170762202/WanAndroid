@@ -36,9 +36,11 @@
             android:value="true" />
 
 
+        <activity android:name=".activity.MainActivity" />
 
-        <activity android:name=".activity.MainActivity"/>
-        <activity android:name=".activity.SplashAc"
+
+        <activity
+            android:name=".activity.SplashAc"
             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
