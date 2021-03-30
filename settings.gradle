@@ -1,3 +1,4 @@
+include ':plugin-lifecycle'
 include ':library-db'
 include ':module-login'
 include ':library-aop'

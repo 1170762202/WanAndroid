@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+dependencies {
+    //gradle sdk
+    implementation gradleApi()
+    //groovy sdk
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:4.0.2'
+
+}
+
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+//group和version在后面使用自定义插件的时候会用到
+group='com.zlx.plugin_lifecycle'
+version='0.0.1'
+
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //提交到远程服务器：
+            // repository(url: "http://www.xxx.com/repos") {
+            //    authentication(userName: "admin", password: "admin")
+            // }
+            //本地的Maven地址:当前工程下
+            repository(url: uri('./plugin-lifecycle'))
+        }
+    }
+}

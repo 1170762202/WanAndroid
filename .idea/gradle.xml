@@ -24,9 +24,11 @@
             <option value="$PROJECT_DIR$/module-public" />
             <option value="$PROJECT_DIR$/module-square" />
             <option value="$PROJECT_DIR$/module-web" />
+            <option value="$PROJECT_DIR$/plugin-lifecycle" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="useQualifiedModuleNames" value="true" />
       </GradleProjectSettings>
     </option>
   </component>

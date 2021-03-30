@@ -5,12 +5,15 @@ buildscript {
     repositories {
         google()
         jcenter()
-
+        maven {
+            url uri('./plugin-lifecycle/plugin-lifecycle')
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.2"
         classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.2'
         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10'
+        classpath 'com.zlx.plugin_lifecycle:plugin-lifecycle:0.0.1'
     }
 }
 
