@@ -72,6 +72,8 @@
     ||--module-public //公众号模块
     ||--module-mine//我的模块
     ||--module-web//网页模块
+  ||--plugins//插件模块
+    ||--plugin-lifecycle //生命周期插件
 ||-- README.md
  ```
 
