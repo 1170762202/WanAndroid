@@ -4,20 +4,24 @@ import androidx.lifecycle.LiveData;
 
 import com.zlx.module_base.base_api.res_data.ArticleListRes;
 import com.zlx.module_base.base_api.res_data.ProjectListRes;
+import com.zlx.module_network.annotation.RetryCount;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.factory.ApiCall;
 
 import java.util.List;
 
+import io.reactivex.Observable;
+import retrofit2.Callback;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
-  * FileName:
-  * Created by zlx on 2020/9/18 13:44
-  * Email: 1170762202@qq.com
-  * Description: 
-*/
+ * FileName:
+ * Created by zlx on 2020/9/18 13:44
+ * Email: 1170762202@qq.com
+ * Description:
+ */
 public interface ProjectApi {
 
 
@@ -28,6 +32,10 @@ public interface ProjectApi {
      */
     @GET("project/tree/json")
     LiveData<ApiResponse<List<ProjectListRes>>> listProjectsTab();
+
+    @RetryCount(value = 3)
+    @GET("project/tree/json")
+    ApiCall<List<ProjectListRes>> listProjectsTab2();
 
 
     /**

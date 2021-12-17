@@ -1,6 +1,5 @@
 package com.zlx.module_mine.fragment;
 
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -17,13 +16,13 @@ import com.zlx.module_base.database.MMkvHelper;
 import com.zlx.module_base.constant.RouterFragmentPath;
 import com.zlx.module_mine.R;
 import com.zlx.module_mine.R2;
-import com.zlx.module_mine.activity.AboutAuthorAc;
-import com.zlx.module_mine.activity.MyCollectAc;
-import com.zlx.module_mine.activity.MyScoreAc;
+import com.zlx.module_mine.aboutauthor.AboutAuthorAc;
+import com.zlx.module_mine.mycollect.MyCollectAc;
+import com.zlx.module_mine.myscore.MyScoreAc;
 import com.zlx.module_mine.activity.MyShareAc;
 import com.zlx.module_mine.activity.OpenSourceAc;
 import com.zlx.module_mine.activity.ScoreRankListAc;
-import com.zlx.module_mine.activity.SettingAc;
+import com.zlx.module_mine.setting.SettingAc;
 import com.zlx.module_network.api1.livedata.BaseObserver;
 import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
 import com.zlx.module_network.bean.ApiResponse;

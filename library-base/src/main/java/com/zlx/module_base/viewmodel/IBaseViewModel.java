@@ -1,4 +1,4 @@
-package com.zlx.module_base.base_api.viewmodel;
+package com.zlx.module_base.viewmodel;
 
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;

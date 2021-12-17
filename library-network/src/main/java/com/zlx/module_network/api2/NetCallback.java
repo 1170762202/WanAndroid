@@ -1,11 +1,20 @@
 package com.zlx.module_network.api2;
 
 
-import com.zlx.module_network.bean.ApiResponse;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 
-public interface NetCallback<T extends ApiResponse> {
+public abstract class NetCallback<T> {
 
-    void onSuccess(T response);
+    protected void onSuccess(T response) {
+    }
 
-    void onFail(String msg);
+    protected void onFail(T response) {
+    }
+
+    protected void onError(String msg) {
+    }
+
+    protected void onSubscribe(@NonNull Disposable d) {
+    }
 }

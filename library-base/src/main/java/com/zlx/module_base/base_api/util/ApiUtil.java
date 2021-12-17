@@ -6,6 +6,7 @@ import com.zlx.module_base.base_api.module.ProjectApi;
 import com.zlx.module_base.base_api.module.TreeApi;
 import com.zlx.module_base.base_api.module.UserApi;
 import com.zlx.module_network.api1.livedata.RetrofitCreateLiveDataHelper;
+import com.zlx.module_network.api2.RetrofitCreateHelper;
 import com.zlx.module_network.constrant.U;
 
 /**
@@ -17,6 +18,10 @@ public class ApiUtil {
 
     public static ProjectApi getProjectApi() {
         return RetrofitCreateLiveDataHelper.getInstance().create(U.BASE_URL, ProjectApi.class);
+    }
+
+    public static ProjectApi getProjectApi2() {
+        return RetrofitCreateHelper.getInstance().create(U.BASE_URL, ProjectApi.class);
     }
 
     public static ArticleApi getArticleApi() {

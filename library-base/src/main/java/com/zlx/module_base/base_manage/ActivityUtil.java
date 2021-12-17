@@ -10,7 +10,7 @@ import java.util.Stack;
  */
 
 public class ActivityUtil {
-    private static Stack<Activity> activityStack = new Stack<Activity>();
+    private static final Stack<Activity> activityStack = new Stack<Activity>();
 
     /**
      * 添加Activity到堆栈

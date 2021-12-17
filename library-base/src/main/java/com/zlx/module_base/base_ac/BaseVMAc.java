@@ -3,7 +3,7 @@ package com.zlx.module_base.base_ac;
 import androidx.lifecycle.ViewModelProvider;
 
 
-import com.zlx.module_base.base_api.viewmodel.BaseViewModel;
+import com.zlx.module_base.viewmodel.BaseViewModel;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -17,13 +17,6 @@ import java.lang.reflect.Type;
 public abstract class BaseVMAc<VM extends BaseViewModel> extends BaseAc {
 
     protected VM viewModel;
-
-    @Override
-    public void afterOnCreate() {
-        super.afterOnCreate();
-        initViewModel();
-        getLifecycle().addObserver(viewModel);
-    }
 
     private void initViewModel() {
         if (viewModel == null) {

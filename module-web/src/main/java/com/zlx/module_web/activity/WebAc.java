@@ -1,7 +1,6 @@
 package com.zlx.module_web.activity;
 
 import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebResourceRequest;
@@ -22,7 +21,6 @@ import com.zlx.module_web.WebLayout;
 import com.zlx.module_web.fragment.WebDialogFg;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 @Route(path = RouterActivityPath.Web.PAGER_WEB)

@@ -8,6 +8,7 @@ import com.zlx.module_base.base_api.res_data.MyShareBean;
 import com.zlx.module_base.base_api.res_data.PublicAuthorListRes;
 import com.zlx.module_base.base_api.res_data.SearchBeanRes;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.factory.ApiCall;
 
 import java.util.List;
 
@@ -83,7 +84,7 @@ public interface ArticleApi {
      * @return
      */
     @GET("lg/collect/list/{page}/json")
-    LiveData<ApiResponse<ArticleListRes>> listMyCollect(@Path("page") int page);
+    ApiCall<ArticleListRes> listMyCollect(@Path("page") int page);
 
     /**
      * 收藏文章

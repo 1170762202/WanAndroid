@@ -20,7 +20,7 @@ public class LoginInterceptor implements IInterceptor {
 
     @Override
     public void process(Postcard postcard, InterceptorCallback callback) {
-        Log.e(TAG, "process: " + postcard.toString(), null);
+        Log.d(TAG, "process: " + postcard.toString(), null);
         int isLogin = postcard.getExtras().getInt("isLogin", 0);
 //        if (isLogin == 1) {
 //            callback.onContinue(postcard);

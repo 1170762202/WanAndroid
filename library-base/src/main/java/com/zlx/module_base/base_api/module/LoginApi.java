@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 
 import com.zlx.module_base.base_api.res_data.UserInfo;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.factory.ApiCall;
 
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -36,5 +37,5 @@ public interface LoginApi {
     LiveData<ApiResponse<UserInfo>> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
 
     @GET("user/logout/json")
-    LiveData<ApiResponse> logout();
+    ApiCall<Object> logout2();
 }

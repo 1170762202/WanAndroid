@@ -4,16 +4,16 @@
 
     <application>
         <activity android:name=".activity.ScoreRankListAc" />
-        <activity android:name=".activity.MyScoreAc" />
-        <activity android:name=".activity.SettingAc" />
-        <activity android:name=".activity.AboutUs" />
-        <activity android:name=".activity.MyCollectAc" />
+        <activity android:name=".myscore.MyScoreAc" />
+        <activity android:name=".setting.SettingAc" />
+        <activity android:name=".aboutus.AboutUsAc" />
+        <activity android:name=".mycollect.MyCollectAc" />
         <activity android:name=".activity.OpenSourceAc" />
-        <activity android:name=".activity.AboutAuthorAc" />
+        <activity android:name=".aboutauthor.AboutAuthorAc" />
         <activity android:name=".activity.MyShareAc" />
         <activity android:name=".activity.ShareArticleAc" />
 
         <activity android:name=".activity.MineAc" />
-        <activity android:name=".activity.LanguageSetAc" />
+        <activity android:name=".language.LanguageSetAc" />
     </application>
 </manifest>

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:pv="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.SplashAc"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
 
+        <variable
+            name="viewModel"
+            type="com.zlx.sharelive.business.splash.SplashViewModel" />
+    </data>
     <me.wangyuwei.particleview.ParticleView
         android:id="@+id/particleview"
         android:layout_width="match_parent"
@@ -19,4 +20,4 @@
         pv:pv_particle_text_size="15sp"
         pv:pv_spread_anim_time="1500"
         pv:pv_text_color="@color/white" />
-</LinearLayout>
+</layout>

@@ -13,6 +13,7 @@ import com.kingja.loadsir.core.LoadSir;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
+import com.squareup.leakcanary.LeakCanary;
 import com.tencent.mmkv.MMKV;
 import com.zlx.library_db.manager.DbUtil;
 import com.zlx.module_base.BaseApplication;
@@ -47,12 +48,12 @@ public class CommonModuleInit implements IModuleInit {
         DbUtil.getInstance().init(application, "wanandroid");
 
 
-//        if (LeakCanary.isInAnalyzerProcess(application)) {
-//            // This process is dedicated to LeakCanary for heap analysis.
-//            // You should not init your app in this process.
-//            return false;
-//        }
-//        LeakCanary.install(application);
+        if (LeakCanary.isInAnalyzerProcess(application)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return false;
+        }
+        LeakCanary.install(application);
 
 
 //        NeverCrashHelper.init((t, e) -> {

@@ -57,8 +57,7 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         beforeOnCreate();
         super.onCreate(savedInstanceState);
-        ActivityUtil.addActivity(this);
-        afterOnCreate();
+        afterOnCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏
         setTheme(getMTheme());
         setSuspension();
@@ -85,7 +84,7 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
     }
 
     @Override
-    public void afterOnCreate() {
+    public void afterOnCreate(Bundle savedInstanceState) {
 
     }
 
@@ -309,7 +308,9 @@ public abstract class BaseAc extends AppCompatActivity implements INetView, IAcV
 
     }
 
-    protected abstract int getLayoutId();
+    protected  int getLayoutId(){
+        return 0;
+    }
 
     protected int getMTheme() {
         return R.style.AppTheme;

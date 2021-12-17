@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import com.zlx.module_base.base_api.viewmodel.BaseViewModel;
+import com.zlx.module_base.viewmodel.BaseViewModel;
 import com.zlx.module_base.base_util.CacheUtil;
 import com.zlx.module_network.scheduler.IoMainScheduler;
 

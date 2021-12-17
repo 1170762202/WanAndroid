@@ -2,7 +2,14 @@ package com.zlx.module_network.api2;
 
 import androidx.annotation.NonNull;
 
+import com.franmontiel.persistentcookiejar.ClearableCookieJar;
+import com.franmontiel.persistentcookiejar.PersistentCookieJar;
+import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
+import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
+import com.zlx.library_common.provier.AppProvider;
+import com.zlx.module_network.factory.ApiCallAdapterFactory;
 import com.zlx.module_network.interceptor.HttpLoggingInterceptor;
+import com.zlx.module_network.interceptor.LogInterceptor;
 import com.zlx.module_network.service.ApiService;
 
 import java.util.concurrent.TimeUnit;
@@ -50,6 +57,7 @@ public class RetrofitCreateHelper {
                 .client(client)
                 .baseUrl(baseURL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .addCallAdapterFactory(ApiCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
@@ -67,9 +75,17 @@ public class RetrofitCreateHelper {
                 .retryOnConnectionFailure(true)//设置出现错误进行重新连接。
                 //失败重连
                 .retryOnConnectionFailure(true)
-                .addInterceptor(new HttpLoggingInterceptor("httpLog"))//添加打印拦截器
+                .cookieJar(getCookieJar())
+                .addInterceptor(new LogInterceptor())//添加打印拦截器
                 .build();
     }
 
+    private ClearableCookieJar cookieJar;
 
+    public ClearableCookieJar getCookieJar() {
+        if (cookieJar == null) {
+            cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(AppProvider.getInstance().getApp()));
+        }
+        return cookieJar;
+    }
 }

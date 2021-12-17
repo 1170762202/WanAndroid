@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData;
 import com.zlx.module_base.base_api.res_data.RankListRes;
 import com.zlx.module_base.base_api.res_data.UserInfo;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.factory.ApiCall;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -39,7 +40,7 @@ public interface UserApi {
      * @return
      */
     @GET("lg/coin/list/{page}/json")
-    LiveData<ApiResponse<RankListRes>> listIntegral(@Path("page") int page);
+    ApiCall<RankListRes> listIntegral(@Path("page") int page);
 
 
 }
