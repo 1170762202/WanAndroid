@@ -7,7 +7,7 @@ import com.zlx.module_network.factory.ApiCallback;
 
 public class SettingRepository extends BaseModel {
 
-    public void logout(ApiCallback<ApiResponse> callback){
+    public void logout(ApiCallback<Object> callback){
         ApiUtil.getLoginApi().logout2().enqueue(callback);
     }
 }

@@ -25,11 +25,11 @@ public class ApiUtil {
     }
 
     public static ArticleApi getArticleApi() {
-        return RetrofitCreateLiveDataHelper.getInstance().create(U.BASE_URL, ArticleApi.class);
+        return RetrofitCreateHelper.getInstance().create(U.BASE_URL, ArticleApi.class);
     }
 
     public static TreeApi getTreeApi() {
-        return RetrofitCreateLiveDataHelper.getInstance().create(U.BASE_URL, TreeApi.class);
+        return RetrofitCreateHelper.getInstance().create(U.BASE_URL, TreeApi.class);
     }
 
     public static LoginApi getLoginApi() {
@@ -37,8 +37,6 @@ public class ApiUtil {
     }
 
     public static UserApi getUserApi() {
-        return RetrofitCreateLiveDataHelper.getInstance().create(U.BASE_URL, UserApi.class);
+        return RetrofitCreateHelper.getInstance().create(U.BASE_URL, UserApi.class);
     }
-
-
 }

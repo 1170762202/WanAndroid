@@ -74,7 +74,7 @@ public interface ArticleApi {
      * @return
      */
     @GET("article/list/{page}/json")
-    LiveData<ApiResponse<ArticleListRes>> listArticle(@Path("page") int page, @Query("cid") String id);
+    ApiCall<ArticleListRes> listArticle(@Path("page") int page, @Query("cid") String id);
 
 
     /**
@@ -93,7 +93,7 @@ public interface ArticleApi {
      * @return
      */
     @POST("lg/collect/{id}/json")
-    LiveData<ApiResponse> collect(@Path("id") String id);
+    ApiCall<Object> collect(@Path("id") String id);
 
     /**
      * 取消收藏
@@ -102,7 +102,7 @@ public interface ArticleApi {
      * @return
      */
     @POST("lg/uncollect_originId/{id}/json")
-    LiveData<ApiResponse> unCollect(@Path("id") String id);
+    ApiCall<Object> unCollect(@Path("id") String id);
 
     /**
      * 热门搜索
@@ -125,7 +125,7 @@ public interface ArticleApi {
      * @return
      */
     @GET("user/lg/private_articles/{page}/json")
-    LiveData<ApiResponse<MyShareBean>> listMyShare(@Path("page") int page);
+    ApiCall<MyShareBean> listMyShare(@Path("page") int page);
 
     /**
      * 分享文章
@@ -135,7 +135,7 @@ public interface ArticleApi {
      * @return
      */
     @POST("lg/user_article/add/json")
-    LiveData<ApiResponse> shareArticle(@Query("title") String title, @Query("link") String link);
+    ApiCall<Object> shareArticle(@Query("title") String title, @Query("link") String link);
 
 
     /**
@@ -145,5 +145,5 @@ public interface ArticleApi {
      * @return
      */
     @POST("lg/user_article/delete/{id}/json")
-    LiveData<ApiResponse> deleteArticle(@Path("id") String id);
+    ApiCall<Object> deleteArticle(@Path("id") String id);
 }

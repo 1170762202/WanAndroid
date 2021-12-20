@@ -22,8 +22,4 @@ public class BaseTopBarViewModel<M extends BaseModel> extends BaseViewModel<M> {
     public void setTitleText(String title) {
         titleText.set(title);
     }
-
-    public void onBackPressed() {
-        onBackPressed();
-    }
 }

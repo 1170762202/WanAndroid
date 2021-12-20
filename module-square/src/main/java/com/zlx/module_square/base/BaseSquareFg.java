@@ -1,44 +1,35 @@
 package com.zlx.module_square.base;
 
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.google.android.flexbox.FlexboxLayout;
 import com.zlx.module_base.base_api.res_data.ArticleBean;
 import com.zlx.module_base.base_api.res_data.TreeListRes;
-import com.zlx.module_base.base_fg.BaseFg;
+import com.zlx.module_base.base_fg.BaseMvvmFg;
 import com.zlx.module_base.base_util.ResourceUtil;
 import com.zlx.module_base.base_util.RouterUtil;
+import com.zlx.module_square.BR;
 import com.zlx.module_square.R;
-import com.zlx.module_square.R2;
+import com.zlx.module_square.databinding.FgBaseSquareBinding;
 import com.zlx.widget.indicatorview.IndicatorItem;
-import com.zlx.widget.indicatorview.IndicatorScrollView;
-import com.zlx.widget.indicatorview.IndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
 
 /**
  * Created by zlx on 2020/9/29 9:23
  * Email: 1170762202@qq.com
  * Description: 广场base
  */
-public class BaseSquareFg extends BaseFg {
-
-
-    @BindView(R2.id.indicatorScrollView)
-    protected IndicatorScrollView indicatorScrollView;
-    @BindView(R2.id.indicatorView)
-    IndicatorView indicatorView;
-    @BindView(R2.id.llParent)
-    LinearLayout llParent;
+public class BaseSquareFg extends BaseMvvmFg<FgBaseSquareBinding,SquareViewModel> {
 
     private LayoutInflater layoutInflater = null;
 
@@ -53,7 +44,17 @@ public class BaseSquareFg extends BaseFg {
     protected void initViews() {
         super.initViews();
         initColors();
-        indicatorScrollView.bindIndicatorView(indicatorView);
+        binding.indicatorScrollView.bindIndicatorView(binding.indicatorView);
+    }
+
+    @Override
+    protected int initContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return R.layout.fg_base_square;
+    }
+
+    @Override
+    protected int initVariableId() {
+        return BR.viewModel;
     }
 
     private void initColors() {
@@ -76,8 +77,8 @@ public class BaseSquareFg extends BaseFg {
     }
 
     protected void setData(List<TreeListRes> data,boolean system) {
-        indicatorView.removeAllViews();
-        llParent.removeAllViews();
+        binding.indicatorView.removeAllViews();
+        binding.llParent.removeAllViews();
         for (int i = 0; i < data.size(); i++) {
             TreeListRes res = data.get(i);
             String name = res.getName();
@@ -108,9 +109,9 @@ public class BaseSquareFg extends BaseFg {
                 }
 
             }
-            llParent.addView(view);
+            binding.llParent.addView(view);
             int i1 = i % colorList.size();
-            indicatorView.addIndicatorItem(new IndicatorItem.Builder(view).setItemText(firstName).setItemColorResource(colorList.get(i1)).setItemIconResource(R.mipmap.ic_uncollect).build());
+            binding.indicatorView.addIndicatorItem(new IndicatorItem.Builder(view).setItemText(firstName).setItemColorResource(colorList.get(i1)).setItemIconResource(R.mipmap.ic_uncollect).build());
         }
     }
 }

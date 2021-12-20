@@ -77,14 +77,14 @@ public class SettingViewModel extends BaseTopBarViewModel<SettingRepository> {
     }
 
     public void logout() {
-        model.logout(new ApiCallback<ApiResponse>() {
+        model.logout(new ApiCallback<Object>() {
             @Override
             public void onStart() {
 
             }
 
             @Override
-            public void onSuccess(@NonNull ApiResponse<ApiResponse> response) {
+            public void onSuccess(@NonNull ApiResponse<Object> response) {
                 MMkvHelper.getInstance().logout();
                 mContext.finish();
             }

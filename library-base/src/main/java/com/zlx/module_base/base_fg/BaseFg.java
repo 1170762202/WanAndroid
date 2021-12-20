@@ -92,18 +92,14 @@ public abstract class BaseFg extends Fragment {
         return false;
     }
 
-    protected abstract int getLayoutId();
+    protected  int getLayoutId(){
+        return 0;
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         context = getContext();
-    }
-
-    @Nullable
-    @Override
-    public View getView() {
-        return view;
     }
 
     @Override

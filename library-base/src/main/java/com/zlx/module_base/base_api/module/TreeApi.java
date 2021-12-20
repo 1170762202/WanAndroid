@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData;
 
 import com.zlx.module_base.base_api.res_data.TreeListRes;
 import com.zlx.module_network.bean.ApiResponse;
+import com.zlx.module_network.factory.ApiCall;
 
 import java.util.List;
 
@@ -25,10 +26,10 @@ public interface TreeApi {
      * @return
      */
     @GET("tree/json")
-    LiveData<ApiResponse<List<TreeListRes>>> listTrees();
+    ApiCall<List<TreeListRes>> listTrees();
 
     @GET("navi/json")
-    LiveData<ApiResponse<List<TreeListRes>>> listNavis();
+    ApiCall<List<TreeListRes>> listNavis();
 
 
 }

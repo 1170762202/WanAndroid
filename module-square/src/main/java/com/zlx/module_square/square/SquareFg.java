@@ -1,10 +1,9 @@
-package com.zlx.module_square.fragment;
+package com.zlx.module_square.square;
 
 import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;

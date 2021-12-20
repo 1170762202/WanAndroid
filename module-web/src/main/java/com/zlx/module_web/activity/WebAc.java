@@ -1,6 +1,7 @@
 package com.zlx.module_web.activity;
 
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebResourceRequest;
@@ -12,30 +13,22 @@ import com.just.agentweb.AgentWeb;
 import com.just.agentweb.DefaultWebClient;
 import com.just.agentweb.WebChromeClient;
 import com.just.agentweb.WebViewClient;
-import com.zlx.module_base.base_ac.BaseAc;
+import com.zlx.module_base.base_ac.BaseMvvmAc;
 import com.zlx.module_base.constant.RouterActivityPath;
 import com.zlx.module_network.util.LogUtil;
+import com.zlx.module_web.BR;
 import com.zlx.module_web.R;
 import com.zlx.module_web.R2;
 import com.zlx.module_web.WebLayout;
+import com.zlx.module_web.databinding.AcWebBinding;
 import com.zlx.module_web.fragment.WebDialogFg;
 
-import butterknife.BindView;
 import butterknife.OnClick;
 
 @Route(path = RouterActivityPath.Web.PAGER_WEB)
-public class WebAc extends BaseAc {
-
-    @BindView(R2.id.parent)
-    LinearLayout parent;
-
+public class WebAc extends BaseMvvmAc<AcWebBinding,WebViewModel> {
 
     private String webUrl;
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.ac_web;
-    }
 
     @Override
     public void initViews() {
@@ -45,7 +38,7 @@ public class WebAc extends BaseAc {
         LogUtil.show("webUrl=" + webUrl);
 
         AgentWeb.with(this)
-                .setAgentWebParent(parent, new LinearLayout.LayoutParams(-1, -1))
+                .setAgentWebParent(binding.parent, new LinearLayout.LayoutParams(-1, -1))
                 .useDefaultIndicator()
                 .setWebChromeClient(mWebChromeClient)
                 .setWebViewClient(mWebViewClient)
@@ -91,5 +84,15 @@ public class WebAc extends BaseAc {
         } else if (id == R.id.llRight) {
             WebDialogFg.newInstance(webUrl).show(getSupportFragmentManager(), "webDialog");
         }
+    }
+
+    @Override
+    protected int initContentView(Bundle savedInstanceState) {
+        return R.layout.ac_web;
+    }
+
+    @Override
+    protected int initVariableId() {
+        return BR.viewModel;
     }
 }

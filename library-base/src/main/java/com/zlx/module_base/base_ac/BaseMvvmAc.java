@@ -44,12 +44,7 @@ public abstract class BaseMvvmAc<V extends ViewDataBinding, VM extends BaseViewM
             binding.setVariable(initVariableId(), viewModel);
         }
 
-        viewModel.uiChangeLiveData().observe(this, new Observer() {
-            @Override
-            public void onChanged(Object o) {
-                onBackPressed();
-            }
-        });
+        viewModel.uiChangeLiveData().onBackPressedEvent().observe(this, o -> onBackPressed());
     }
 
 
@@ -59,13 +54,13 @@ public abstract class BaseMvvmAc<V extends ViewDataBinding, VM extends BaseViewM
      * @param savedInstanceState
      * @return 布局layout的id
      */
-    public abstract int initContentView(Bundle savedInstanceState);
+    protected abstract int initContentView(Bundle savedInstanceState);
 
     /**
      * 初始化ViewModel的id
      *
      * @return BR的id
      */
-    public abstract int initVariableId();
+    protected abstract int initVariableId();
 
 }

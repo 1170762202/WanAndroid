@@ -27,11 +27,11 @@ public interface UserApi {
      * @return
      */
     @GET("coin/rank/{page}/json")
-    LiveData<ApiResponse<RankListRes>> listScoreRank(@Path("page") int page);
+    ApiCall<RankListRes> listScoreRank(@Path("page") int page);
 
     //获取个人积分
     @GET("lg/coin/userinfo/json")
-    LiveData<ApiResponse<UserInfo>> getIntegral();
+    ApiCall<UserInfo> getIntegral();
 
     /**
      * 获取个人积分列表

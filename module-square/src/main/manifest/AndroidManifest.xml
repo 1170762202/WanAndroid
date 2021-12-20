@@ -16,6 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SquareListAc" />
+        <activity android:name=".squarelist.SquareListAc" />
     </application>
 </manifest>
