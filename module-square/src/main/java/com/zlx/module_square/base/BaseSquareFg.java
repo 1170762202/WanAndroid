@@ -29,16 +29,11 @@ import java.util.List;
  * Email: 1170762202@qq.com
  * Description: 广场base
  */
-public class BaseSquareFg extends BaseMvvmFg<FgBaseSquareBinding,SquareViewModel> {
+public abstract class BaseSquareFg extends BaseMvvmFg<FgBaseSquareBinding,SquareViewModel> {
 
     private LayoutInflater layoutInflater = null;
 
     List<Integer> colorList = new ArrayList<>();
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.fg_base_square;
-    }
 
     @Override
     protected void initViews() {

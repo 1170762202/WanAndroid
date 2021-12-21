@@ -30,13 +30,9 @@ public interface ProjectApi {
      *
      * @return
      */
-    @GET("project/tree/json")
-    LiveData<ApiResponse<List<ProjectListRes>>> listProjectsTab();
-
     @RetryCount(value = 3)
     @GET("project/tree/json")
-    ApiCall<List<ProjectListRes>> listProjectsTab2();
-
+    ApiCall<List<ProjectListRes>> listProjectsTab();
 
     /**
      * 项目列表
@@ -46,7 +42,7 @@ public interface ProjectApi {
      * @return
      */
     @GET("project/list/{page}/json")
-    LiveData<ApiResponse<ArticleListRes>> listProjects(@Path("page") int page, @Query("cid") String id);
+    ApiCall<ArticleListRes> listProjects(@Path("page") int page, @Query("cid") String id);
 
 
 }

@@ -22,6 +22,24 @@ public class MyCollectViewModel extends BaseTopBarViewModel<MyCollectRepository>
         super(application);
         setTitleText(application.getString(R.string.mine_collect));
     }
+    public void unCollect(String id) {
+        model.unCollect(id, new ApiCallback<Object>() {
+            @Override
+            public void onStart() {
+
+            }
+
+            @Override
+            public void onSuccess(@NonNull ApiResponse<Object> response) {
+
+            }
+
+            @Override
+            public void onError(@NonNull Throwable t) {
+
+            }
+        });
+    }
 
 
     public void listMyCollect(boolean refresh) {

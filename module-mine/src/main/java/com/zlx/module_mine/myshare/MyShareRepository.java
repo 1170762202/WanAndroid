@@ -21,4 +21,11 @@ public class MyShareRepository extends BaseModel {
     public void deleteArticle(String id, ApiCallback<Object> callback) {
         ApiUtil.getArticleApi().deleteArticle(id).enqueue(callback);
     }
+    public void unCollect(String id, ApiCallback<Object> callback) {
+        ApiUtil.getArticleApi().unCollect(id).enqueue(callback);
+    }
+
+    public void collect(String id, ApiCallback<Object> callback) {
+        ApiUtil.getArticleApi().collect(id).enqueue(callback);
+    }
 }

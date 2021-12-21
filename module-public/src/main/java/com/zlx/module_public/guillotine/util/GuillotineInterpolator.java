@@ -2,9 +2,7 @@ package com.zlx.module_public.guillotine.util;
 
 import android.animation.TimeInterpolator;
 
-/**
- * Created by Dmytro Denysenko on 5/7/15.
- */
+
 public class GuillotineInterpolator implements TimeInterpolator {
 
     public static final float ROTATION_TIME = 0.46667f;

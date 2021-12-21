@@ -5,37 +5,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.zlx.module_base.base_ac.BaseMvvmAc;
 import com.zlx.module_base.base_api.res_data.RankBean;
-import com.zlx.module_base.base_api.res_data.RankListRes;
 import com.zlx.module_base.base_api.res_data.UserInfo;
-import com.zlx.module_base.base_api.util.ApiUtil;
-import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.database.MMkvHelper;
 import com.zlx.module_mine.BR;
 import com.zlx.module_mine.R;
-import com.zlx.module_mine.R2;
 import com.zlx.module_mine.adapters.RvAdapterScoreRankList;
 import com.zlx.module_mine.databinding.AcScoreRankListBinding;
-import com.zlx.module_network.api1.livedata.BaseObserver;
-import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
-import com.zlx.module_network.bean.ApiResponse;
 
-import java.util.AbstractMap;
 import java.util.List;
-
-import butterknife.BindView;
 
 /**
  * FileName: ScoreRankListAc

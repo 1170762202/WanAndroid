@@ -89,11 +89,9 @@ public class MyShareAc extends BaseMvvmAc<AcMyShareBinding, MyShareViewModel> im
                 List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
                 ArticleBean articleBean = data.get(position);
                 if (articleBean.isCollect()) {
-                    ApiUtil.getArticleApi().unCollect(articleBean.getId()).observe(this, apiResponse -> {
-                    });
+                    viewModel.unCollect(articleBean.getId());
                 } else {
-                    ApiUtil.getArticleApi().collect(articleBean.getId()).observe(this, apiResponse -> {
-                    });
+                    viewModel.collect(articleBean.getId());
                 }
                 articleBean.setCollect(!articleBean.isCollect());
                 adapterArticleList.notifyItemChanged(position);

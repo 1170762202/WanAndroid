@@ -5,32 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener;
 import com.zlx.module_base.adapters.RvAdapterArticleList;
 import com.zlx.module_base.base_ac.BaseMvvmAc;
 import com.zlx.module_base.base_api.res_data.ArticleBean;
-import com.zlx.module_base.base_api.res_data.ArticleListRes;
-import com.zlx.module_base.base_api.util.ApiUtil;
-import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_util.RouterUtil;
 import com.zlx.module_mine.BR;
 import com.zlx.module_mine.R;
-import com.zlx.module_mine.R2;
 import com.zlx.module_mine.databinding.AcMyCollectBinding;
-import com.zlx.module_network.api1.livedata.BaseObserver;
-import com.zlx.module_network.api1.livedata.BaseObserverCallBack;
-import com.zlx.module_network.bean.ApiResponse;
 import com.zlx.widget.CustomItemDecoration;
 
 import java.util.List;
-
-import butterknife.BindView;
 
 /**
  * Created by zlx on 2020/9/22 13:50
@@ -61,8 +48,7 @@ public class MyCollectAc extends BaseMvvmAc<AcMyCollectBinding, MyCollectViewMod
             if (view.getId() == R.id.ivCollect) {
                 List<ArticleBean> data = (List<ArticleBean>) adapter.getData();
                 ArticleBean articleBean = data.get(position);
-                ApiUtil.getArticleApi().unCollect(articleBean.getId()).observe(this, apiResponse -> {
-                });
+                viewModel.unCollect(articleBean.getId());
                 adapterArticleList.cancelCollect(position);
             }
         });

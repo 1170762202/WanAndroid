@@ -1,98 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <ImageView
-            android:id="@+id/ivCha"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@mipmap/ic_cha" />
+    <data>
 
-    </RelativeLayout>
+        <variable
+            name="viewModel"
+            type="com.zlx.module_login.register.AccountRegisterViewModel" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
-        android:text="注册"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
+        <variable
+            name="eventHandlers"
+            type="com.zlx.module_login.register.AccountRegisterFg.RegisterEvent" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        android:orientation="vertical"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp">
+        android:orientation="vertical">
 
-        <com.zlx.widget.ClearEditText
-            android:id="@+id/etAccount"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:drawablePadding="8dp"
-            android:gravity="center_vertical"
-            android:hint="请输入账号"
-            android:inputType="text"
-            android:lines="1"
-            android:maxLength="20"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textSize="15sp" />
+            android:padding="10dp">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/no_transparent_10_percent" />
+            <ImageView
+                android:id="@+id/ivCha"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->eventHandlers.onCloseClick()}"
+                android:src="@mipmap/ic_cha" />
 
+        </RelativeLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:hintEnabled="false"
-            app:passwordToggleDrawable="@drawable/cb_psw"
-            app:passwordToggleEnabled="true">
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="100dp"
+            android:text="注册"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etPassword"
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <com.zlx.widget.ClearEditText
+                android:id="@+id/etAccount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
+                android:background="@android:color/transparent"
                 android:drawablePadding="8dp"
                 android:gravity="center_vertical"
-                android:hint="请输入密码"
-                android:inputType="textPassword"
-                android:maxLines="1"
+                android:hint="请输入账号"
+                android:inputType="text"
+                android:lines="1"
+                android:maxLength="20"
                 android:padding="10dp"
                 android:singleLine="true"
                 android:textSize="15sp" />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/no_transparent_10_percent" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/no_transparent_10_percent" />
 
-        <com.zlx.widget.submit_button.SubmitButton
-            android:id="@+id/btnLogin"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:hintEnabled="false"
+                app:passwordToggleDrawable="@drawable/cb_psw"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:hint="请输入密码"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:padding="10dp"
+                    android:singleLine="true"
+                    android:textSize="15sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/no_transparent_10_percent" />
+
+            <com.zlx.widget.submit_button.SubmitButton
+                android:id="@+id/btnLogin"
+                android:layout_width="220dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:onClick="@{()->eventHandlers.onLoginClick()}" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</layout>

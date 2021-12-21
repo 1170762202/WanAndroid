@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/accountLoginFg"
-        android:name="com.zlx.module_login.fragment.AccountLoginFg"
+        android:name="com.zlx.module_login.login.AccountLoginFg"
         tools:layout="@layout/fg_account_login"
          android:label="fragment_login_label">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/accountRegisterFg"
-        android:name="com.zlx.module_login.fragment.AccountRegisterFg"
+        android:name="com.zlx.module_login.register.AccountRegisterFg"
         tools:layout="@layout/fg_account_register"
         android:label="fragment_register_label">
         <action

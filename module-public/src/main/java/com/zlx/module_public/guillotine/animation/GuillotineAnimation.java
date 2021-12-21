@@ -12,9 +12,6 @@ import com.zlx.module_public.guillotine.util.ActionBarInterpolator;
 import com.zlx.module_public.guillotine.util.GuillotineInterpolator;
 
 
-/**
- * Created by Dmytro Denysenko on 5/6/15.
- */
 public class GuillotineAnimation {
     private static final String ROTATION = "rotation";
     private static final float GUILLOTINE_CLOSED_ANGLE = -90f;

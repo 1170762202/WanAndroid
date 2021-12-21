@@ -19,6 +19,42 @@ public class MyShareViewModel extends BaseViewModel<MyShareRepository> {
     public MyShareViewModel(@NonNull Application application) {
         super(application);
     }
+    public void unCollect(String id) {
+        model.unCollect(id, new ApiCallback<Object>() {
+            @Override
+            public void onStart() {
+
+            }
+
+            @Override
+            public void onSuccess(@NonNull ApiResponse<Object> response) {
+
+            }
+
+            @Override
+            public void onError(@NonNull Throwable t) {
+
+            }
+        });
+    }
+    public void collect(String id) {
+        model.collect(id, new ApiCallback<Object>() {
+            @Override
+            public void onStart() {
+
+            }
+
+            @Override
+            public void onSuccess(@NonNull ApiResponse<Object> response) {
+
+            }
+
+            @Override
+            public void onError(@NonNull Throwable t) {
+
+            }
+        });
+    }
 
     public void listMyShare(boolean refresh){
         model.listMyShare(refresh, new ApiCallback<MyShareBean>() {

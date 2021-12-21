@@ -16,5 +16,7 @@ public class MyCollectRepository extends BaseModel {
         }
         ApiUtil.getArticleApi().listMyCollect(page).enqueue(callback);
     }
-
+    public void unCollect(String id, ApiCallback<Object> callback) {
+        ApiUtil.getArticleApi().unCollect(id).enqueue(callback);
+    }
 }

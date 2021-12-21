@@ -14,9 +14,9 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.kingja.loadsir.callback.Callback;
 import com.kingja.loadsir.core.LoadService;
 import com.kingja.loadsir.core.LoadSir;
-import com.zlx.module_base.loadsir.LoadingCallback;
 import com.zlx.module_base.R;
 import com.zlx.module_base.base_util.LogUtils;
+import com.zlx.module_base.loadsir.LoadingCallback;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -55,7 +55,7 @@ public abstract class BaseFg extends Fragment {
     protected void initViews() {
     }
 
-    private void initImmersionBar() {
+    protected void initImmersionBar() {
         if (immersionBar()) {
             ImmersionBar.with(this)
                     .titleBar(R.id.statusBarView,false)

@@ -30,11 +30,11 @@ public interface LoginApi {
      */
     @FormUrlEncoded
     @POST("user/login")
-    LiveData<ApiResponse<UserInfo>> login(@Field("username") String username, @Field("password") String password);
+    ApiCall<UserInfo> login(@Field("username") String username, @Field("password") String password);
 
     @FormUrlEncoded
     @POST("user/register")
-    LiveData<ApiResponse<UserInfo>> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
+    ApiCall<UserInfo> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
 
     @GET("user/logout/json")
     ApiCall<Object> logout2();

@@ -1,78 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:id="@+id/root"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data></data>
 
-    <com.zlx.widget.viewpager.NoScrollViewPager
-        android:id="@+id/viewPager"
+    <LinearLayout
+        android:id="@+id/root"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-    <com.zlx.widget.bubblenavigation.BubbleNavigationConstraintView
-        android:id="@+id/bottom_navigation_view_linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/bg_main_tab"
-        android:elevation="8dp"
-        android:orientation="horizontal"
-        android:padding="12dp">
+        <com.zlx.widget.viewpager.NoScrollViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-        <com.zlx.widget.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_home"
-            android:layout_width="wrap_content"
+
+        <com.zlx.widget.bubblenavigation.BubbleNavigationConstraintView
+            android:id="@+id/bottom_navigation_view_linear"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:bt_active="true"
-            app:bt_colorActive="@color/main_tab1_active"
-            app:bt_colorInactive="@color/main_tab1_inactive"
-            app:bt_icon="@mipmap/ic_tab1"
-            app:bt_shape="@drawable/transition_background_drawable_home"
-            app:bt_title="@string/tab1" />
+            android:background="@color/bg_main_tab"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            android:padding="12dp">
 
-        <com.zlx.widget.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/main_tab2_active"
-            app:bt_colorInactive="@color/main_tab2_inactive"
-            app:bt_icon="@mipmap/ic_tab2"
-            app:bt_shape="@drawable/transition_background_drawable_search"
-            app:bt_title="@string/tab2" />
+            <com.zlx.widget.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_active="true"
+                app:bt_colorActive="@color/main_tab1_active"
+                app:bt_colorInactive="@color/main_tab1_inactive"
+                app:bt_icon="@mipmap/ic_tab1"
+                app:bt_shape="@drawable/transition_background_drawable_home"
+                app:bt_title="@string/tab1" />
 
-        <com.zlx.widget.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_profile_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/main_tab3_active"
-            app:bt_colorInactive="@color/main_tab3_inactive"
-            app:bt_icon="@mipmap/ic_tab3"
-            app:bt_shape="@drawable/transition_background_drawable_like"
-            app:bt_title="@string/tab3" />
+            <com.zlx.widget.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_colorActive="@color/main_tab2_active"
+                app:bt_colorInactive="@color/main_tab2_inactive"
+                app:bt_icon="@mipmap/ic_tab2"
+                app:bt_shape="@drawable/transition_background_drawable_search"
+                app:bt_title="@string/tab2" />
 
-        <com.zlx.widget.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_notification"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/main_tab4_active"
-            app:bt_colorInactive="@color/main_tab4_inactive"
-            app:bt_icon="@mipmap/ic_tab4"
-            app:bt_shape="@drawable/transition_background_drawable_list"
-            app:bt_title="@string/tab4" />
+            <com.zlx.widget.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_profile_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_colorActive="@color/main_tab3_active"
+                app:bt_colorInactive="@color/main_tab3_inactive"
+                app:bt_icon="@mipmap/ic_tab3"
+                app:bt_shape="@drawable/transition_background_drawable_like"
+                app:bt_title="@string/tab3" />
 
-        <com.zlx.widget.bubblenavigation.BubbleToggleView
-            android:id="@+id/l_item_profile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:bt_colorActive="@color/main_tab5_active"
-            app:bt_colorInactive="@color/main_tab5_inactive"
-            app:bt_icon="@mipmap/ic_tab5"
-            app:bt_shape="@drawable/transition_background_drawable_person"
-            app:bt_title="@string/tab5" />
-    </com.zlx.widget.bubblenavigation.BubbleNavigationConstraintView>
+            <com.zlx.widget.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_colorActive="@color/main_tab4_active"
+                app:bt_colorInactive="@color/main_tab4_inactive"
+                app:bt_icon="@mipmap/ic_tab4"
+                app:bt_shape="@drawable/transition_background_drawable_list"
+                app:bt_title="@string/tab4" />
 
-</LinearLayout>
+            <com.zlx.widget.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_colorActive="@color/main_tab5_active"
+                app:bt_colorInactive="@color/main_tab5_inactive"
+                app:bt_icon="@mipmap/ic_tab5"
+                app:bt_shape="@drawable/transition_background_drawable_person"
+                app:bt_title="@string/tab5" />
+        </com.zlx.widget.bubblenavigation.BubbleNavigationConstraintView>
+
+    </LinearLayout>
+</layout>

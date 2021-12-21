@@ -34,6 +34,7 @@ public abstract class BaseMvvmFg<V extends ViewDataBinding, VM extends BaseViewM
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, initContentView(inflater, container, savedInstanceState), container, false);
+        initImmersionBar();
         return binding.getRoot();
     }
 

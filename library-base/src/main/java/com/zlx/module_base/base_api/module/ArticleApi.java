@@ -33,7 +33,7 @@ public interface ArticleApi {
      * @return
      */
     @GET("banner/json")
-    LiveData<ApiResponse<List<BannerRes>>> getBanner();
+    ApiCall<List<BannerRes>> getBanner();
 
 
     /**
@@ -43,7 +43,7 @@ public interface ArticleApi {
      * @return
      */
     @GET("article/list/{page}/json")
-    LiveData<ApiResponse<ArticleListRes>> listArticle(@Path("page") int page);
+    ApiCall<ArticleListRes> listArticle(@Path("page") int page);
 
 
     /**
@@ -63,7 +63,7 @@ public interface ArticleApi {
      * @return
      */
     @GET("wxarticle/chapters/json")
-    LiveData<ApiResponse<List<PublicAuthorListRes>>> listPublicAuthor();
+    ApiCall<List<PublicAuthorListRes>> listPublicAuthor();
 
 
     /**
@@ -110,12 +110,12 @@ public interface ArticleApi {
      * @return
      */
     @POST("hotkey/json")
-    LiveData<ApiResponse<List<SearchBeanRes>>> hotSearch();
+    ApiCall<List<SearchBeanRes>> hotSearch();
 
 
     //搜索内容
     @POST("article/query/{page}/json")
-    LiveData<ApiResponse<ArticleListRes>> search(@Path("page") int pageNo, @Query("k") String k);
+    ApiCall<ArticleListRes> search(@Path("page") int pageNo, @Query("k") String k);
 
 
     /**

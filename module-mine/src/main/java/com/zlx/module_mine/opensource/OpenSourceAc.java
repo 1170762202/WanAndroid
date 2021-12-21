@@ -6,21 +6,15 @@ import android.os.Bundle;
 
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.zlx.module_base.base_ac.BaseAc;
 import com.zlx.module_base.base_ac.BaseMvvmAc;
 import com.zlx.module_mine.BR;
 import com.zlx.module_mine.R;
-import com.zlx.module_mine.R2;
 import com.zlx.module_mine.adapters.RvAdapterOpenSourcePro;
 import com.zlx.module_mine.bean.OpenSourcePro;
 import com.zlx.module_mine.databinding.AcOpenSourceBinding;
-import com.zlx.module_mine.utils.DataUtil;
 
 import java.util.List;
-
-import butterknife.BindView;
 
 /**
  * Created by zlx on 2020/9/22 17:15

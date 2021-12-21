@@ -3,7 +3,7 @@
 
 
     <application>
-        <activity android:name=".activity.SearchAc" />
-        <activity android:name=".activity.SearchResultAc" />
+        <activity android:name=".search.SearchAc" />
+        <activity android:name=".searchresult.SearchResultAc" />
     </application>
 </manifest>

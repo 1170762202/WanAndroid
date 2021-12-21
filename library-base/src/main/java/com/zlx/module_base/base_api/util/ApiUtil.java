@@ -17,10 +17,6 @@ import com.zlx.module_network.constrant.U;
 public class ApiUtil {
 
     public static ProjectApi getProjectApi() {
-        return RetrofitCreateLiveDataHelper.getInstance().create(U.BASE_URL, ProjectApi.class);
-    }
-
-    public static ProjectApi getProjectApi2() {
         return RetrofitCreateHelper.getInstance().create(U.BASE_URL, ProjectApi.class);
     }
 
@@ -33,7 +29,7 @@ public class ApiUtil {
     }
 
     public static LoginApi getLoginApi() {
-        return RetrofitCreateLiveDataHelper.getInstance().create(U.BASE_URL, LoginApi.class);
+        return RetrofitCreateHelper.getInstance().create(U.BASE_URL, LoginApi.class);
     }
 
     public static UserApi getUserApi() {
