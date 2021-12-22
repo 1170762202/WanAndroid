@@ -21,6 +21,6 @@ public class OpenSourceViewModel extends BaseTopBarViewModel {
     }
 
     public void listData(){
-        liveData.setValue(DataUtil.getPros());
+        liveData.postValue(DataUtil.getPros());
     }
 }

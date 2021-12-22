@@ -23,6 +23,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
+            android:onClick="@{(view)->viewModel.onWxClick(view)}"
             android:src="@mipmap/ic_qr_wx" />
 
         <ImageView
@@ -30,6 +31,8 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
+            android:onClick="@{(view)->viewModel.onZfbClick(view)}"
+
             android:src="@mipmap/ic_qr_zfb" />
 
         <TextView

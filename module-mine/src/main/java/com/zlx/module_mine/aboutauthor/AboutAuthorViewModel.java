@@ -19,7 +19,7 @@ public class AboutAuthorViewModel extends BaseTopBarViewModel {
 
     public AboutAuthorViewModel(@NonNull Application application) {
         super(application);
-        setTitleText(activityWeakReference.get().getString(R.string.mine_about_author));
+        setTitleText(application.getString(R.string.mine_about_author));
     }
 
     public void register(FragmentActivity activity) {

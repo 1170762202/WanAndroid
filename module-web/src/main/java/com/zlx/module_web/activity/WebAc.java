@@ -3,7 +3,6 @@ package com.zlx.module_web.activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
@@ -15,24 +14,23 @@ import com.just.agentweb.WebChromeClient;
 import com.just.agentweb.WebViewClient;
 import com.zlx.module_base.base_ac.BaseMvvmAc;
 import com.zlx.module_base.constant.RouterActivityPath;
+import com.zlx.module_base.event.EventHandlers;
 import com.zlx.module_network.util.LogUtil;
 import com.zlx.module_web.BR;
 import com.zlx.module_web.R;
-import com.zlx.module_web.R2;
 import com.zlx.module_web.WebLayout;
 import com.zlx.module_web.databinding.AcWebBinding;
 import com.zlx.module_web.fragment.WebDialogFg;
 
-import butterknife.OnClick;
-
 @Route(path = RouterActivityPath.Web.PAGER_WEB)
-public class WebAc extends BaseMvvmAc<AcWebBinding,WebViewModel> {
+public class WebAc extends BaseMvvmAc<AcWebBinding, WebViewModel> {
 
     private String webUrl;
 
     @Override
     public void initViews() {
         super.initViews();
+        binding.setEventHandlers(new WebEvent());
         setRightImg(R.mipmap.ic_more_menu);
         webUrl = getIntent().getStringExtra("webUrl");
         LogUtil.show("webUrl=" + webUrl);
@@ -76,16 +74,6 @@ public class WebAc extends BaseMvvmAc<AcWebBinding,WebViewModel> {
         }
     };
 
-    @OnClick({R2.id.rlClose, R2.id.llRight})
-    public void onViewClicked(View view) {
-        int id = view.getId();
-        if (id == R.id.rlClose) {
-            finish();
-        } else if (id == R.id.llRight) {
-            WebDialogFg.newInstance(webUrl).show(getSupportFragmentManager(), "webDialog");
-        }
-    }
-
     @Override
     protected int initContentView(Bundle savedInstanceState) {
         return R.layout.ac_web;
@@ -94,5 +82,11 @@ public class WebAc extends BaseMvvmAc<AcWebBinding,WebViewModel> {
     @Override
     protected int initVariableId() {
         return BR.viewModel;
+    }
+
+    public class WebEvent extends EventHandlers {
+        public void onRightClick(){
+            WebDialogFg.newInstance(webUrl).show(getSupportFragmentManager(), "webDialog");
+        }
     }
 }

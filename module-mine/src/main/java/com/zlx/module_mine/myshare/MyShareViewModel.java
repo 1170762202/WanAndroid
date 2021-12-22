@@ -18,6 +18,7 @@ public class MyShareViewModel extends BaseViewModel<MyShareRepository> {
 
     public MyShareViewModel(@NonNull Application application) {
         super(application);
+
     }
     public void unCollect(String id) {
         model.unCollect(id, new ApiCallback<Object>() {

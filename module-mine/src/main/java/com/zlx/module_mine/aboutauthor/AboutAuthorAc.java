@@ -24,6 +24,7 @@ public class AboutAuthorAc extends BaseMvvmAc<AcAboutAuthorBinding,AboutAuthorVi
     @Override
     public void initViews() {
         super.initViews();
+        viewModel.register(this);
     }
 
 

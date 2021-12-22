@@ -7,6 +7,10 @@
         <variable
             name="viewModel"
             type="com.zlx.module_login.login.AccountLoginViewModel" />
+
+        <variable
+            name="eventHandlers"
+            type="com.zlx.module_login.login.AccountLoginFg.AccountLoginEvent" />
     </data>
 
     <LinearLayout
@@ -24,6 +28,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->viewModel.onBackPressed()}"
                 android:src="@mipmap/ic_cha" />
 
             <TextView
@@ -32,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{()->eventHandlers.onRegisterClick()}"
                 android:text="前往注册 >>"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
@@ -112,7 +118,8 @@
                 android:layout_width="220dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                android:onClick="@{()->eventHandlers.onLoginClick()}" />
         </LinearLayout>
     </LinearLayout>
 </layout>

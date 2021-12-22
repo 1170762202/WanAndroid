@@ -22,11 +22,7 @@
             android:background="@color/main_text"
             android:orientation="vertical">
 
-            <View
-                android:id="@+id/statusBarView"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="@color/main_text" />
+            <include layout="@layout/statusview" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

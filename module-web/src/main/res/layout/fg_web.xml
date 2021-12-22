@@ -1,49 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/parent"
-    android:background="#00000000"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:pv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <data>
+
+        <variable
+            name="eventHandlers"
+            type="com.zlx.module_web.fragment.WebDialogFg.WebDialogEvent" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/shape_bg_white_top_r20"
+        android:layout_height="match_parent"
+        android:background="#00000000"
+
+        android:onClick="@{()->eventHandlers.onCancelClick()}"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvOpen"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:gravity="center"
-            android:background="?attr/selectableItemBackground"
-            android:text="在浏览器打开"
-            android:textColor="#333333"
-            android:textSize="17sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#f4f4f4" />
-
-
         <LinearLayout
-            android:id="@+id/llCancel"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape_bg_white_top_r20"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="取消"
-                android:textColor="#666666"
+                android:id="@+id/tvOpen"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:onClick="@{()->eventHandlers.onOpenClick()}"
+                android:text="在浏览器打开"
+                android:textColor="#333333"
                 android:textSize="17sp" />
-        </LinearLayout>
-    </LinearLayout>
 
-</RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#f4f4f4" />
+
+
+            <LinearLayout
+                android:id="@+id/llCancel"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="?attr/selectableItemBackground"
+
+                android:gravity="center"
+                android:onClick="@{()->eventHandlers.onCancelClick()}"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="取消"
+                    android:textColor="#666666"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

@@ -72,31 +72,6 @@ public class MineFg extends BaseMvvmFg<FgMineBinding, MineViewModel> {
         }
     }
 
-
-
-
-//    @CheckLogin
-    @OnClick({ R2.id.tvName, R2.id.tvScoreRankList, R2.id.llHead, R2.id.llScore,
-            R2.id.llCollect, R2.id.llShare, R2.id.llProjects, R2.id.llAbout})
-    public void onViewClicked(View view) {
-        int id = view.getId();
-         if (id == R.id.tvName) {
-        } else if (id == R.id.tvScoreRankList) {
-            ScoreRankListAc.launch(getContext());
-        } else if (id == R.id.llHead) {
-        } else if (id == R.id.llScore) {
-            MyScoreAc.launch(getContext());
-        } else if (id == R.id.llCollect) {
-            MyCollectAc.launch(getContext());
-        } else if (id == R.id.llShare) {
-            MyShareAc.launch(getContext());
-        } else if (id == R.id.llProjects) {
-            OpenSourceAc.launch(getContext());
-        } else if (id == R.id.llAbout) {
-            AboutAuthorAc.launch(getContext());
-        }
-    }
-
     @Override
     protected int initContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return R.layout.fg_mine;

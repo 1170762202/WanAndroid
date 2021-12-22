@@ -23,15 +23,18 @@ public class SplashAc extends BaseMvvmAc<AcSplashLayoutBinding, SplashViewModel>
         super.initViews();
         viewModel.projectListLiveData().observe(this, projectListRes -> {
             if (projectListRes.size() > 0) {
-                binding.particleview.setOnParticleAnimListener(() -> {
-                    MMkvHelper.getInstance().saveProjectTabs(projectListRes);
-                    RouterUtil.launchMain();
-                    finish();
-                });
+                MMkvHelper.getInstance().saveProjectTabs(projectListRes);
             }
         });
         viewModel.listProjectsTab();
+
+        binding.particleview.setOnParticleAnimListener(() -> {
+            RouterUtil.launchMain();
+            finish();
+        });
+
         binding.particleview.startAnim();
+
     }
 
     @Override

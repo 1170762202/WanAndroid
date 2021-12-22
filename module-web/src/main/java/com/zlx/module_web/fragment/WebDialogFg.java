@@ -15,17 +15,17 @@ import android.view.Window;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.DialogFragment;
 
+import com.zlx.module_base.event.EventHandlers;
 import com.zlx.module_web.R;
-import com.zlx.module_web.R2;
-
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+import com.zlx.module_web.databinding.FgWebBinding;
 
 public class WebDialogFg extends DialogFragment {
 
     private String url;
+    FgWebBinding binding;
 
     public WebDialogFg(String url) {
         this.url = url;
@@ -35,12 +35,13 @@ public class WebDialogFg extends DialogFragment {
         WebDialogFg fragment = new WebDialogFg(url);
         return fragment;
     }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fg_web, container, false);
-        ButterKnife.bind(this, rootView);
-        return rootView;
+        binding = DataBindingUtil.inflate(inflater, R.layout.fg_web, container, false);
+        binding.setEventHandlers(new WebDialogEvent());
+        return binding.getRoot();
     }
 
     @NonNull
@@ -70,17 +71,16 @@ public class WebDialogFg extends DialogFragment {
         }
     }
 
-    @OnClick({R2.id.tvOpen, R2.id.llCancel,R2.id.parent})
-    public void onViewClick(View view) {
-
-        if (view.getId() == R.id.tvOpen) {
+    public class WebDialogEvent extends EventHandlers{
+        public void onOpenClick(){
             if (!TextUtils.isEmpty(url) && (url.startsWith("http") || url.startsWith("https"))) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
             }
             dismiss();
-        } else if (view.getId() == R.id.llCancel || view.getId()==R.id.parent) {
+        }
+        public void onCancelClick(){
             dismiss();
         }
     }

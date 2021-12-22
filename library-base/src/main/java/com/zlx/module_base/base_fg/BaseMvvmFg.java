@@ -21,12 +21,6 @@ public abstract class BaseMvvmFg<V extends ViewDataBinding, VM extends BaseViewM
     protected VM viewModel;
     protected V binding;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        initParams();
-    }
-
     protected void initParams() {
     }
 
@@ -75,6 +69,9 @@ public abstract class BaseMvvmFg<V extends ViewDataBinding, VM extends BaseViewM
         if (initVariableId() > 0) {
             binding.setVariable(initVariableId(), viewModel);
         }
+        viewModel.uiChangeLiveData().onBackPressedEvent().observe(this, o -> {
+           requireActivity().onBackPressed();
+        });
     }
 
     /**

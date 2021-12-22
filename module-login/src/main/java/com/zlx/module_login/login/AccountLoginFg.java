@@ -10,10 +10,12 @@ import androidx.annotation.Nullable;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.zlx.module_base.base_fg.BaseMvvmFg;
+import com.zlx.module_base.event.EventHandlers;
 import com.zlx.module_login.BR;
 import com.zlx.module_login.R;
 import com.zlx.module_login.R2;
 import com.zlx.module_login.databinding.FgAccountLoginBinding;
+import com.zlx.module_login.register.AccountRegisterFg;
 import com.zlx.module_network.widget.popwindow.PopUtil;
 
 import butterknife.OnClick;
@@ -29,6 +31,8 @@ public class AccountLoginFg extends BaseMvvmFg<FgAccountLoginBinding, AccountLog
     @Override
     protected void initViews() {
         super.initViews();
+        binding.setEventHandlers(new AccountLoginEvent());
+
         viewModel.loginLiveData.observe(this, userInfo -> {
             binding.btnLogin.reset();
         });
@@ -73,19 +77,12 @@ public class AccountLoginFg extends BaseMvvmFg<FgAccountLoginBinding, AccountLog
         binding.btnLogin.reset();
     }
 
-    @OnClick(R2.id.btnLogin)
-    public void onViewClicked() {
-        login();
-
-    }
-
-    @OnClick(R2.id.ivCha)
-    public void cha() {
-        getActivity().finish();
-    }
-
-    @OnClick(R2.id.tvRegister)
-    public void register() {
-        NavHostFragment.findNavController(this).navigate(R.id.action_fragment_register);
+    public class AccountLoginEvent extends EventHandlers{
+        public void onRegisterClick(){
+            NavHostFragment.findNavController(AccountLoginFg.this).navigate(R.id.action_fragment_register);
+        }
+        public void onLoginClick(){
+            login();
+        }
     }
 }

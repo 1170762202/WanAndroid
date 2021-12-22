@@ -16,7 +16,7 @@ import java.util.AbstractMap;
 import java.util.List;
 
 public class PublicViewModel extends BaseViewModel<PublicRepository> {
-    public MutableLiveData<AbstractMap.SimpleEntry<Boolean, List<ArticleBean>>> squareLiveData = new MutableLiveData<>();
+    public MutableLiveData<AbstractMap.SimpleEntry<Boolean, List<ArticleBean>>> publicLiveData = new MutableLiveData<>();
     public MutableLiveData<List<PublicAuthorListRes>> authorLiveData = new MutableLiveData<>();
 
     public PublicViewModel(@NonNull Application application) {
@@ -51,7 +51,7 @@ public class PublicViewModel extends BaseViewModel<PublicRepository> {
 
             @Override
             public void onSuccess(@NonNull ApiResponse<ArticleListRes> response) {
-                squareLiveData.postValue(new AbstractMap.SimpleEntry<>(refresh, response.getData().getDatas()));
+                publicLiveData.postValue(new AbstractMap.SimpleEntry<>(refresh, response.getData().getDatas()));
             }
 
             @Override

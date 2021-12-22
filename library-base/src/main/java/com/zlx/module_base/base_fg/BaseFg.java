@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -33,6 +34,7 @@ public abstract class BaseFg extends Fragment {
     protected Context context;
     private LoadService loadService;
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,12 +47,14 @@ public abstract class BaseFg extends Fragment {
         }
         unbinder = ButterKnife.bind(this, view);
         initImmersionBar();
-
-
         initViews();
         return view;
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
 
     protected void initViews() {
     }

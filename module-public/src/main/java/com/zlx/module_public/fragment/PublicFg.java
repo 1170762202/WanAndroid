@@ -104,6 +104,19 @@ public class PublicFg extends BaseMvvmFg<FgPublicBinding, PublicViewModel> imple
         binding.smartRefreshLayout.setEnableLoadMore(true);
         binding.smartRefreshLayout.setEnableRefresh(true);
         binding.smartRefreshLayout.setOnRefreshLoadMoreListener(this);
+        viewModel.publicLiveData.observe(this,booleanListSimpleEntry -> {
+            if (booleanListSimpleEntry!=null){
+                List<ArticleBean> value = booleanListSimpleEntry.getValue();
+                if (booleanListSimpleEntry.getKey()){
+                    articleList.clear();
+                }
+                articleList.addAll(value);
+                runLayoutAnimation(binding.recyclerView);
+            }
+            showSuccess();
+            binding.smartRefreshLayout.finishRefresh();
+            binding.smartRefreshLayout.finishLoadMore();
+        });
         viewModel.authorLiveData.observe(this, publicAuthorListRes -> {
             authorAdapter.refresh(publicAuthorListRes);
             if (publicAuthorListRes.size() > 0) {

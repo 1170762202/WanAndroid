@@ -131,7 +131,7 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
     }
 
     public void onBackPressed() {
-        uiChangeLiveData.onBackPressedEvent().call();
+        uiChangeLiveData.onBackPressedEvent.call();
     }
 
     public final class UiChangeLiveData extends SingleLiveEvent {

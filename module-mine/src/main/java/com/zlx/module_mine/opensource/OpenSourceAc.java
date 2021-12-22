@@ -30,11 +30,6 @@ public class OpenSourceAc extends BaseMvvmAc<AcOpenSourceBinding, OpenSourceView
     }
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.ac_open_source;
-    }
-
-    @Override
     public void initViews() {
         super.initViews();
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));

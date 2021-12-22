@@ -45,7 +45,9 @@ public abstract class BaseMvvmAc<V extends ViewDataBinding, VM extends BaseViewM
             binding.setVariable(initVariableId(), viewModel);
         }
 
-        viewModel.uiChangeLiveData().onBackPressedEvent().observe(this, o -> onBackPressed());
+        viewModel.uiChangeLiveData().onBackPressedEvent().observe(this, o -> {
+            onBackPressed();
+        });
     }
 
 

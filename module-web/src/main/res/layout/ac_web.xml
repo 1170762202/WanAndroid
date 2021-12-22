@@ -9,6 +9,10 @@
         <variable
             name="viewModel"
             type="com.zlx.module_web.activity.WebViewModel" />
+
+        <variable
+            name="eventHandlers"
+            type="com.zlx.module_web.activity.WebAc.WebEvent" />
     </data>
 
     <LinearLayout
@@ -51,7 +55,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_title_left">
+                    android:background="@drawable/bg_title_left"
+                    android:onClick="@{()->eventHandlers.onRightClick()}">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -72,7 +77,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_title_right">
+                    android:background="@drawable/bg_title_right"
+                    android:onClick="@{()->viewModel.onBackPressed()}">
 
                     <ImageView
                         android:layout_width="wrap_content"

@@ -4,6 +4,9 @@
 [源码地址](https://github.com/1170762202/WanAndroid)
 喜欢的话，记得给个star哦!
 
+### [2.0.0版本更新](https://github.com/1170762202/WanAndroid/releases)
+* MVVM架构
+
 ### [1.3.1版本更新](https://github.com/1170762202/WanAndroid/releases)
 * 自定义Gradle插件 + ASM 实现无埋点监控
 
